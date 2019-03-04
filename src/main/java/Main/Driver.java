@@ -35,7 +35,7 @@ public class Driver
 		
 		for(CabManager cm : results) 
 			{
-				System.out.println(cm,"hi");
+				System.out.println(cm);
 			}
 
 		CabManager cmm;
