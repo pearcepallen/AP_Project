@@ -7,9 +7,7 @@ public class Customer {
 	private int number;
 	private String feedback;
 	private Rate rating;
-	private boolean confirm_pkup;
-	private boolean confirm_cab;
-
+	
 	
 	public Customer()
 	{

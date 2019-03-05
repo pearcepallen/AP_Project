@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -78,6 +79,7 @@ public class CabManagerDb extends SQLProvider<CabManager> {
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
+			logger.error("unable to select all",e);
 		}
 		return items;
 	}
@@ -106,37 +108,18 @@ public class CabManagerDb extends SQLProvider<CabManager> {
 		}
 		catch(SQLException e)
 		{
-			logger.debug("Sql exception");
+			e.printStackTrace();
+			logger.error("Unable to retrieve Cab Manager",e);
 		}
 		return null;
 	}
 
 	@Override
 	public int update(CabManager item, int id) 
-	{
-		/*try {
-			String query = "INSERT (email,password) VALUES(?,?) INTO " +TABLE_NAME+ " WHERE (id) = " +id;
-			PreparedStatement ps = connect.prepareStatement(query);
-			ResultSet rs = (ResultSet) ps;
-			if(rs != null)
-			{
-				while(rs.next())
-				{
-					item.setEmail(rs.getString("email"));
-					item.setPassword(rs.getString("password"));
-					return 0;
-				}
-			}
-			} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-		
-		return 0;*/
-		
+	{		
 		try 
 		{	
-			String query = " UPDATE " +TABLE_NAME+ " SET email = ?, SET password = ? " +
+			String query = " UPDATE " +TABLE_NAME+ " SET email = ?, password = ? " +
 					   " WHERE id = ?";
 			PreparedStatement ps;		
 			ps = connect.prepareStatement(query);			
@@ -152,17 +135,42 @@ public class CabManagerDb extends SQLProvider<CabManager> {
 		}
 		return 0;
 	}
+	
 
 	@Override
-	public int delete(int id) {
-	//	Statement stat = connect.createStatement();
-		//String query = "DELETE * FROM " +TABLE_NAME+ " WHERE id = " +id;
+	public int delete(int id) 
+	{
+		try 
+		{
+			String query = "DELETE FROM "+TABLE_NAME+ " WHERE id = ?";
+			PreparedStatement ps = connect.prepareStatement(query);			
+			ps.setInt(1,id);
+			return ps.executeUpdate();
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			logger.error("Unable to delete Cab Manager with id "+id,e);
+
+		}
 		return 0;
 	}
 
 	@Override
-	public int deleteMultiple(int[] ids) {
-		// TODO Auto-generated method stub
+	public int deleteMultiple(int[] ids)
+	{
+		try 
+		{
+			String groupedIds = Arrays.toString(ids).replace("[","").replace("]","");
+			String query = "DELETE FROM "+TABLE_NAME+ " WHERE id in ("+groupedIds+")";
+			PreparedStatement ps = connect.prepareStatement(query);			
+			return ps.executeUpdate();
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			logger.error("unable to update",e);
+		}
 		return 0;
 	}
 
