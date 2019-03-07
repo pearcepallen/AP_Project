@@ -1,6 +1,7 @@
-package Entity;
+/*package Entity;
 
-public interface Report {
-
-
+public class Report 
+{	
+	private String reportType; //distance or request report
 }
+*/

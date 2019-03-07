@@ -1,17 +1,31 @@
 package Services;
 
-import Entity.Report;
+//import Entity.Report;
 
 public class ReportService {
-
-
-	public Report req_report()
+/*
+ //the request report 
+	public boolean receiveRequestData(RequestView)//accept some object of some entity with all info to be displayed
 	{
-		return null;		
+		sendRequestdData(RequestView);
+		return false;	//return successful 
 	}
-
-	public Report dist_report()
+	
+	public RequestView sendRequestData(RequestView) // sends to Reportdb or whoever needs it
 	{
-		return null;		
+		return RequestView;
+	}	
+
+	// the distance report
+	public boolean receiveDistanceData(DistanceView)//accept some object of some entity with all info to be displayed
+	{
+		sendDistanceData(DistanceView);
+		return false;	//return successful 
 	}
-}
+	
+	public DistanceView sendDistanceData(DistanceView) // sends to Reportdb or whoever needs it
+	{
+		return DistanceView;
+	}	
+*/
+	}
