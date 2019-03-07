@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 import Database.CabManagerDb;
 import Database.SQLProvider;
 import Entity.CabManager;
-import Services.CabManagerService;
 public class Driver 
 {
 	public static void main(String[] args) 
@@ -16,9 +15,9 @@ public class Driver
 		logger = LogManager.getLogger(CabManagerDb.class);
 		
 		SQLProvider<CabManager> db = new CabManagerDb();
-		/*
+		
 		 //add
-		int recordsAffected = db.add(new CabManager(0,"newnew@gmail.com","tobago"));
+		int recordsAffected = db.add(new CabManager(34,"demarBlackgmail.com","demar"));
 		
 		if(recordsAffected == 1)
 		{
@@ -31,12 +30,12 @@ public class Driver
 			System.out.println("records not added successfully");
 		}
 		
-	*/
-/*
+	
+
  		//get
-		CabManager cmm;
-		cmm = db.get(10);
-		System.out.println("Returning Cab Manager with the id of 10");	
+	/*	CabManager cmm;
+		cmm = db.get(21);
+		System.out.println("Returning Cab Manager with the id of ",id);	
 	
 		if (cmm != null)
 			{			
@@ -47,9 +46,11 @@ public class Driver
 				System.out.println("No records found");
 				logger.error("object is empty");
 			}*/
-			/*
-		CabManager cn = new CabManager(0,"newwww@email","newpw");
-		int id=19;
+		
+		
+			
+	/*	CabManager cn = new CabManager(0,"newwww@email","newpw");
+		int id=21;
 		int recordsAffected = db.update(cn,id);
 		if(recordsAffected == 1)
 			{
@@ -60,11 +61,11 @@ public class Driver
 			{			
 				logger.error("records not Updated successfully");
 				System.out.println("--- Update failed -- ");			
-			}
-			*/
-	/*	
+			}*/
+			
+	/*
 	//	Delete 
-		int id=20;
+		int id=21;
 		int recordsAffected = db.delete(id);
 		if(recordsAffected == 1)
 		{

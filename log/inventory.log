@@ -1415,3 +1415,292 @@ org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "
 	at Database.CabManagerDb.update(CabManagerDb.java:142) [classes/:?]
 	at Database.CabManagerDb.update(CabManagerDb.java:1) [classes/:?]
 	at Main.Driver.main(Driver.java:56) [classes/:?]
+2019-03-05 09:11:33,416 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:11:36,064 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:30:44,247 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:30:45,197 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:30:48,363 ERROR Database.CabManagerDb [main] unable to update
+org.sqlite.SQLiteException: [SQLITE_BUSY]  The database file is locked (database is locked)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.execute(DB.java:822) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.executeUpdate(DB.java:863) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:99) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabManagerDb.update(CabManagerDb.java:127) [classes/:?]
+	at Database.CabManagerDb.update(CabManagerDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:51) [classes/:?]
+2019-03-05 09:38:01,212 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:38:02,182 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:38:05,284 ERROR Database.CabManagerDb [main] unable to update
+org.sqlite.SQLiteException: [SQLITE_BUSY]  The database file is locked (database is locked)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.execute(DB.java:822) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.executeUpdate(DB.java:863) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:99) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabManagerDb.update(CabManagerDb.java:127) [classes/:?]
+	at Database.CabManagerDb.update(CabManagerDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:51) [classes/:?]
+2019-03-05 09:38:05,286 ERROR Main.Driver [main] records not Updated successfully
+2019-03-05 09:40:14,974 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:40:15,842 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:40:15,902 ERROR Main.Driver [main] records not Updated successfully
+2019-03-05 09:41:09,261 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:41:10,131 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:41:10,270 ERROR Main.Driver [main] records not Updated successfully
+2019-03-05 09:41:33,695 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:41:34,597 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:41:34,782 DEBUG Main.Driver [main] records Updated successfully
+2019-03-05 09:46:27,049 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:46:27,940 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:46:27,991 ERROR Main.Driver [main] records not deleted successfully
+2019-03-05 09:51:36,795 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:51:37,665 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:51:37,723 ERROR Main.Driver [main] records not deleted successfully
+2019-03-05 09:51:56,476 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:51:57,248 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:51:57,305 ERROR Main.Driver [main] records not deleted successfully
+2019-03-05 09:54:30,246 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 09:54:31,073 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 09:54:31,254 DEBUG Main.Driver [main] records deleted successfully
+2019-03-05 10:03:10,976 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 10:03:11,928 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 10:03:12,093 DEBUG Main.Driver [main] records deleted successfully
+2019-03-05 10:28:56,185 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 10:28:57,376 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 10:28:57,615 DEBUG Main.Driver [main] records added successfully
+2019-03-05 10:30:08,306 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 10:30:09,353 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 10:31:40,768 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 10:31:41,744 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 10:31:42,227 DEBUG Main.Driver [main] records Updated successfully
+2019-03-05 10:32:19,914 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-05 10:32:20,707 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:18) [classes/:?]
+2019-03-05 10:32:20,952 DEBUG Main.Driver [main] record deleted successfully
+2019-03-06 18:08:09,286 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-06 18:08:11,020 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:17) [classes/:?]
+2019-03-06 18:08:11,270 DEBUG Main.Driver [main] records added successfully
+2019-03-06 18:08:48,093 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-06 18:08:49,659 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:17) [classes/:?]
+2019-03-06 18:08:49,779 ERROR Database.CabManagerDb [main] Unable to add CabManager
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: yung_CabManager.id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.execute(DB.java:825) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.executeUpdate(DB.java:863) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:99) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabManagerDb.add(CabManagerDb.java:54) [classes/:?]
+	at Database.CabManagerDb.add(CabManagerDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:20) [classes/:?]
+2019-03-06 18:08:49,786 DEBUG Main.Driver [main] records not added successfully
+2019-03-06 18:10:51,379 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-06 18:10:52,497 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at project.CabManagerDbTest.<init>(CabManagerDbTest.java:8) [test-classes/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:490) [?:?]
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266) [junit.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:?]
+2019-03-06 18:10:52,611 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-06 18:10:52,631 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at project.CabManagerDbTest.shouldGetItem(CabManagerDbTest.java:34) [test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:?]
+2019-03-06 18:11:59,805 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-06 18:12:01,063 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:17) [classes/:?]
+2019-03-06 18:12:01,262 DEBUG Main.Driver [main] records added successfully
+2019-03-06 18:13:46,116 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-06 18:13:47,301 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at project.CabManagerDbTest.<init>(CabManagerDbTest.java:8) [test-classes/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:490) [?:?]
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266) [junit.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:?]
+2019-03-06 18:13:47,459 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-06 18:13:47,467 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at project.CabManagerDbTest.shouldGetItem(CabManagerDbTest.java:34) [test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:?]

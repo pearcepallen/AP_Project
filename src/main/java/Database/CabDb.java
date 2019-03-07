@@ -11,17 +11,15 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
 
 import Entity.Cab;
-import Entity.CabManager;
+
 
 public class CabDb extends SQLProvider <Cab>
 {
 
-	Logger logger = LogManager.getLogger(CabManagerDb.class);
-	public static final String TABLE_NAME = "yung_CabManager";
+	Logger logger = LogManager.getLogger(CabDb.class);
+	public static final String TABLE_NAME = "yung_Cab";
 	
 			
 	@Override
@@ -29,17 +27,16 @@ public class CabDb extends SQLProvider <Cab>
 		try {
 			statement = connect.createStatement();
 			if (statement
-					.execute("create table if not exists "
-							+ TABLE_NAME +
-							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, email varchar(50), password varchar(50) )")) 
+					.execute("CREATE TABLE if not exists "+TABLE_NAME+
+							"(id INTEGER PRIMARY KEY AUTOINCREMENT, request_id INTEGER,	trn	INTEGER, year INTEGER, model VARCHAR(50), name VARCHAR(50), available BOOLEAN, fare double)"))
 			{
-				logger.debug("Cab Manager table created");
+				logger.debug("Cab  table created");
 			} 
 			else
 			{
-				logger.debug("Cab Manager table does not need to be created");
+				logger.debug("Cab table does not need to be created");
 			}
-			logger.debug("Cab Manager table exists");
+			logger.debug("Cab table exists");
 			
 			} catch (SQLException e) 
 			{
@@ -49,14 +46,19 @@ public class CabDb extends SQLProvider <Cab>
 	}
 
 	@Override
-	public int add(CabManager item) 
+	public int add(Cab item) 
 	{
 		try{
 			String query = "INSERT INTO "+TABLE_NAME
-					       + "(email,password)  VALUES (?,?)";
+					       + "(request_id,trn,year,model,name,available,fare)  VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement ps = connect.prepareStatement(query);
-			ps.setString(1, item.getEmail());
-			ps.setString(2, item.getPassword());
+			ps.setInt(1, item.getReq_id());
+			ps.setInt(2, item.getTrn());
+			ps.setInt(3, item.getYear());
+			ps.setString(4, item.getModel());
+			ps.setString(5, item.getName());
+			ps.setBoolean(6,item.isAvailable());
+			ps.setDouble(7,item.getFare());
 			return ps.executeUpdate();
 					
     	}catch(SQLException e){
@@ -69,24 +71,34 @@ public class CabDb extends SQLProvider <Cab>
 	}
 	
 	@Override
-	public List<CabManager> selectAll() {
-		List<CabManager> items = new ArrayList<CabManager>();
+	public List<Cab> selectAll() {
+		List<Cab> items = new ArrayList<Cab>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "select id, email, password from "+TABLE_NAME;
+			String sql = "select id, req_id,trn,year,model,name,available,fare from "+TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
-			if(rs != null) {
-				while(rs.next()) {
-					CabManager CabManager = new CabManager();
-					CabManager.setId( rs.getInt("id") );
-					CabManager.setEmail(rs.getString("email"));
-					CabManager.setPassword(rs.getString("password"));
-					items.add(CabManager);
+			if(rs != null) 
+			{
+				while(rs.next()) 
+				{				
+					Cab Cab = new Cab();
+					Cab.setC_id(rs.getInt("id"));
+					Cab.setReq_id(rs.getInt("request_id"));
+					Cab.setTrn(rs.getInt("trn"));
+					Cab.setYear(rs.getInt("year"));
+					Cab.setModel(rs.getString("model"));
+					Cab.setName(rs.getString("name"));
+					Cab.setAvailable(rs.getBoolean("available"));
+					Cab.setFare(rs.getDouble("fare"));					
+					items.add(Cab);					
 				}
 			}
-		}catch(SQLException e) {
+		}
+		catch(SQLException e) 
+		{
 			e.printStackTrace();
-			logger.error("unable to select all",e);
+			logger.error("unable to select elements in Cab database",e);
+			return null;
 		}
 		return items;
 	}
@@ -94,7 +106,7 @@ public class CabDb extends SQLProvider <Cab>
 	
 	
 	@Override
-	public CabManager get(int id) {
+	public Cab get(int id) {
 		try
 		{
 			Statement stat;
@@ -105,40 +117,50 @@ public class CabDb extends SQLProvider <Cab>
 			{
 				while(rs.next())
 				{					
-					CabManager cd = new CabManager();
-					cd.setId(rs.getInt("id"));
-					cd.setEmail(rs.getString("email"));
-					cd.setPassword(rs.getString("password"));
-					return cd;
+					Cab Cab = new Cab();
+					Cab.setC_id(rs.getInt("id"));
+					Cab.setReq_id(rs.getInt("request_id"));
+					Cab.setTrn(rs.getInt("trn"));
+					Cab.setYear(rs.getInt("year"));
+					Cab.setModel(rs.getString("model"));
+					Cab.setName(rs.getString("name"));
+					Cab.setAvailable(rs.getBoolean("available"));
+					Cab.setFare(rs.getDouble("fare"));			
+					return Cab;
 				}								
 			}				
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
-			logger.error("Unable to retrieve Cab Manager",e);
+			logger.error("Unable to retrieve Cab recorf=d",e);
 		}
 		return null;
 	}
 
 	@Override
-	public int update(CabManager item, int id) 
+	public int update(Cab item, int id) 
 	{		
 		try 
 		{	
-			String query = " UPDATE " +TABLE_NAME+ " SET email = ?, password = ? " +
+			String query = " UPDATE " +TABLE_NAME+ " SET  req_id = ?, trn = ?, year = ?, model = ?, name = ?, available = ?, fare = ?" +
 					   " WHERE id = ?";
 			PreparedStatement ps;		
-			ps = connect.prepareStatement(query);			
-			ps.setString(1,item.getEmail());
-			ps.setString(2,item.getPassword());
-			ps.setInt(3,id);
+			ps = connect.prepareStatement(query);	
+			ps.setInt(1, item.getReq_id());
+			ps.setInt(2, item.getTrn());
+			ps.setInt(3, item.getYear());
+			ps.setString(4, item.getModel());
+			ps.setString(5, item.getName());
+			ps.setBoolean(6,item.isAvailable());
+			ps.setDouble(7,item.getFare());
+			ps.setInt(8,id);
 			return ps.executeUpdate();
 		} 
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
-			logger.error("unable to update",e);
+			logger.error("unable to update Cab record",e);
 		}
 		return 0;
 	}
@@ -154,6 +176,7 @@ public class CabDb extends SQLProvider <Cab>
 			ps.setInt(1,id);
 			return ps.executeUpdate();
 		}
+	
 		catch (SQLException e) 
 		{
 			e.printStackTrace();

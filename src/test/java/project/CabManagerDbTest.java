@@ -1,9 +1,6 @@
 package project;
 
 import static org.junit.Assert.assertEquals;
-
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import org.junit.Test;
 import Database.CabManagerDb;
 import Entity.CabManager;
@@ -32,8 +29,8 @@ public class CabManagerDbTest extends CabManagerDb {
 	@Test
 	public void shouldGetItem()
 	{
-		CabManager  cm = new CabManager(17,"newnew@gmail.com","tobago");
-		int id = 17; 
+		CabManager  cm = new CabManager(22,"demarBlackgmail.com","demar");
+		int id = 22; 
 		CabManagerDb db = new CabManagerDb();
 		CabManager success = db.get(id);
 		assertEquals(cm,success);
