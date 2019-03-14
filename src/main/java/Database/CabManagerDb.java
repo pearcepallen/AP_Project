@@ -80,6 +80,7 @@ public class CabManagerDb extends SQLProvider<CabManager> {
 		}catch(SQLException e) {
 			e.printStackTrace();
 			logger.error("unable to select all",e);
+			return null;
 		}
 		return items;
 	}

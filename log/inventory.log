@@ -1704,3 +1704,659 @@ java.lang.NullPointerException: null
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:?]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:?]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:?]
+2019-03-07 17:30:46,053 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:30:47,539 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 17:30:47,861 ERROR Database.CabDb [main] Unable to add CabManager
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table yung_Cab has no column named request_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:41) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:48) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:263) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:235) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.add(CabDb.java:54) [classes/:?]
+	at Database.CabDb.add(CabDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:114) [classes/:?]
+2019-03-07 17:30:47,866 DEBUG Main.Driver [main]  Cab record not added successfully
+2019-03-07 17:35:59,182 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:36:00,465 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 17:36:00,579 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: distance)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:80) [classes/:?]
+	at Main.Driver.main(Driver.java:127) [classes/:?]
+2019-03-07 17:41:02,759 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:41:04,145 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 17:41:04,233 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: distance)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:80) [classes/:?]
+	at Main.Driver.main(Driver.java:127) [classes/:?]
+2019-03-07 17:43:15,006 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:43:16,615 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 17:43:16,742 ERROR Database.CabDb [main] Unable to add Cab
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table yung_Cab has no column named request_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:41) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:48) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:263) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:235) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.add(CabDb.java:54) [classes/:?]
+	at Database.CabDb.add(CabDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:114) [classes/:?]
+2019-03-07 17:43:16,747 DEBUG Main.Driver [main]  Cab record not added successfully
+2019-03-07 17:43:16,752 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: request_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:80) [classes/:?]
+	at Main.Driver.main(Driver.java:127) [classes/:?]
+2019-03-07 17:45:11,869 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:45:13,315 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 17:45:13,438 ERROR Database.CabDb [main] Unable to add Cab
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "id": syntax error)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:41) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:48) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:263) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:235) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.add(CabDb.java:54) [classes/:?]
+	at Database.CabDb.add(CabDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:114) [classes/:?]
+2019-03-07 17:45:13,447 DEBUG Main.Driver [main]  Cab record not added successfully
+2019-03-07 17:45:13,454 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: request)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:80) [classes/:?]
+	at Main.Driver.main(Driver.java:127) [classes/:?]
+2019-03-07 17:46:26,519 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:46:27,872 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 17:46:27,973 ERROR Database.CabDb [main] Unable to add Cab
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table yung_Cab has no column named request)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:41) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:48) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:263) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:235) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.add(CabDb.java:54) [classes/:?]
+	at Database.CabDb.add(CabDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:114) [classes/:?]
+2019-03-07 17:46:27,977 DEBUG Main.Driver [main]  Cab record not added successfully
+2019-03-07 17:46:27,985 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: request)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:80) [classes/:?]
+	at Main.Driver.main(Driver.java:127) [classes/:?]
+2019-03-07 17:47:50,496 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:47:52,085 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 17:47:52,302 ERROR Database.CabDb [main] Unable to add Cab
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table yung_Cab has no column named request)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:41) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:48) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:263) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:235) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.add(CabDb.java:54) [classes/:?]
+	at Database.CabDb.add(CabDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:114) [classes/:?]
+2019-03-07 17:47:52,317 DEBUG Main.Driver [main]  Cab record not added successfully
+2019-03-07 17:48:25,091 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: request)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:80) [classes/:?]
+	at Main.Driver.main(Driver.java:127) [classes/:?]
+2019-03-07 17:49:18,054 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:49:52,293 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 17:49:53,831 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 17:53:27,569 ERROR Database.CabDb [main] Unable to add Cab
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (table yung_Cab has no column named request)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:41) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:48) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:263) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:235) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.add(CabDb.java:54) [classes/:?]
+	at Database.CabDb.add(CabDb.java:1) [classes/:?]
+	at Main.Driver.main(Driver.java:114) [classes/:?]
+2019-03-07 17:53:54,820 DEBUG Main.Driver [main]  Cab record not added successfully
+2019-03-07 17:56:07,756 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: request)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:80) [classes/:?]
+	at Main.Driver.main(Driver.java:127) [classes/:?]
+2019-03-07 18:00:16,491 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 18:04:14,817 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 18:04:16,295 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:21) [classes/:?]
+2019-03-07 18:04:16,499 DEBUG Main.Driver [main] Cab records added successfully
+2019-03-07 22:46:25,311 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 22:46:27,508 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:41) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-07 22:50:02,385 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 22:50:03,685 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:41) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-07 22:50:03,748 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 22:50:03,754 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-07 22:57:24,199 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 22:57:25,500 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:41) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-07 22:57:25,564 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 22:57:25,570 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-07 23:05:01,897 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:05:03,228 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:41) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-07 23:05:03,292 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:05:03,298 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-07 23:06:50,817 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:06:52,149 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:41) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-07 23:06:52,216 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:06:52,223 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-07 23:09:08,397 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:09:09,834 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:34) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-07 23:09:09,907 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:09:09,929 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-07 23:11:31,336 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:11:32,683 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:34) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-07 23:11:32,766 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:11:32,772 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-07 23:13:00,119 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:13:01,405 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:34) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-07 23:13:01,487 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-07 23:13:01,494 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-08 09:44:44,313 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-08 09:44:45,908 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:34) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-08 09:44:46,017 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-08 09:44:46,029 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-08 16:45:31,383 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-08 16:45:33,624 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:34) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-08 16:45:33,773 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-08 16:45:33,782 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-08 16:56:03,485 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-08 16:56:04,658 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.DistanceReportDb.initSQLDatabase(DistanceReportDb.java:34) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.DistanceReportDb.<init>(DistanceReportDb.java:16) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-08 16:56:04,731 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-08 16:56:04,738 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Entity.DistanceModel.<init>(DistanceModel.java:13) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-11 13:55:14,906 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-11 13:55:16,206 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-11 13:55:16,270 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: c_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:80) [classes/:?]
+	at Main.Driver.main(Driver.java:132) [classes/:?]
+2019-03-11 14:01:09,865 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-11 14:01:10,698 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-11 14:01:10,890 DEBUG Main.Driver [main] records added successfully
+2019-03-11 16:37:29,309 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-11 16:37:30,987 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-11 16:37:31,362 DEBUG Main.Driver [main] records added successfully
+2019-03-12 11:05:47,864 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-12 11:05:48,789 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at project.CabManagerDbTest.<init>(CabManagerDbTest.java:8) [test-classes/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) [?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:490) [?:?]
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266) [junit.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:?]
+2019-03-12 11:05:48,849 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-12 11:05:48,862 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at project.CabManagerDbTest.shouldGetItem(CabManagerDbTest.java:34) [test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:?]
+2019-03-14 14:44:50,968 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 14:44:53,835 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:24) [classes/:?]
+2019-03-14 14:44:54,140 DEBUG Main.Driver [main] records added successfully
+2019-03-14 14:45:40,028 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 14:45:42,464 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Services.CabManagerService.requestDistance(CabManagerService.java:75) [classes/:?]
+	at Main.Driver.main(Driver.java:32) [classes/:?]
+2019-03-14 14:45:42,651 ERROR Database.CabDb [main] Unable to retrieve Cab recorf=d
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: c_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.get(CabDb.java:118) [classes/:?]
+	at Services.CabManagerService.requestDistance(CabManagerService.java:77) [classes/:?]
+	at Main.Driver.main(Driver.java:32) [classes/:?]
+2019-03-14 14:50:16,515 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 14:50:18,380 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Services.CabManagerService.requestDistance(CabManagerService.java:75) [classes/:?]
+	at Main.Driver.main(Driver.java:32) [classes/:?]
+2019-03-14 14:50:18,494 ERROR Database.CabDb [main] Unable to retrieve Cab recorf=d
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: c_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.get(CabDb.java:118) [classes/:?]
+	at Services.CabManagerService.requestDistance(CabManagerService.java:77) [classes/:?]
+	at Main.Driver.main(Driver.java:32) [classes/:?]
+2019-03-14 14:51:19,124 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 14:51:21,403 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Services.CabManagerService.requestDistance(CabManagerService.java:75) [classes/:?]
+	at Main.Driver.main(Driver.java:32) [classes/:?]
+2019-03-14 14:51:21,565 ERROR Database.CabDb [main] Unable to retrieve Cab recorf=d
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: c_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.get(CabDb.java:118) [classes/:?]
+	at Services.CabManagerService.requestDistance(CabManagerService.java:77) [classes/:?]
+	at Main.Driver.main(Driver.java:32) [classes/:?]
+2019-03-14 14:55:11,430 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 14:55:13,244 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabManagerDb.initSQLDatabase(CabManagerDb.java:33) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabManagerDb.<init>(CabManagerDb.java:14) [classes/:?]
+	at Main.Driver.main(Driver.java:26) [classes/:?]
+2019-03-14 14:58:07,836 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 14:58:09,717 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:27) [classes/:?]
+2019-03-14 14:58:09,839 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: c_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:81) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-14 15:00:02,858 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 15:00:04,928 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:27) [classes/:?]
+2019-03-14 15:00:05,224 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: c_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:81) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-14 15:01:25,244 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 15:01:27,241 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:27) [classes/:?]
+2019-03-14 15:01:27,390 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: c_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:81) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-14 15:02:19,255 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 15:02:21,267 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:27) [classes/:?]
+2019-03-14 15:02:21,430 ERROR Database.CabDb [main] unable to select elements in Cab database
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: c_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:909) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.newSQLException(DB.java:921) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.throwex(DB.java:886) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.core.DB.prepare(DB.java:227) ~[sqlite-jdbc-3.16.1.jar:?]
+	at org.sqlite.jdbc3.JDBC3Statement.executeQuery(JDBC3Statement.java:81) ~[sqlite-jdbc-3.16.1.jar:?]
+	at Database.CabDb.selectAll(CabDb.java:81) [classes/:?]
+	at Main.Driver.main(Driver.java:140) [classes/:?]
+2019-03-14 15:15:59,626 TRACE Database.SQLProvider [main] Attempting to connect to database, errors may occur
+2019-03-14 15:16:01,619 ERROR Database.SQLProvider [main] Could not find database
+java.lang.NullPointerException: null
+	at Database.CabDb.initSQLDatabase(CabDb.java:37) ~[classes/:?]
+	at Database.SQLProvider.<init>(SQLProvider.java:35) [classes/:?]
+	at Database.CabDb.<init>(CabDb.java:18) [classes/:?]
+	at Main.Driver.main(Driver.java:27) [classes/:?]
+2019-03-14 15:16:01,955 DEBUG Main.Driver [main] Cab records added successfully

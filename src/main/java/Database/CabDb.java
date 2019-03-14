@@ -28,9 +28,9 @@ public class CabDb extends SQLProvider <Cab>
 			statement = connect.createStatement();
 			if (statement
 					.execute("CREATE TABLE if not exists "+TABLE_NAME+
-							"(id INTEGER PRIMARY KEY AUTOINCREMENT, request_id INTEGER,	trn	INTEGER, year INTEGER, model VARCHAR(50), name VARCHAR(50), available BOOLEAN, fare double)"))
+							"(c_id INTEGER PRIMARY KEY AUTOINCREMENT, request INTEGER, trn	INTEGER, year INTEGER, model VARCHAR(50), name VARCHAR(50), available BOOLEAN, fare double, distance INTEGER)"))
 			{
-				logger.debug("Cab  table created");
+				logger.debug("Cab table created");
 			} 
 			else
 			{
@@ -41,7 +41,7 @@ public class CabDb extends SQLProvider <Cab>
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize SQL Database", e);
+				logger.error("Unable to initialize SQL Database, Cab Table not created ", e);
 			}
 	}
 
@@ -50,7 +50,7 @@ public class CabDb extends SQLProvider <Cab>
 	{
 		try{
 			String query = "INSERT INTO "+TABLE_NAME
-					       + "(request_id,trn,year,model,name,available,fare)  VALUES (?,?,?,?,?,?,?)";
+					       + "(request,trn,year,model,name,available,fare,distance)  VALUES (?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = connect.prepareStatement(query);
 			ps.setInt(1, item.getReq_id());
 			ps.setInt(2, item.getTrn());
@@ -59,11 +59,12 @@ public class CabDb extends SQLProvider <Cab>
 			ps.setString(5, item.getName());
 			ps.setBoolean(6,item.isAvailable());
 			ps.setDouble(7,item.getFare());
+			ps.setInt(8, item.getDistance());
 			return ps.executeUpdate();
-					
+			
     	}catch(SQLException e){
     		e.printStackTrace();
-			logger.error("Unable to add CabManager",e);
+			logger.error("Unable to add Cab",e);
 		}
 		
 		return 0;
@@ -75,21 +76,22 @@ public class CabDb extends SQLProvider <Cab>
 		List<Cab> items = new ArrayList<Cab>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "select id, req_id,trn,year,model,name,available,fare from "+TABLE_NAME;
+			String sql = "SELECT c_id, request,trn,year,model,name,available,fare,distance from "+TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) 
 			{
 				while(rs.next()) 
 				{				
 					Cab Cab = new Cab();
-					Cab.setC_id(rs.getInt("id"));
-					Cab.setReq_id(rs.getInt("request_id"));
+					Cab.setC_id(rs.getInt("c_id"));
+					Cab.setReq_id(rs.getInt("request"));
 					Cab.setTrn(rs.getInt("trn"));
 					Cab.setYear(rs.getInt("year"));
 					Cab.setModel(rs.getString("model"));
 					Cab.setName(rs.getString("name"));
 					Cab.setAvailable(rs.getBoolean("available"));
-					Cab.setFare(rs.getDouble("fare"));					
+					Cab.setFare(rs.getDouble("fare"));		
+					Cab.setDistance(rs.getInt("distance"));
 					items.add(Cab);					
 				}
 			}
@@ -111,21 +113,22 @@ public class CabDb extends SQLProvider <Cab>
 		{
 			Statement stat;
 			stat = connect.createStatement();			
-			String query = "Select * from " +TABLE_NAME+ " WHERE id = "+id;   
+			String query = "Select * from " +TABLE_NAME+ " WHERE c_id = "+id;   
 			ResultSet rs= stat.executeQuery(query);
 			if(rs != null)
 			{
 				while(rs.next())
 				{					
 					Cab Cab = new Cab();
-					Cab.setC_id(rs.getInt("id"));
-					Cab.setReq_id(rs.getInt("request_id"));
+					Cab.setC_id(rs.getInt("c_id"));
+					Cab.setReq_id(rs.getInt("request id"));
 					Cab.setTrn(rs.getInt("trn"));
 					Cab.setYear(rs.getInt("year"));
 					Cab.setModel(rs.getString("model"));
 					Cab.setName(rs.getString("name"));
 					Cab.setAvailable(rs.getBoolean("available"));
 					Cab.setFare(rs.getDouble("fare"));			
+					Cab.setDistance(rs.getInt("distance"));
 					return Cab;
 				}								
 			}				
@@ -143,8 +146,8 @@ public class CabDb extends SQLProvider <Cab>
 	{		
 		try 
 		{	
-			String query = " UPDATE " +TABLE_NAME+ " SET  req_id = ?, trn = ?, year = ?, model = ?, name = ?, available = ?, fare = ?" +
-					   " WHERE id = ?";
+			String query = " UPDATE " +TABLE_NAME+ " SET  req_id = ?, trn = ?, year = ?, model = ?, name = ?, available = ?, fare = ? , distance = ?" +
+					   " WHERE c_id = ?";
 			PreparedStatement ps;		
 			ps = connect.prepareStatement(query);	
 			ps.setInt(1, item.getReq_id());
@@ -154,7 +157,8 @@ public class CabDb extends SQLProvider <Cab>
 			ps.setString(5, item.getName());
 			ps.setBoolean(6,item.isAvailable());
 			ps.setDouble(7,item.getFare());
-			ps.setInt(8,id);
+			ps.setInt(8, item.getDistance());
+			ps.setInt(9,id);
 			return ps.executeUpdate();
 		} 
 		catch (SQLException e) 
@@ -171,7 +175,7 @@ public class CabDb extends SQLProvider <Cab>
 	{
 		try 
 		{
-			String query = "DELETE FROM "+TABLE_NAME+ " WHERE id = ?";
+			String query = "DELETE FROM "+TABLE_NAME+ " WHERE c_id = ?";
 			PreparedStatement ps = connect.prepareStatement(query);			
 			ps.setInt(1,id);
 			return ps.executeUpdate();
@@ -180,7 +184,7 @@ public class CabDb extends SQLProvider <Cab>
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
-			logger.error("Unable to delete Cab Manager with id "+id,e);
+			logger.error("Unable to delete Cab Manager with c_id "+id,e);
 
 		}
 		return 0;
@@ -192,7 +196,7 @@ public class CabDb extends SQLProvider <Cab>
 		try 
 		{
 			String groupedIds = Arrays.toString(ids).replace("[","").replace("]","");
-			String query = "DELETE FROM "+TABLE_NAME+ " WHERE id in ("+groupedIds+")";
+			String query = "DELETE FROM "+TABLE_NAME+ " WHERE c_id in ("+groupedIds+")";
 			PreparedStatement ps = connect.prepareStatement(query);			
 			return ps.executeUpdate();
 		}

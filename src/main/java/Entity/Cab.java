@@ -3,15 +3,15 @@ package Entity;
 
 public class Cab 
 {
-	private int c_id;
-	private int req_id;
-	private int trn;
-	private int year;
-	private String model;
-	private String name;
-	private boolean available;
-	private double fare;
-	private int distance;
+	protected int c_id;
+	protected int req_id;
+	protected int trn;
+	protected int year;
+	protected String model;
+	protected String name;
+	protected boolean available;
+	protected double fare;
+	protected int distance;
 
 	public Cab()
 	{
