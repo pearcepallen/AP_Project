@@ -1,4 +1,4 @@
-package Acari.one.AcariCab;
+package Ascari.one.AscariCab;
 
 //import org.springframework.boot.SpringApplication;
 //import org.springframework.boot.autoconfigure.SpringBootApplication;
