@@ -106,11 +106,10 @@ public class DistanceReportDb extends SQLProvider<DistanceModel>
 			{
 				while(rs.next())
 				{					
-
 					DistanceModel DistanceModel = new DistanceModel();
-				DistanceModel.setId(rs.getInt("id"));
-				DistanceModel.setC_id(rs.getInt("Cab_id"));
-			DistanceModel.setDistance(rs.getInt("distance"));
+					DistanceModel.setId(rs.getInt("id"));
+					DistanceModel.setC_id(rs.getInt("Cab_id"));
+					DistanceModel.setDistance(rs.getInt("distance"));
 					DistanceModel.setFare(rs.getDouble("fare"));							
 					return DistanceModel;
 				}								

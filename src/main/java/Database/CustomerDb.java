@@ -40,7 +40,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize Customer Database", e);
+				logger.error("Unable to initialize SQL Database", e);
 			}
 	}
 
@@ -78,7 +78,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) {
 				while(rs.next()) {
-					Customer Customer = new Customer(); 
+					Customer Customer = new Customer (); 
 					Customer.setLocation(rs.getString("location"));
 					Customer.setDestination(rs.getString("destination"));
 					Customer.setNumber(rs.getInt("number"));
@@ -86,8 +86,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 					items.add(Customer);
 				}
 			}
-		}
-		catch(SQLException e) 
+		}catch(SQLException e) 
 		{
 			e.printStackTrace();
 			logger.error("unable to select all",e);
@@ -123,7 +122,6 @@ public class CustomerDb extends SQLProvider<Customer>{
 		{
 			e.printStackTrace();
 			logger.error("Unable to retrieve Customer",e);
-			
 		}
 		return null;
 	}

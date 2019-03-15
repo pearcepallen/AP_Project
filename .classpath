@@ -6,6 +6,11 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="test" value="true"/>
@@ -13,7 +18,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -23,15 +28,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/log4j-api-2.8.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-core-2.8.jar"/>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.40-bin.jar"/>
-	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.16.1.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Demar Johnson/git/Ascari/lib/log4j-api-2.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Demar Johnson/git/Ascari/lib/log4j-core-2.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Demar Johnson/git/Ascari/lib/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Demar Johnson/git/Ascari/lib/sqlite-jdbc-3.16.1.jar"/>
+	<classpathentry kind="lib" path="lib/sqlite-dialect-1.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -1,10 +1,10 @@
 
 package Services;
-/*import java.sql.ResultSet;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
-*/
+
 import Database.CabDb;
 //import Database.DistanceReportDb;
 
@@ -68,17 +68,15 @@ public class CabManagerService extends CabManager
 		return false;
 	}
 	
-	public int requestDistance()
+	public void requestDistance()
 	{
-		int id=1, dist;
+		int id=1;
 		Cab cab = new Cab();
 		CabDb cabDb = new CabDb();
 		
-		  cab.setDistance(cabDb.get(id).getDistance());
-		  dist = cab.getDistance();
-		  return dist;		  		  		
+		cab.setDistance(cabDb.get(id).getDistance());
+		
 	}
-	
 	
 
 }

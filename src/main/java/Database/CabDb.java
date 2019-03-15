@@ -61,7 +61,7 @@ public class CabDb extends SQLProvider <Cab>
 			ps.setDouble(7,item.getFare());
 			ps.setInt(8, item.getDistance());
 			return ps.executeUpdate();
-			
+					
     	}catch(SQLException e){
     		e.printStackTrace();
 			logger.error("Unable to add Cab",e);

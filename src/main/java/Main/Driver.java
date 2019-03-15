@@ -10,8 +10,6 @@ import Database.CabManagerDb;
 //import Database.DistanceReportDb;
 import Database.SQLProvider;
 import Entity.Cab;
-import Entity.CabManager;
-import Services.CabManagerService;
 //import Entity.Cab;
 //import Entity.DistanceModel;
 public class Driver 
@@ -22,18 +20,13 @@ public class Driver
 		Logger logger = null;
 		logger = LogManager.getLogger(CabManagerDb.class);
 		
-		
 	//	SQLProvider<CabManager> db = new CabManagerDb();
 		SQLProvider<Cab> db = new CabDb();
 	//	SQLProvider<DistanceModel> db = new DistanceReportDb();
 
-		/*CabManagerService man = new CabManagerService();
-		int manager = 0;
-		manager =  man.requestDistance();
-		 System.out.println(manager);
-		*/
-		 //add
-	/*	int recordsAffected = db.add(new CabManager(34,"demarBlackgmail.com","demar"));
+		
+	/*	 //add
+		int recordsAffected = db.add(new CabManager(34,"demarBlackgmail.com","demar"));
 		
 		if(recordsAffected == 1)
 		{
@@ -49,7 +42,7 @@ public class Driver
 	
 
  		//get
-		CabManager cmm;
+	/*	CabManager cmm;
 		cmm = db.get(21);
 		System.out.println("Returning Cab Manager with the id of ",id);	
 	
@@ -111,18 +104,17 @@ public class Driver
 		*/
 		
 		//selectAll
-		
-		/*	List<CabManager> results = db.selectAll();
+		/*
+			List<CabManager> results = db.selectAll();
 			System.out.println(CabManagerDb.TABLE_NAME);
 			System.out.println("--- Retrieved -- ");
 			
 			for(CabManager cm : results) 
 				{
 					System.out.println(cm);
-				}
-				*/
+				}*/
 
-			//add Cab
+			 //add Cab
 			int recordsAffected = db.add(new Cab(0,0,0,0,"civic","John Jones",false,0.0,0));
 			
 			if(recordsAffected == 1)
@@ -138,6 +130,7 @@ public class Driver
 			
 		
 			List<Cab> results = db.selectAll();
+			System.out.println(CabDb.TABLE_NAME);
 			System.out.println("--- Retrieved -- ");
 			
 			for(Cab cm : results) 

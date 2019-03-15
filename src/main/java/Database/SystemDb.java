@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import Entity.System;
 import org.apache.logging.log4j.LogManager;
@@ -48,12 +49,16 @@ public class SystemDb extends SQLProvider<System>{
 			PreparedStatement ps = connect.prepareStatement(sql);
 			ps.executeUpdate();
 			{
-				
+				ps.setString(1,item.getLocation());
+				ps.setString(2,item.getDestination());
+				ps.setInt(3, item.getDistance());
+				ps.setDouble(4,item.getPrice());
+				return ps.executeUpdate();
 			}
 		}
 		catch(SQLException e)
 		{
-			
+			e.printStackTrace();
 		}
 		return 0;
 	}
@@ -102,12 +107,9 @@ public class SystemDb extends SQLProvider<System>{
 			ResultSet rs = stat.executeQuery(sql);
 			
 			if(rs != null)
-			{
-				
+			{				
 				while(rs.next())
-				{
-					
-					
+				{									
 					system.setId(rs.getInt("id"));
 					system.setLocation(rs.getString("location"));
 					system.setDestination(rs.getString("destination"));
@@ -128,22 +130,90 @@ public class SystemDb extends SQLProvider<System>{
 		
 
 	@Override
-	public int update(System item, int id) {
-		// TODO Auto-generated method stub
+	public int update(System item, int id) 
+	{
+		try 
+		{				
+		String sql ="UPDATE "+TABLE_NAME+ "SET location= ?, destination=?, distance=?, price=? WHERE id = ?";
+		PreparedStatement ps = connect.prepareStatement(sql);
+		ps.setString(1,item.getLocation());
+		ps.setString(2,item.getDestination());
+		ps.setInt(3,item.getDistance());
+		ps.setDouble(4,item.getPrice());
+		return ps.executeUpdate();
+		}
+		catch(SQLException e)		
+		{
+			e.printStackTrace();
+			logger.error("System item not updated");
+		}
 		return 0;
 	}
 
 	@Override
 	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		try
+		{								
+			String sql = "DELETE * from"+TABLE_NAME+ " WHERE (id) = ?";
+			PreparedStatement ps = connect.prepareStatement(sql);
+			ps.setInt(1,id);
+			return ps.executeUpdate();
+		}
+		catch(SQLException e)		
+		{
+			e.printStackTrace();
+			logger.debug("System record was not deleted");
+			return 0;
+		}	
 	}
 
 	@Override
 	public int deleteMultiple(int[] ids) {
-		// TODO Auto-generated method stub
+		try 
+		{
+			String groupedIds = Arrays.toString(ids).replace("[","").replace("]","");
+			String query = "DELETE FROM "+TABLE_NAME+ " WHERE id in ("+groupedIds+")";
+			PreparedStatement ps = connect.prepareStatement(query);			
+			return ps.executeUpdate();
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			logger.error("unable to update",e);
+		}
 		return 0;
 	}
 
 	
 }
+/*
+papine                  			papine 			0km			0.0
+papine 				hwt			3km			
+papine				mountain view		6km
+papine 				downtown kingston		10km
+papine 				liguanea 			2km
+
+hwt				hwt			0km
+hwt				papine 			3km
+hwt				mountain view		9km
+hwt				downtown kingston		13km
+hwt				liguanea 			5km
+
+mountain view                                             mountain view		0km
+mountain view			papine 			6km
+mountain view			hwt			9km
+mountain view			downtown kingston		4km
+mountain view			liguanea 			4km
+
+downtown kingston			downtown kingston		0km
+downtown kingston			liguanea 			8km
+downtown kingston			papine 			10km
+downtown kingston			hwt			13km
+downtown kingston			mountain view		4km
+
+liguanea				liguanea			0km
+liguanea				papine 			2km
+liguanea				hwt			5km
+liguanea				mountain view		4km
+liguanea				downtown kingston		8km
+*/
