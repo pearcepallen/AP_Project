@@ -1,4 +1,5 @@
-/*package Database;
+package com.AscariCab.Artefacts.Controller;
+/*package com.AscariCab.Artefacts.Controller;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,7 +39,7 @@ public class DistanceReportDb extends SQLProvider<DistanceModel>
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize SQL Database, DistanceModel Table not created ", e);
+				logger.error("Unable to initialize SQL com.AscariCab.Artefacts.Controller, DistanceModel Table not created ", e);
 			}
 	}
 

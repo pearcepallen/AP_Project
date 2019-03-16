@@ -1,4 +1,4 @@
-package Database;
+package com.AscariCab.Artefacts.Controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

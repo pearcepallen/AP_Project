@@ -1,6 +1,6 @@
 package Entity;
 
-import Database.CustomerDb;
+import com.AscariCab.Artefacts.Controller.CustomerDb;
 
 public class RequestModel extends CustomerDb {
 

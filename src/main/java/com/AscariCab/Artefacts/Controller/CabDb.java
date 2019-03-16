@@ -1,4 +1,4 @@
-package Database;
+package com.AscariCab.Artefacts.Controller;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,7 +41,7 @@ public class CabDb extends SQLProvider <Cab>
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize SQL Database, Cab Table not created ", e);
+				logger.error("Unable to initialize SQL com.AscariCab.Artefacts.Controller, Cab Table not created ", e);
 			}
 	}
 

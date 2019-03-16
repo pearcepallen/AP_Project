@@ -5,10 +5,10 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import Database.CabDb;
-import Database.CabManagerDb;
-//import Database.DistanceReportDb;
-import Database.SQLProvider;
+import com.AscariCab.Artefacts.Controller.CabDb;
+import com.AscariCab.Artefacts.Controller.CabManagerDb;
+import com.AscariCab.Artefacts.Controller.SQLProvider;
+
 import Entity.Cab;
 //import Entity.Cab;
 //import Entity.DistanceModel;

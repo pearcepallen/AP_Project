@@ -5,8 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import Database.CabDb;
-//import Database.DistanceReportDb;
+import com.AscariCab.Artefacts.Controller.CabDb;
 
 import Entity.Cab;
 import Entity.CabManager;

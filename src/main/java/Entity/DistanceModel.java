@@ -1,5 +1,5 @@
 /*package Entity;
-//import Database.CabDb;
+//import com.AscariCab.Artefacts.Controller.CabDb;
 import Entity.Cab;
 public class DistanceModel extends Cab{
 	

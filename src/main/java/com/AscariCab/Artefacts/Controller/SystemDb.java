@@ -1,4 +1,4 @@
-package Database;
+package com.AscariCab.Artefacts.Controller;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,7 +36,7 @@ public class SystemDb extends SQLProvider<System>{
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize System Database", e);
+				logger.error("Unable to initialize System com.AscariCab.Artefacts.Controller", e);
 			}				
 	}
 

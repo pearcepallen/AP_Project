@@ -2,7 +2,9 @@ package project;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import Database.CabManagerDb;
+
+import com.AscariCab.Artefacts.Controller.CabManagerDb;
+
 import Entity.CabManager;
 
 public class CabManagerDbTest extends CabManagerDb {
