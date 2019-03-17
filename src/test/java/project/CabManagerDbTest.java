@@ -3,6 +3,11 @@ package project;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+<<<<<<< HEAD
+=======
+import com.AscariCab.Artefacts.Controller.CabManagerDb;
+
+>>>>>>> refs/heads/feature4
 import Entity.CabManager;
 import database.Controllers.CabManagerDb;
 
