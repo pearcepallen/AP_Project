@@ -1,11 +1,12 @@
 package Entity;
 
-import Database.CustomerDb;
 
-public class RequestModel extends CustomerDb {
+public class RequestModel{
 
 	public RequestModel() {
-		// TODO Auto-generated constructor stub
+	
+		 		
+		
 	}
 
 }

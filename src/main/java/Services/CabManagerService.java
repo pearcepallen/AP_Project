@@ -5,12 +5,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import Database.CabDb;
-//import Database.DistanceReportDb;
-
 import Entity.Cab;
 import Entity.CabManager;
 //import Entity.Report;
+import database.Controllers.CabDb;
 
 public class CabManagerService extends CabManager
 {

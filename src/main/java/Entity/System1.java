@@ -1,6 +1,6 @@
 package Entity;
 
-public class System {
+public class System1 {
 
 	private int id;
 	private String location;
@@ -8,12 +8,12 @@ public class System {
 	private int distance;
 	private double price;
 
-	public System()
+	public System1()
 	{
 		this(0,"right here","over there",0,0.0);
 	}
 
-	public System(int id, String location, String destination, int distance, double price) {
+	public System1(int id, String location, String destination, int distance, double price) {
 		super();
 		this.id = id;
 		this.location = location;
@@ -64,7 +64,7 @@ public class System {
 
 	@Override
 	public String toString() {
-		return "System [id=" + id + ", location=" + location + ", destination=" + destination + ", distance=" + distance
+		return "System1 [id=" + id + ", location=" + location + ", destination=" + destination + ", distance=" + distance
 				+ ", price=" + price + "]";
 	}
 

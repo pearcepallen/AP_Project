@@ -5,11 +5,10 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import Database.CabDb;
-import Database.CabManagerDb;
-//import Database.DistanceReportDb;
-import Database.SQLProvider;
 import Entity.Cab;
+import database.Controllers.CabDb;
+import database.Controllers.CabManagerDb;
+import database.Controllers.SQLProvider;
 //import Entity.Cab;
 //import Entity.DistanceModel;
 public class Driver 

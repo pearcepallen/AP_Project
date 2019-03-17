@@ -7,11 +7,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import Entity.System;
+import Entity.System1;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SystemDb extends SQLProvider<System>{
+public class SystemDb extends SQLProvider<System1>{
 
 	private static final String TABLE_NAME = "yung_system";
 	Logger logger = LogManager.getLogger(SystemDb.class);
@@ -21,27 +21,28 @@ public class SystemDb extends SQLProvider<System>{
 	{
 		try {
 			statement = connect.createStatement();
-			if (statement.execute("create table if not exists "
+			if (statement
+					.execute("CREATE TABLE if not exists "
 							+ TABLE_NAME +
-							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), distance INTEGER, fare double")) 
+							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), distance INTEGER, fare double)")) 
 			{
-				logger.debug("System table created");
+				logger.debug("System1 table created");
 			} 
 			else
 			{
-				logger.debug("System table does not need to be created");
+				logger.debug("System1 table does not need to be created");
 			}
-			logger.debug("System table exists");
+			logger.debug("System1 table exists");
 			
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize System Database", e);
+				logger.error("Unable to initialize System1 Database", e);
 			}				
 	}
 
 	@Override
-	public int add(System item) 
+	public int add(System1 item) 
 	{
 		try 
 		{
@@ -64,9 +65,9 @@ public class SystemDb extends SQLProvider<System>{
 	}
 
 	@Override
-	public List<System> selectAll() 
+	public List<System1> selectAll() 
 	{
-		List<System> item = new ArrayList<System>();
+		List<System1> item = new ArrayList<System1>();
 		try 
 		{		
 			Statement stat = connect.createStatement();
@@ -76,13 +77,13 @@ public class SystemDb extends SQLProvider<System>{
 				{
 				while(rs.next())
 					{
-						System system = new System();						
-						system.setId(rs.getInt("id"));
-						system.setLocation(rs.getString("location"));
-						system.setDestination(rs.getString("destination"));
-						system.setDistance(rs.getInt("distance"));
-						system.setPrice(rs.getDouble("price"));
-						item.add(system);				
+						System1 system1 = new System1();						
+						system1.setId(rs.getInt("id"));
+						system1.setLocation(rs.getString("location"));
+						system1.setDestination(rs.getString("destination"));
+						system1.setDistance(rs.getInt("distance"));
+						system1.setPrice(rs.getDouble("price"));
+						item.add(system1);				
 					}
 				}
 		}		
@@ -90,16 +91,16 @@ public class SystemDb extends SQLProvider<System>{
 		catch(SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("unable to select all System items",e);
+				logger.error("unable to select all System1 items",e);
 				return null;
 			}
 			return item;
 	}
 
 	@Override
-	public System get(int id) 
+	public System1 get(int id) 
 	{
-		System system = new System();
+		System1 system1 = new System1();
 		try
 		{		
 			Statement stat = connect.createStatement();
@@ -110,11 +111,11 @@ public class SystemDb extends SQLProvider<System>{
 			{				
 				while(rs.next())
 				{									
-					system.setId(rs.getInt("id"));
-					system.setLocation(rs.getString("location"));
-					system.setDestination(rs.getString("destination"));
-					system.setDistance(rs.getInt("distance"));
-					system.setPrice(rs.getDouble("price"));
+					system1.setId(rs.getInt("id"));
+					system1.setLocation(rs.getString("location"));
+					system1.setDestination(rs.getString("destination"));
+					system1.setDistance(rs.getInt("distance"));
+					system1.setPrice(rs.getDouble("price"));
 					
 				}
 			}
@@ -125,12 +126,12 @@ public class SystemDb extends SQLProvider<System>{
 			logger.error("unable to retrieve system item",e);
 			return null;
 		}
-		return system;
+		return system1;
 	}
 		
 
 	@Override
-	public int update(System item, int id) 
+	public int update(System1 item, int id) 
 	{
 		try 
 		{				
@@ -145,7 +146,7 @@ public class SystemDb extends SQLProvider<System>{
 		catch(SQLException e)		
 		{
 			e.printStackTrace();
-			logger.error("System item not updated");
+			logger.error("System1 item not updated");
 		}
 		return 0;
 	}
@@ -162,7 +163,7 @@ public class SystemDb extends SQLProvider<System>{
 		catch(SQLException e)		
 		{
 			e.printStackTrace();
-			logger.debug("System record was not deleted");
+			logger.debug("System1 record was not deleted");
 			return 0;
 		}	
 	}
@@ -183,9 +184,9 @@ public class SystemDb extends SQLProvider<System>{
 		}
 		return 0;
 	}
-
 	
 }
+
 /*
 papine                  			papine 			0km			0.0
 papine 				hwt			3km			
