@@ -7,8 +7,8 @@ import Entity.CabManager;
 import database.Controllers.CabManagerDb;
 
 public class CabManagerDbTest extends CabManagerDb {
-	/*
-	@Test
+	
+	/*@Test
 	public void shouldPrintObject()
 	{
 		CabManager cm = new CabManager(123,"oosh","oosshAgain");
@@ -26,7 +26,7 @@ public class CabManagerDbTest extends CabManagerDb {
 		assertEquals(deff,success,0);
 		
 	}
-	*/
+	
 	@Test
 	public void shouldGetItem()
 	{
@@ -36,12 +36,10 @@ public class CabManagerDbTest extends CabManagerDb {
 		CabManager success = db.get(id);
 		assertEquals(cm,success);
 	}
+	
 
-	
-	
-	/*
 	@Test 
-	public void shouldUpdateobject()
+	public void shouldUpdateDatabase()
 	{
 		int deff = 1;
 		int id = 1;
@@ -50,12 +48,40 @@ public class CabManagerDbTest extends CabManagerDb {
 		int success;
 		success = db.update(cm, id);
 		assertEquals(deff,success,0);
-
+	}*/
+	
+	/*@Test
+	public void shouldPrintObject()
+	{
+		CabManager pr = new CabManager(123,"oosh","oosshAgain"); 
+		CabManager Display = new CabManager();
+		int vr;
+		vr = Display.getId();
+		System.out.println(vr);
+		
+		String mail;
+		mail = Display.getEmail();
+		System.out.println(mail);
+		
+		String pass;
+		pass = Display.getPassword();
+		System.out.println(pass);
+		
+	}*/
+	
+	
+	@Test 
+	public void shouldDeleteFromDatabase()
+	{
 		
 	}
 	
-	Merge test
+	/*@Test
+	public void shouldDeleteMultiple()
+	{
+		
+	}*/
 	
-		return 0;*/
+		
 	
 }

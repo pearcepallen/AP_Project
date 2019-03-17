@@ -188,33 +188,33 @@ public class SystemDb extends SQLProvider<System1>{
 }
 
 /*
-papine                  			papine 			0km			0.0
-papine 				hwt			3km			
-papine				mountain view		6km
-papine 				downtown kingston		10km
-papine 				liguanea 			2km
+papine              		papine 					0km			0.0
+papine 						hwt						3km			410.0
+papine						mountain view			6km			470.0
+papine 						downtown kingston		10km		550.0
+papine 						liguanea 				2km			390.0
 
-hwt				hwt			0km
-hwt				papine 			3km
-hwt				mountain view		9km
-hwt				downtown kingston		13km
-hwt				liguanea 			5km
+hwt							hwt						0km			0.0
+hwt							papine 					3km			410.0
+hwt							mountain view			9km			530.0
+hwt							downtown kingston		13km		610.0
+hwt							liguanea 				5km			450.0
 
-mountain view                                             mountain view		0km
-mountain view			papine 			6km
-mountain view			hwt			9km
-mountain view			downtown kingston		4km
-mountain view			liguanea 			4km
+mountain view               mountain view			0km			0.0
+mountain view				papine 					6km			470.0
+mountain view				hwt						9km			530.0
+mountain view				downtown kingston		4km			430.0
+mountain view				liguanea 				4km			430.0
 
-downtown kingston			downtown kingston		0km
-downtown kingston			liguanea 			8km
-downtown kingston			papine 			10km
-downtown kingston			hwt			13km
-downtown kingston			mountain view		4km
+downtown kingston			downtown kingston		0km			0.0
+downtown kingston			liguanea 				8km			510.0
+downtown kingston			papine 					10km		550.0
+downtown kingston			hwt						13km		610.0
+downtown kingston			mountain view			4km			430.0
 
-liguanea				liguanea			0km
-liguanea				papine 			2km
-liguanea				hwt			5km
-liguanea				mountain view		4km
-liguanea				downtown kingston		8km
+liguanea					liguanea				0km			0.0
+liguanea					papine 					2km			390.0
+liguanea					hwt						5km			450.0
+liguanea					mountain view			4km			430.0
+liguanea					downtown kingston		8km			510.0
 */
