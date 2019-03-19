@@ -69,15 +69,32 @@ public class CabManagerDbTest extends CabManagerDb {
 	}*/
 	
 	
-	@Test 
+	/*@Test 
 	public void shouldDeleteFromDatabase()
 	{
+		CabManagerDb delete = new CabManagerDb();
+		CabManager dt = new CabManager(123,"oosh","oosshAgain"); 
 		
-	}
+		int Delete;
+		int id = 123;
+		
+		Delete = delete.delete(id);
+		System.out.println("Delete Successful");
+		//assertEquals(deff,Delete,0);
+	}*/
 	
 	/*@Test
 	public void shouldDeleteMultiple()
 	{
+		CabManagerDb mult = new CabManagerDb();
+		CabManager dt = new CabManager(123,"oosh","oosshAgain"); 
+		CabManager  cm = new CabManager(22,"demarBlackgmail.com","demar");
+		
+		int mul;
+		int id;
+		int[] ids = null;
+		
+		mul = mult.deleteMultiple(ids);
 		
 	}*/
 	
