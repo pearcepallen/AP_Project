@@ -116,7 +116,7 @@ public class Cab
 				+ ", name=" + name + ", available=" + available + ", fare=" + fare + ", distance=" + distance + "]";
 	}
 
-	
+
 
 }
 

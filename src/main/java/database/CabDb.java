@@ -1,4 +1,4 @@
-package com.AscariCab.Artefacts.Controller;
+package database;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,7 +43,7 @@ public class CabDb extends SQLProvider <Cab>
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize SQL com.AscariCab.Artefacts.Controller, Cab Table not created ", e);
+				logger.error("Unable to initialize SQL database, Cab Table not created ", e);
 			}
 	}
 
@@ -106,7 +108,6 @@ public class CabDb extends SQLProvider <Cab>
 	}
 
 	
-	
 	@Override
 	public Cab get(int id) {
 		try
@@ -141,6 +142,7 @@ public class CabDb extends SQLProvider <Cab>
 		return null;
 	}
 
+	
 	@Override
 	public int update(Cab item, int id) 
 	{		
@@ -208,6 +210,6 @@ public class CabDb extends SQLProvider <Cab>
 		return 0;
 	}
 
-
+	
 
 }
