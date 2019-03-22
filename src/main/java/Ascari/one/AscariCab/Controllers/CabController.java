@@ -48,7 +48,7 @@ public Cab create(@Valid @RequestBody Cab item )
 @GetMapping("/{c_id}")
 public Cab get(@PathVariable(value="c_id") int id) 
 {
-	Cab item = new Cab(0,0,0,0,"civic","John Jones",false,0.0,0);	
+	Cab item = new Cab();	
 	item = cabdb.get(id);
 	 
 	
@@ -74,8 +74,7 @@ public Cab update(@PathVariable(value = "id") int id,@Valid @RequestBody Cab det
 			 cab.setDistance(details.getDistance());
 			 cab.setFare(details.getFare());
 			 cab.setModel(details.getModel());
-			 cab.setName(details.getName());
-			 cab.setReq_id(details.getReq_id());
+			 cab.setName(details.getName());			 
 			 cab.setTrn(details.getTrn());
 			 cab.setYear(details.getYear());
 			 cab.setAvailable(details.isAvailable());			 

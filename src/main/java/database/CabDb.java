@@ -30,7 +30,7 @@ public class CabDb extends SQLProvider <Cab>
 			statement = connect.createStatement();
 			if (statement
 					.execute("CREATE TABLE if not exists "+TABLE_NAME+
-							"(c_id INTEGER PRIMARY KEY AUTOINCREMENT, request INTEGER, trn	INTEGER, year INTEGER, model VARCHAR(50), name VARCHAR(50), available BOOLEAN, fare double, distance INTEGER)"))
+							"(c_id INTEGER PRIMARY KEY AUTOINCREMENT, trn	INTEGER, year INTEGER, model VARCHAR(50), name VARCHAR(50), available BOOLEAN, fare double, distance INTEGER)"))
 			{
 				logger.debug("Cab table created");
 			} 
@@ -52,16 +52,15 @@ public class CabDb extends SQLProvider <Cab>
 	{
 		try{
 			String query = "INSERT INTO "+TABLE_NAME
-					       + "(request,trn,year,model,name,available,fare,distance)  VALUES (?,?,?,?,?,?,?,?)";
-			PreparedStatement ps = connect.prepareStatement(query);
-			ps.setInt(1, item.getReq_id());
-			ps.setInt(2, item.getTrn());
-			ps.setInt(3, item.getYear());
-			ps.setString(4, item.getModel());
-			ps.setString(5, item.getName());
-			ps.setBoolean(6,item.isAvailable());
-			ps.setDouble(7,item.getFare());
-			ps.setInt(8, item.getDistance());
+					       + "(trn,year,model,name,available,fare,distance)  VALUES (?,?,?,?,?,?,?)";
+			PreparedStatement ps = connect.prepareStatement(query);			
+			ps.setInt(1, item.getTrn());
+			ps.setInt(2, item.getYear());
+			ps.setString(3, item.getModel());
+			ps.setString(4, item.getName());
+			ps.setBoolean(5,item.isAvailable());
+			ps.setDouble(6,item.getFare());
+			ps.setInt(7, item.getDistance());
 			return ps.executeUpdate();
 					
     	}catch(SQLException e){
@@ -78,15 +77,14 @@ public class CabDb extends SQLProvider <Cab>
 		List<Cab> items = new ArrayList<Cab>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "SELECT c_id, request,trn,year,model,name,available,fare,distance from "+TABLE_NAME;
+			String sql = "SELECT c_id, trn,year,model,name,available,fare,distance from "+TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) 
 			{
 				while(rs.next()) 
 				{				
 					Cab Cab = new Cab();
-					Cab.setC_id(rs.getInt("c_id"));
-					Cab.setReq_id(rs.getInt("request"));
+					Cab.setC_id(rs.getInt("c_id"));					
 					Cab.setTrn(rs.getInt("trn"));
 					Cab.setYear(rs.getInt("year"));
 					Cab.setModel(rs.getString("model"));
@@ -121,8 +119,7 @@ public class CabDb extends SQLProvider <Cab>
 				while(rs.next())
 				{					
 					Cab Cab = new Cab();
-					Cab.setC_id(rs.getInt("c_id"));
-					Cab.setReq_id(rs.getInt("request id"));
+					Cab.setC_id(rs.getInt("c_id"));					
 					Cab.setTrn(rs.getInt("trn"));
 					Cab.setYear(rs.getInt("year"));
 					Cab.setModel(rs.getString("model"));
@@ -148,19 +145,18 @@ public class CabDb extends SQLProvider <Cab>
 	{		
 		try 
 		{	
-			String query = " UPDATE " +TABLE_NAME+ " SET  req_id = ?, trn = ?, year = ?, model = ?, name = ?, available = ?, fare = ? , distance = ?" +
+			String query = " UPDATE " +TABLE_NAME+ " SET  trn = ?, year = ?, model = ?, name = ?, available = ?, fare = ? , distance = ?" +
 					   " WHERE c_id = ?";
 			PreparedStatement ps;		
-			ps = connect.prepareStatement(query);	
-			ps.setInt(1, item.getReq_id());
-			ps.setInt(2, item.getTrn());
-			ps.setInt(3, item.getYear());
-			ps.setString(4, item.getModel());
-			ps.setString(5, item.getName());
-			ps.setBoolean(6,item.isAvailable());
-			ps.setDouble(7,item.getFare());
-			ps.setInt(8, item.getDistance());
-			ps.setInt(9,id);
+			ps = connect.prepareStatement(query);				
+			ps.setInt(1, item.getTrn());
+			ps.setInt(2, item.getYear());
+			ps.setString(3, item.getModel());
+			ps.setString(4, item.getName());
+			ps.setBoolean(5,item.isAvailable());
+			ps.setDouble(6,item.getFare());
+			ps.setInt(7, item.getDistance());
+			ps.setInt(8,id);
 			return ps.executeUpdate();
 		} 
 		catch (SQLException e) 

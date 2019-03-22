@@ -116,7 +116,7 @@ public class Driver
 				}*/
 
 			 //add Cab
-			int recordsAffected = db.add(new Cab(0,0,0,0,"civic","John Jones",false,0.0,0));
+			int recordsAffected = db.add(new Cab(0,0,0,"civic","John Jones",false,0.0,0));
 			
 			if(recordsAffected == 1)
 			{

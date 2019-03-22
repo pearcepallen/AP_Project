@@ -3,6 +3,7 @@ package Services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Scanner;
 
 import Entity.Cab;
@@ -67,14 +68,14 @@ public class CabManagerService extends CabManager
 		return false;
 	}
 	
-	public void requestDistance()
+	public List<Cab> requestDistance()
 	{
 		int id=1;
 		Cab cab = new Cab();
 		CabDb cabDb = new CabDb();
 		
 		cab.setDistance(cabDb.get(id).getDistance());
-		
+		return null;	
 	}
 	
 

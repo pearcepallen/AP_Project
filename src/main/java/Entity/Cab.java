@@ -3,26 +3,24 @@ package Entity;
 
 public class Cab 
 {
-	protected int c_id;
-	protected int req_id;
-	protected int trn;
-	protected int year;
-	protected String model;
-	protected String name;
-	protected boolean available;
-	protected double fare;
-	protected int distance;
+	private int c_id;
+	private int trn;
+	private int year;
+	private String model;
+	private String name;
+	private boolean available;
+	private double fare;
+	private int distance;
 
 	public Cab()
 	{
-		this(0,0,0,0,"civic","John Jones",false,0.0,0);
+		this(0,0,0,"civic","John Jones",false,0.0,0);
 	}
 
 		
-	public Cab(int c_id, int req_id, int trn, int year, String model, String name, boolean available, double fare, int distance) {
+	public Cab(int c_id, int trn, int year, String model, String name, boolean available, double fare, int distance) {
 		super();
 		this.c_id = c_id;
-		this.req_id = req_id;
 		this.trn = trn;
 		this.year = year;
 		this.model = model;
@@ -39,14 +37,7 @@ public class Cab
 	public void setC_id(int c_id) {
 		this.c_id = c_id;
 	}
-
-	public int getReq_id() {
-		return req_id;
-	}
-
-	public void setReq_id(int req_id) {
-		this.req_id = req_id;
-	}
+	
 
 	public int getTrn() {
 		return trn;
@@ -112,7 +103,7 @@ public class Cab
 	@Override
 	public String toString() 
 	{
-		return "Cab [c_id=" + c_id + ", req_id=" + req_id + ", trn=" + trn + ", year=" + year + ", model=" + model
+		return "Cab [c_id=" + c_id + ", trn=" + trn + ", year=" + year + ", model=" + model
 				+ ", name=" + name + ", available=" + available + ", fare=" + fare + ", distance=" + distance + "]";
 	}
 
