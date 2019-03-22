@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import Entity.Cab;
 import Entity.CabManager;
+import Entity.RequestModel;
 //import Entity.Report;
 import database.CabDb;
 
@@ -68,13 +69,14 @@ public class CabManagerService extends CabManager
 		return false;
 	}
 	
-	public List<Cab> requestDistance()
+	public List<RequestModel> requestDistance()
 	{
 		int id=1;
-		Cab cab = new Cab();
+		RequestModel request = new RequestModel();
 		CabDb cabDb = new CabDb();
 		
-		cab.setDistance(cabDb.get(id).getDistance());
+//		cab.setDistance(cabDb.get(id).getDistance());
+		request.setC_id(cabDb.get(id).getC_id());
 		return null;	
 	}
 	
