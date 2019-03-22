@@ -4,7 +4,7 @@
 package Services;
 
 import Entity.Customer;
-import Entity.Station;
+
 
 
 /**
@@ -12,10 +12,12 @@ import Entity.Station;
  *
  */
 
-public class CustomerService extends Customer implements Station
+public class CustomerService 
 {	
-	public boolean req_av(Station s) // check for taxi's availability in the station
+	/*	public boolean req_av(Station s) // check for taxi's availability in the station
 	{
+	
+	
 		boolean available = false;
 		if (Station_count()>0 )
 		{
@@ -26,7 +28,7 @@ public class CustomerService extends Customer implements Station
 			available = false;
 		}			 
 		return available;
-	}
+	}*/
 	
 	public boolean con_cab()  // books a cab for trip
 	{

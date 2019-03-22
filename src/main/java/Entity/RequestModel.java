@@ -1,11 +1,16 @@
 package Entity;
 
-import Database.CustomerDb;
+<<<<<<< HEAD
+=======
+import com.AscariCab.Artefacts.Controller.CustomerDb;
+>>>>>>> refs/heads/feature4
 
-public class RequestModel extends CustomerDb {
+public class RequestModel{
 
 	public RequestModel() {
-		// TODO Auto-generated constructor stub
+	
+		 		
+		
 	}
 
 }

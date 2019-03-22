@@ -1,4 +1,4 @@
-package Database;
+package com.AscariCab.Artefacts.Controller;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,11 +7,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import Entity.System1;
+import Entity.System;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SystemDb extends SQLProvider<System1>{
+public class SystemDb extends SQLProvider<System>{
 
 	private static final String TABLE_NAME = "yung_system";
 	Logger logger = LogManager.getLogger(SystemDb.class);
@@ -21,28 +21,27 @@ public class SystemDb extends SQLProvider<System1>{
 	{
 		try {
 			statement = connect.createStatement();
-			if (statement
-					.execute("CREATE TABLE if not exists "
+			if (statement.execute("create table if not exists "
 							+ TABLE_NAME +
-							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), distance INTEGER, fare double)")) 
+							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), distance INTEGER, fare double")) 
 			{
-				logger.debug("System1 table created");
+				logger.debug("System table created");
 			} 
 			else
 			{
-				logger.debug("System1 table does not need to be created");
+				logger.debug("System table does not need to be created");
 			}
-			logger.debug("System1 table exists");
+			logger.debug("System table exists");
 			
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize System1 Database", e);
+				logger.error("Unable to initialize System com.AscariCab.Artefacts.Controller", e);
 			}				
 	}
 
 	@Override
-	public int add(System1 item) 
+	public int add(System item) 
 	{
 		try 
 		{
@@ -65,9 +64,9 @@ public class SystemDb extends SQLProvider<System1>{
 	}
 
 	@Override
-	public List<System1> selectAll() 
+	public List<System> selectAll() 
 	{
-		List<System1> item = new ArrayList<System1>();
+		List<System> item = new ArrayList<System>();
 		try 
 		{		
 			Statement stat = connect.createStatement();
@@ -77,13 +76,13 @@ public class SystemDb extends SQLProvider<System1>{
 				{
 				while(rs.next())
 					{
-						System1 system1 = new System1();						
-						system1.setId(rs.getInt("id"));
-						system1.setLocation(rs.getString("location"));
-						system1.setDestination(rs.getString("destination"));
-						system1.setDistance(rs.getInt("distance"));
-						system1.setPrice(rs.getDouble("price"));
-						item.add(system1);				
+						System system = new System();						
+						system.setId(rs.getInt("id"));
+						system.setLocation(rs.getString("location"));
+						system.setDestination(rs.getString("destination"));
+						system.setDistance(rs.getInt("distance"));
+						system.setPrice(rs.getDouble("price"));
+						item.add(system);				
 					}
 				}
 		}		
@@ -91,16 +90,16 @@ public class SystemDb extends SQLProvider<System1>{
 		catch(SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("unable to select all System1 items",e);
+				logger.error("unable to select all System items",e);
 				return null;
 			}
 			return item;
 	}
 
 	@Override
-	public System1 get(int id) 
+	public System get(int id) 
 	{
-		System1 system1 = new System1();
+		System system = new System();
 		try
 		{		
 			Statement stat = connect.createStatement();
@@ -111,11 +110,11 @@ public class SystemDb extends SQLProvider<System1>{
 			{				
 				while(rs.next())
 				{									
-					system1.setId(rs.getInt("id"));
-					system1.setLocation(rs.getString("location"));
-					system1.setDestination(rs.getString("destination"));
-					system1.setDistance(rs.getInt("distance"));
-					system1.setPrice(rs.getDouble("price"));
+					system.setId(rs.getInt("id"));
+					system.setLocation(rs.getString("location"));
+					system.setDestination(rs.getString("destination"));
+					system.setDistance(rs.getInt("distance"));
+					system.setPrice(rs.getDouble("price"));
 					
 				}
 			}
@@ -126,12 +125,12 @@ public class SystemDb extends SQLProvider<System1>{
 			logger.error("unable to retrieve system item",e);
 			return null;
 		}
-		return system1;
+		return system;
 	}
 		
 
 	@Override
-	public int update(System1 item, int id) 
+	public int update(System item, int id) 
 	{
 		try 
 		{				
@@ -146,7 +145,7 @@ public class SystemDb extends SQLProvider<System1>{
 		catch(SQLException e)		
 		{
 			e.printStackTrace();
-			logger.error("System1 item not updated");
+			logger.error("System item not updated");
 		}
 		return 0;
 	}
@@ -163,7 +162,7 @@ public class SystemDb extends SQLProvider<System1>{
 		catch(SQLException e)		
 		{
 			e.printStackTrace();
-			logger.debug("System1 record was not deleted");
+			logger.debug("System record was not deleted");
 			return 0;
 		}	
 	}
@@ -184,37 +183,37 @@ public class SystemDb extends SQLProvider<System1>{
 		}
 		return 0;
 	}
+
 	
 }
-
 /*
-papine              		papine 					0km			0.0
-papine 						hwt						3km			410.0
-papine						mountain view			6km			470.0
-papine 						downtown kingston		10km		550.0
-papine 						liguanea 				2km			390.0
+papine                  			papine 			0km			0.0
+papine 				hwt			3km			
+papine				mountain view		6km
+papine 				downtown kingston		10km
+papine 				liguanea 			2km
 
-hwt							hwt						0km			0.0
-hwt							papine 					3km			410.0
-hwt							mountain view			9km			530.0
-hwt							downtown kingston		13km		610.0
-hwt							liguanea 				5km			450.0
+hwt				hwt			0km
+hwt				papine 			3km
+hwt				mountain view		9km
+hwt				downtown kingston		13km
+hwt				liguanea 			5km
 
-mountain view               mountain view			0km			0.0
-mountain view				papine 					6km			470.0
-mountain view				hwt						9km			530.0
-mountain view				downtown kingston		4km			430.0
-mountain view				liguanea 				4km			430.0
+mountain view                                             mountain view		0km
+mountain view			papine 			6km
+mountain view			hwt			9km
+mountain view			downtown kingston		4km
+mountain view			liguanea 			4km
 
-downtown kingston			downtown kingston		0km			0.0
-downtown kingston			liguanea 				8km			510.0
-downtown kingston			papine 					10km		550.0
-downtown kingston			hwt						13km		610.0
-downtown kingston			mountain view			4km			430.0
+downtown kingston			downtown kingston		0km
+downtown kingston			liguanea 			8km
+downtown kingston			papine 			10km
+downtown kingston			hwt			13km
+downtown kingston			mountain view		4km
 
-liguanea					liguanea				0km			0.0
-liguanea					papine 					2km			390.0
-liguanea					hwt						5km			450.0
-liguanea					mountain view			4km			430.0
-liguanea					downtown kingston		8km			510.0
+liguanea				liguanea			0km
+liguanea				papine 			2km
+liguanea				hwt			5km
+liguanea				mountain view		4km
+liguanea				downtown kingston		8km
 */
