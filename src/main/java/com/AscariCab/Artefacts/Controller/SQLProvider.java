@@ -22,7 +22,7 @@ abstract public class SQLProvider <T>
 
 
 	
-	@SuppressWarnings("deprecation")
+	//@SuppressWarnings("deprecation")
 	public SQLProvider() 
 	{
 		try 

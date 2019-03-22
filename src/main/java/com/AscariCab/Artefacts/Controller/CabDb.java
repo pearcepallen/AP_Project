@@ -1,6 +1,9 @@
 package com.AscariCab.Artefacts.Controller;
 
 import java.sql.PreparedStatement;
+
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,18 +13,25 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import Entity.Cab;
 
-
+@RestController
+@RequestMapping(value = "/api/cab")
 public class CabDb extends SQLProvider <Cab>
 {
+	
+	public String body() {
+		
+		return "hello";
+	}
 
 	Logger logger = LogManager.getLogger(CabDb.class);
 	public static final String TABLE_NAME = "yung_Cab";
 	
-			
+		
 	@Override
 	protected void initSQLDatabase() {
 		try {
