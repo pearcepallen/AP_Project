@@ -50,23 +50,22 @@ public class CabManagerController
 	@GetMapping("/{id}")
 	public CabManager get(@PathVariable(value="id")  int id) 
 	{
+		
+		
 		CabManager item = new CabManager();
 		item = cabmandb.get(id);
-		try 
 		{
 			if (item != null )	
 			{
 				logger.info("item exits");
 			}				
 		}
-		catch(ResourceNotFoundException e ) 
-		{
-		e.printStackTrace();
-		return null;
-		}
+	//	return null;
+		
 		return item;
 					
 	}
+	
 
 	@PutMapping("/{id}")
 	public CabManager update(@PathVariable(value = "id") int id,@Valid @RequestBody CabManager details) 
@@ -79,15 +78,17 @@ public class CabManagerController
 			 {				
 				 cabman.setEmail(details.getEmail());
 				 cabman.setPassword(details.getPassword());				 
-				 cabmandb.add(cabman);			 
-			 }	 
+				 cabmandb.add(cabman);	
+				
+			 }	
+			 return cabman;  
 		}
 		catch(ResourceNotFoundException e ) 
 			{
 			e.printStackTrace();
 			return null;
 			}
-		return cabman;  
+		
 	}
 
 @DeleteMapping("/{id}")

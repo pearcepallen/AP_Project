@@ -67,8 +67,7 @@ public Cab update(@PathVariable(value = "id") int id,@Valid @RequestBody Cab det
 
 	Cab cab = new Cab();
 	cabdb.update(details,id);	
-	try
-	{		
+		
 		 if (cab != null)
 		 {
 			 cab.setDistance(details.getDistance());
@@ -81,12 +80,6 @@ public Cab update(@PathVariable(value = "id") int id,@Valid @RequestBody Cab det
 			 cab.setAvailable(details.isAvailable());			 
 			 cabdb.add(cab);			 
 		 }	 
-	}
-	catch(ResourceNotFoundException e ) 
-		{
-		e.printStackTrace();
-		return null;
-		}
 	return cab;  
 }
 
