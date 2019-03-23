@@ -16,7 +16,7 @@ import Entity.Customer;
 public class CustomerDb extends SQLProvider<Customer>{
 
 	
-	Logger logger = LogManager.getLogger(CustomerDb.class);
+	Logger logger = LogManager.getLogger(Customer.class);
 	public static final String TABLE_NAME = "yung_Customer";
 	
 			
@@ -27,7 +27,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 			if (statement
 					.execute("create table if not exists "
 							+ TABLE_NAME +
-							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), number INTEGER, feedback varchar(500)")) 
+							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), number INTEGER, feedback varchar(50), rating rate, confirm_pk boolean, boolean confirm_arr")) 
 			{
 				logger.debug("Customer table created");
 			} 
@@ -50,14 +50,16 @@ public class CustomerDb extends SQLProvider<Customer>{
 		
 		try{
 			String query = "INSERT INTO "+TABLE_NAME
-					       + "(location,destination,number,feedback)  VALUES (?,?,?,?)";
+					       + "(location,destination,number,feedback, rating, confirm_pk, confirm_arr)  VALUES (?,?,?,?,?,?)";
 			PreparedStatement ps = connect.prepareStatement(query);
 			ps.setString(1, item.getLocation());
 			ps.setString(2, item.getDestination());
 			ps.setInt(3,item.getNumber());
 			ps.setString(4,item.getFeedback());
-			return ps.executeUpdate();
-					
+			ps.setBoolean(5,item.isConfirm_pk());
+			ps.setBoolean(6,item.isConfirm_arr());
+
+			return ps.executeUpdate();		
     	}
 		catch(SQLException e)
 		{
@@ -74,7 +76,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 		List<Customer> items = new ArrayList<Customer>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "select id, location,destination,number,feedback from "+TABLE_NAME;
+			String sql = "select id, location,destination,number,feedback, rating, confirm_pk, confirm_arr from "+TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) {
 				while(rs.next()) {
@@ -83,6 +85,9 @@ public class CustomerDb extends SQLProvider<Customer>{
 					Customer.setDestination(rs.getString("destination"));
 					Customer.setNumber(rs.getInt("number"));
 					Customer.setFeedback(rs.getString("feedback"));
+				//Customer.setRating(rs.get("rating"));
+					Customer.setConfirm_pk(rs.getBoolean("confirm_pk"));
+					Customer.setConfirm_arr(rs.getBoolean("confirm_arr"));
 					items.add(Customer);
 				}
 			}
@@ -114,6 +119,8 @@ public class CustomerDb extends SQLProvider<Customer>{
 					Customer.setDestination(rs.getString("destination"));
 					Customer.setNumber(rs.getInt("number"));
 					Customer.setFeedback(rs.getString("feedback"));
+					Customer.setConfirm_pk(rs.getBoolean("confirm_pk"));
+					Customer.setConfirm_arr(rs.getBoolean("confirm_arr"));
 					return Customer;
 				}								
 			}				
@@ -131,7 +138,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 	{		
 		try 
 		{	
-			String query = " UPDATE " +TABLE_NAME+ " SET  location = ?, destination = ?, number = ?, feedback = ?" +
+			String query = " UPDATE " +TABLE_NAME+ " SET  location = ?, destination = ?, number = ?, feedback = ?, confirm_pk = ?, confirm_arr = ?" +
 					   " WHERE id = ?";
 			PreparedStatement ps;		
 			ps = connect.prepareStatement(query);			
@@ -139,6 +146,9 @@ public class CustomerDb extends SQLProvider<Customer>{
 			ps.setString(2, item.getDestination());
 			ps.setInt(3,item.getNumber());
 			ps.setString(4,item.getFeedback());
+			ps.setBoolean(5,item.isConfirm_pk());
+			ps.setBoolean(6,item.isConfirm_arr());
+			
 			return ps.executeUpdate();
 		} 
 		catch (SQLException e) 
