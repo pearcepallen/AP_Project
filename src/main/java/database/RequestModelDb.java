@@ -26,7 +26,7 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 			statement = connect.createStatement();
 			if (statement
 					.execute("CREATE TABLE if not exists "+TABLE_NAME+
-							"(id INTEGER PRIMARY KEY AUTOINCREMENT, req_id INTEGER, c_number INTEGER, c_id INTEGER, location VARCHAR(50), destination VARCHAR(50))"))
+							"(id INTEGER PRIMARY KEY AUTOINCREMENT, req_id INTEGER, c_number INTEGER, c_id INTEGER, location VARCHAR(50), destination VARCHAR(50), distance INT, fare DOUBLE)"))
 			{
 				logger.debug("RequestModel table created");
 			} 
@@ -48,13 +48,15 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 	{
 		try{
 			String query = "INSERT INTO "+TABLE_NAME
-					       + "(trn,year,model,name,available,fare,distance)  VALUES (?,?,?,?,?,?,?)";
+					       + "(req_id, c_number, c_id, location, destination, distance, fare)  VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement ps = connect.prepareStatement(query);			
 			ps.setInt(1, item.getReq_id());
 			ps.setInt(2, item.getC_number());
 			ps.setInt(3, item.getC_id());
 			ps.setString(4, item.getLocation());
-			ps.setString(5,item.getDestination());
+			ps.setString(5, item.getDestination());
+			ps.setInt(6, item.getDistance());
+			ps.setDouble(7, item.getFare());
 			return ps.executeUpdate();
 					
     	}catch(SQLException e){
@@ -71,7 +73,7 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 		List<RequestModel> items = new ArrayList<RequestModel>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "SELECT req_id, c_number, c_id, location, destination"+TABLE_NAME;
+			String sql = "SELECT req_id, c_number, c_id, location, destination, distance, fare"+TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) 
 			{
@@ -83,6 +85,8 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 					RequestModel.setC_id(rs.getInt("c_id"));
 					RequestModel.setLocation(rs.getString("location"));
 					RequestModel.setDestination(rs.getString("destination"));
+					RequestModel.setDistance(rs.getInt("distance"));
+					RequestModel.setFare(rs.getDouble("fare"));
 					
 					items.add(RequestModel);					
 				}
@@ -116,6 +120,9 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 					RequestModel.setC_id(rs.getInt("c_id"));
 					RequestModel.setLocation(rs.getString("location"));
 					RequestModel.setDestination(rs.getString("destination"));
+					RequestModel.setDistance(rs.getInt("distance"));
+					RequestModel.setFare(rs.getDouble("fare"));
+					
 					return RequestModel;
 				}								
 			}				
@@ -134,8 +141,9 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 	{		
 		try 
 		{	
-			String query = " UPDATE " +TABLE_NAME+ " SET  trn = ?, year = ?, model = ?, name = ?, available = ?, fare = ? , distance = ?" +
+			String query = " UPDATE " +TABLE_NAME+ " SET req_id = ?, c_number = ?, c_id = ?, location = ?, destination = ?, distance = ? , fare = ?" +
 					   " WHERE c_id = ?";
+			//req_id, c_number, c_id, location, destination, distance, fare
 			PreparedStatement ps;		
 			ps = connect.prepareStatement(query);				
 			ps.setInt(1, item.getReq_id());
@@ -143,6 +151,8 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 			ps.setInt(3, item.getC_id());
 			ps.setString(4, item.getLocation());
 			ps.setString(5,item.getDestination());
+			ps.setInt(6,item.getDistance());
+			ps.setDouble(7,item.getFare());
 			ps.setInt(8,id);
 			return ps.executeUpdate();
 		} 
@@ -204,4 +214,4 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 
 }
 
-}
+
