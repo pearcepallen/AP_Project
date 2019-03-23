@@ -1,6 +1,6 @@
 package project;
 
-import Database.SystemDb;
+import database.SystemDb;
 import Entity.System1;
 
 import static org.junit.Assert.assertEquals;
