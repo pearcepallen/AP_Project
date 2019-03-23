@@ -1,16 +1,14 @@
 
 package Services;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 import Entity.Cab;
 import Entity.CabManager;
 import Entity.RequestModel;
-//import Entity.Report;
 import database.CabDb;
+import database.CustomerDb;
 
 
 public class CabManagerService extends CabManager
@@ -71,14 +69,27 @@ public class CabManagerService extends CabManager
 	
 	public List<RequestModel> requestDistance()
 	{
-		int id=1;
-		RequestModel request = new RequestModel();
-		CabDb cabDb = new CabDb();
+		String concat;
+		int combined;
 		
-//		cab.setDistance(cabDb.get(id).getDistance());
-		request.setC_id(cabDb.get(id).getC_id());
-		return null;	
-	}
-	
+		int id=1;
+		List<RequestModel>  requests = new ArrayList<RequestModel>();				
+		CabDb cabDb = new CabDb();
+		CustomerDb cust = new CustomerDb();
+		
+		for (RequestModel request : requests )
+		{					
+			request.setC_id(cabDb.get(id).getC_id());
+			request.setC_number(cust.get(id).getNumber());
+			concat = Integer.toString(cust.get(id).getNumber()) + Integer.toString(cabDb.get(id).getC_id());
+			combined = Integer.parseInt(concat);
+			request.setReq_id(combined);
+			request.setLocation(cust.get(id).getLocation());
+			request.setDestination(cust.get(id).getDestination());
+			request.setDistance(cabDb.get(id).getDistance());
+			request.setFare(cabDb.get(id).getFare());							
+		}
+		return requests;			
+	}	
 
 }
