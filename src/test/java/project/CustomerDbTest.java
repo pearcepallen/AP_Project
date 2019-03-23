@@ -92,6 +92,7 @@ public class CustomerDbTest extends CustomerDb
 	public void shouldDeleteMultiple()
 	{
 		CustomerDb mult = new CustomerDb();
+		
 		Customer dt = new Customer("Papine", "hwt", 3730990, "Good", Rate.excellent, true, false); 
 		Customer cm = new Customer("hwt", "downtown kingston", 5749747, "Excellent", Rate.good, true, true);
 		
