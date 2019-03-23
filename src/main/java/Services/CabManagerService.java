@@ -3,17 +3,15 @@ package Services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Scanner;
 
-<<<<<<< HEAD
-=======
-import com.AscariCab.Artefacts.Controller.CabDb;
-
->>>>>>> refs/heads/feature4
 import Entity.Cab;
 import Entity.CabManager;
+import Entity.RequestModel;
 //import Entity.Report;
-import database.Controllers.CabDb;
+import database.CabDb;
+
 
 public class CabManagerService extends CabManager
 {
@@ -71,14 +69,15 @@ public class CabManagerService extends CabManager
 		return false;
 	}
 	
-	public void requestDistance()
+	public List<RequestModel> requestDistance()
 	{
 		int id=1;
-		Cab cab = new Cab();
+		RequestModel request = new RequestModel();
 		CabDb cabDb = new CabDb();
 		
-		cab.setDistance(cabDb.get(id).getDistance());
-		
+//		cab.setDistance(cabDb.get(id).getDistance());
+		request.setC_id(cabDb.get(id).getC_id());
+		return null;	
 	}
 	
 

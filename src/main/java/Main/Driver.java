@@ -5,18 +5,13 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-<<<<<<< HEAD
-=======
-import com.AscariCab.Artefacts.Controller.CabDb;
-import com.AscariCab.Artefacts.Controller.CabManagerDb;
-import com.AscariCab.Artefacts.Controller.SQLProvider;
-
->>>>>>> refs/heads/feature4
 import Entity.Cab;
-import database.Controllers.CabDb;
-import database.Controllers.CabManagerDb;
-import database.Controllers.SQLProvider;
-//import Entity.Cab;
+import Entity.System1;
+import database.CabDb;
+import database.SQLProvider;
+import database.SystemDb;
+
+import Entity.Cab;
 //import Entity.DistanceModel;
 public class Driver 
 {
@@ -24,12 +19,12 @@ public class Driver
 	{
 		
 		Logger logger = null;
-		logger = LogManager.getLogger(CabManagerDb.class);
+		logger = LogManager.getLogger(Driver.class);
 		
 	//	SQLProvider<CabManager> db = new CabManagerDb();
 		SQLProvider<Cab> db = new CabDb();
 	//	SQLProvider<DistanceModel> db = new DistanceReportDb();
-
+	//	SystemDb db = new SystemDb();
 		
 	/*	 //add
 		int recordsAffected = db.add(new CabManager(34,"demarBlackgmail.com","demar"));
@@ -121,7 +116,7 @@ public class Driver
 				}*/
 
 			 //add Cab
-			int recordsAffected = db.add(new Cab(0,0,0,0,"civic","John Jones",false,0.0,0));
+			int recordsAffected = db.add(new Cab(0,0,0,"civic","John Jones",false,0.0,0));
 			
 			if(recordsAffected == 1)
 			{
@@ -143,6 +138,26 @@ public class Driver
 				{
 					System.out.println(cm);
 				}
+	/*	int max = 0;
+		max = db.populateDb();
+		if(max >= 25)
+		{
+			logger.info("System Database populated");			
+		}
+		else
+		{		
+		logger.info("System Database not populated");				
+		}
+		
+		List<System1> results = db.selectAll();
+		System.out.println(CabDb.TABLE_NAME);
+		System.out.println("--- Retrieved -- ");
+		
+		for(System1 cm : results) 
+			{
+				System.out.println(cm);
+			}
+*/
 		
 	/*
 		int recordsAffected = db.add(new DistanceModel());

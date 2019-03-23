@@ -1,5 +1,4 @@
-package Database;
-
+package database;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +23,7 @@ public class SystemDb extends SQLProvider<System1>{
 			if (statement
 					.execute("CREATE TABLE if not exists "
 							+ TABLE_NAME +
-							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), distance INTEGER, fare double)")) 
+							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), distance INTEGER, price double)")) 
 			{
 				logger.debug("System1 table created");
 			} 
@@ -46,16 +45,16 @@ public class SystemDb extends SQLProvider<System1>{
 	{
 		try 
 		{
-			String sql = "INSERT INTO "+TABLE_NAME+" (location,destination,distance,fare) VALUES(?,?,?,?)"; 
+			String sql = "INSERT INTO "+TABLE_NAME
+					+" (location,destination,distance,price) VALUES (?,?,?,?)"; 
 			PreparedStatement ps = connect.prepareStatement(sql);
-			ps.executeUpdate();
-			{
+			
 				ps.setString(1,item.getLocation());
 				ps.setString(2,item.getDestination());
 				ps.setInt(3, item.getDistance());
 				ps.setDouble(4,item.getPrice());
 				return ps.executeUpdate();
-			}
+			
 		}
 		catch(SQLException e)
 		{
@@ -71,7 +70,8 @@ public class SystemDb extends SQLProvider<System1>{
 		try 
 		{		
 			Statement stat = connect.createStatement();
-			String sql = "SELECT id, location, destination, distance, fare FROM" +TABLE_NAME;
+			String sql = "SELECT id, location, destination, distance, price FROM " +TABLE_NAME;
+			logger.trace(sql);
 			ResultSet rs = stat.executeQuery(sql);
 			if(rs != null)
 				{
@@ -104,7 +104,7 @@ public class SystemDb extends SQLProvider<System1>{
 		try
 		{		
 			Statement stat = connect.createStatement();
-			String sql = "SELECT id, location, destination, distance, fare FROM" +TABLE_NAME+ " WHERE (id) ="+id;
+			String sql = "SELECT id, location, destination, distance, price FROM" +TABLE_NAME+ " WHERE (id) ="+id;
 			ResultSet rs = stat.executeQuery(sql);
 			
 			if(rs != null)
@@ -155,7 +155,7 @@ public class SystemDb extends SQLProvider<System1>{
 	public int delete(int id) {
 		try
 		{								
-			String sql = "DELETE * from"+TABLE_NAME+ " WHERE (id) = ?";
+			String sql = "DELETE * from "+TABLE_NAME+ " WHERE (id) = ?";
 			PreparedStatement ps = connect.prepareStatement(sql);
 			ps.setInt(1,id);
 			return ps.executeUpdate();
@@ -184,37 +184,80 @@ public class SystemDb extends SQLProvider<System1>{
 		}
 		return 0;
 	}
+
+	public int populateDb()
+	{
+		SQLProvider<System1> db  = new SystemDb();	
+		
+		int max = 0;	
+		logger.info("populating System Database");
+		max = db.add(new System1(1,"papine","papine",0,0.0))
+				+db.add(new System1(2,"papine","hwt",3,410.0))
+				+db.add(new System1(3,"papine","mountain view",6,470.0))
+				+db.add(new System1(4,"papine","downtown kingston",10,550.0))
+				+db.add(new System1(5,"papine","liguanea",2,390.0))
+				
+				+db.add(new System1(6,"hwt","hwt",0,0.0))
+				+db.add(new System1(7,"hwt","papine",3,410.0))
+				+db.add(new System1(8,"hwt","mountain view",9,530.0))
+				+db.add(new System1(9,"hwt","downtown kingston",13,610.0))
+				+db.add(new System1(10,"hwt","liguanea",5,450.0))
+				
+				+db.add(new System1(11,"mountain view","mountain view",0,0.0))
+				+db.add(new System1(12,"mountain view","papine",6,470.0))
+				+db.add(new System1(13,"mountain view","hwt",9,530.0))
+				+db.add(new System1(14,"mountain view","downtown kingston",4,430.0))
+				+db.add(new System1(15,"mountain view","liguanea",4,430.0))
+				
+				+db.add(new System1(16,"downtown kingston","downtown kingston",0,0.0))
+				+db.add(new System1(17,"downtown kingston","liguanea",8,510.0))
+				+db.add(new System1(18,"downtown kingston","papine",10,550.0))
+				+db.add(new System1(19,"downtown kingston","hwt",13,610.0))
+				+db.add(new System1(20,"downtown kingston kingston","mountain view",4,430.0))
+				
+				+db.add(new System1(21,"liguanea","liguanea",0,0.0))
+				+db.add(new System1(22,"liguanea","papine",2,390.0))
+				+db.add(new System1(23,"liguanea","hwt",5,450.0))
+				+db.add(new System1(24,"liguanea","mountain view",4,430.0))
+				+db.add(new System1(25,"liguanea","downtown kingston",8,510.0));
+				
+		return max;
+	
+
 	
 }
+}
+	
+
 
 /*
-papine              		papine 					0km			0.0
-papine 						hwt						3km			410.0
-papine						mountain view			6km			470.0
-papine 						downtown kingston		10km		550.0
-papine 						liguanea 				2km			390.0
+papine              		papine 					0 			0.0
+papine 						hwt						3 			410.0
+papine						mountain view			6 			470.0
+papine 						downtown kingston		10 		550.0
+papine 						liguanea 				2 			390.0
 
-hwt							hwt						0km			0.0
-hwt							papine 					3km			410.0
-hwt							mountain view			9km			530.0
-hwt							downtown kingston		13km		610.0
-hwt							liguanea 				5km			450.0
+hwt							hwt						0 			0.0
+hwt							papine 					3 			410.0
+hwt							mountain view			9 			530.0
+hwt							downtown kingston		13 		610.0
+hwt							liguanea 				5 			450.0
 
-mountain view               mountain view			0km			0.0
-mountain view				papine 					6km			470.0
-mountain view				hwt						9km			530.0
-mountain view				downtown kingston		4km			430.0
-mountain view				liguanea 				4km			430.0
+mountain view               mountain view			0 			0.0
+mountain view				papine 					6 			470.0
+mountain view				hwt						9 			530.0
+mountain view				downtown kingston		4 			430.0
+mountain view				liguanea 				4 			430.0
 
-downtown kingston			downtown kingston		0km			0.0
-downtown kingston			liguanea 				8km			510.0
-downtown kingston			papine 					10km		550.0
-downtown kingston			hwt						13km		610.0
-downtown kingston			mountain view			4km			430.0
+downtown kingston			downtown kingston		0 			0.0
+downtown kingston			liguanea 				8 			510.0
+downtown kingston			papine 					10 		550.0
+downtown kingston			hwt						13 		610.0
+downtown kingston			mountain view			4 			430.0
 
-liguanea					liguanea				0km			0.0
-liguanea					papine 					2km			390.0
-liguanea					hwt						5km			450.0
-liguanea					mountain view			4km			430.0
-liguanea					downtown kingston		8km			510.0
+liguanea					liguanea				0 			0.0
+liguanea					papine 					2 			390.0
+liguanea					hwt						5 			450.0
+liguanea					mountain view			4 			430.0
+liguanea					downtown kingston		8 			510.0
 */

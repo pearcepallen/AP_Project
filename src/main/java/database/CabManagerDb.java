@@ -1,4 +1,4 @@
-package Database;
+package database;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,17 +7,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import Entity.CabManager;
 
-import Entity.Customer;
+public class CabManagerDb extends SQLProvider<CabManager> {
 
-public class CustomerDb extends SQLProvider<Customer>{
-
-	
-	Logger logger = LogManager.getLogger(CustomerDb.class);
-	public static final String TABLE_NAME = "yung_Customer";
+	Logger logger = LogManager.getLogger(CabManagerDb.class);
+	public static final String TABLE_NAME = "yung_CabManager";
 	
 			
 	@Override
@@ -27,42 +24,37 @@ public class CustomerDb extends SQLProvider<Customer>{
 			if (statement
 					.execute("create table if not exists "
 							+ TABLE_NAME +
-							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), number INTEGER, feedback varchar(500)")) 
+							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, email varchar(50), password varchar(50) )")) 
 			{
-				logger.debug("Customer table created");
+				logger.debug("Cab Manager table created");
 			} 
 			else
 			{
-				logger.debug("Customer table does not need to be created");
+				logger.debug("Cab Manager table does not need to be created");
 			}
-			logger.debug("Customer table exists");
+			logger.debug("Cab Manager table exists");
 			
 			} catch (SQLException e) 
 			{
 				e.printStackTrace();
-				logger.error("Unable to initialize SQL Database", e);
+				logger.error("Unable to initialize SQL database", e);
 			}
 	}
 
 	@Override
-	public int add(Customer item) 
+	public int add(CabManager item) 
 	{
-		
 		try{
 			String query = "INSERT INTO "+TABLE_NAME
-					       + "(location,destination,number,feedback)  VALUES (?,?,?,?)";
+					       + "(email,password)  VALUES (?,?)";
 			PreparedStatement ps = connect.prepareStatement(query);
-			ps.setString(1, item.getLocation());
-			ps.setString(2, item.getDestination());
-			ps.setInt(3,item.getNumber());
-			ps.setString(4,item.getFeedback());
+			ps.setString(1, item.getEmail());
+			ps.setString(2, item.getPassword());
 			return ps.executeUpdate();
 					
-    	}
-		catch(SQLException e)
-		{
+    	}catch(SQLException e){
     		e.printStackTrace();
-			logger.error("Unable to add Customer",e);
+			logger.error("Unable to add CabManager",e);
 		}
 		
 		return 0;
@@ -70,24 +62,22 @@ public class CustomerDb extends SQLProvider<Customer>{
 	}
 	
 	@Override
-	public List<Customer> selectAll() {
-		List<Customer> items = new ArrayList<Customer>();
+	public List<CabManager> selectAll() {
+		List<CabManager> items = new ArrayList<CabManager>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "select id, location,destination,number,feedback from "+TABLE_NAME;
+			String sql = "select id, email, password from "+TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) {
 				while(rs.next()) {
-					Customer Customer = new Customer (); 
-					Customer.setLocation(rs.getString("location"));
-					Customer.setDestination(rs.getString("destination"));
-					Customer.setNumber(rs.getInt("number"));
-					Customer.setFeedback(rs.getString("feedback"));
-					items.add(Customer);
+					CabManager CabManager = new CabManager();
+					CabManager.setId( rs.getInt("id") );
+					CabManager.setEmail(rs.getString("email"));
+					CabManager.setPassword(rs.getString("password"));
+					items.add(CabManager);
 				}
 			}
-		}catch(SQLException e) 
-		{
+		}catch(SQLException e) {
 			e.printStackTrace();
 			logger.error("unable to select all",e);
 			return null;
@@ -98,7 +88,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 	
 	
 	@Override
-	public Customer get(int id) {
+	public CabManager get(int id) {
 		try
 		{
 			Statement stat;
@@ -109,36 +99,34 @@ public class CustomerDb extends SQLProvider<Customer>{
 			{
 				while(rs.next())
 				{					
-					Customer Customer = new Customer();
-					Customer.setLocation(rs.getString("location"));
-					Customer.setDestination(rs.getString("destination"));
-					Customer.setNumber(rs.getInt("number"));
-					Customer.setFeedback(rs.getString("feedback"));
-					return Customer;
+					CabManager cd = new CabManager();
+					cd.setId(rs.getInt("id"));
+					cd.setEmail(rs.getString("email"));
+					cd.setPassword(rs.getString("password"));
+					return cd;
 				}								
 			}				
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
-			logger.error("Unable to retrieve Customer",e);
+			logger.error("Unable to retrieve Cab Manager",e);
 		}
 		return null;
 	}
 
 	@Override
-	public int update(Customer item, int id) 
+	public int update(CabManager item, int id) 
 	{		
 		try 
 		{	
-			String query = " UPDATE " +TABLE_NAME+ " SET  location = ?, destination = ?, number = ?, feedback = ?" +
+			String query = " UPDATE " +TABLE_NAME+ " SET email = ?, password = ? " +
 					   " WHERE id = ?";
 			PreparedStatement ps;		
 			ps = connect.prepareStatement(query);			
-			ps.setString(1, item.getLocation());
-			ps.setString(2, item.getDestination());
-			ps.setInt(3,item.getNumber());
-			ps.setString(4,item.getFeedback());
+			ps.setString(1,item.getEmail());
+			ps.setString(2,item.getPassword());
+			ps.setInt(3,id);
 			return ps.executeUpdate();
 		} 
 		catch (SQLException e) 
@@ -163,7 +151,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
-			logger.error("Unable to delete Customer with id "+id,e);
+			logger.error("Unable to delete Cab Manager with id "+id,e);
 
 		}
 		return 0;
@@ -187,5 +175,6 @@ public class CustomerDb extends SQLProvider<Customer>{
 		return 0;
 	}
 
+	
 
 }
