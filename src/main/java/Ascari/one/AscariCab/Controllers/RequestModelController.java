@@ -87,13 +87,14 @@ public RequestModel update(@PathVariable(value = "id") int id,@Valid @RequestBod
 			 			
 			 requestdb.add(request);			 
 		 }	 
+			return request; 
 	}
 	catch(ResourceNotFoundException e ) 
 		{
 		e.printStackTrace();
 		return null;
 		}
-	return request;  
+ 
 }
 
 
@@ -107,14 +108,14 @@ public ResponseEntity<?> delete(@PathVariable(value = "id") int id) {
 				 {
 					 requestdb.delete(id);
 				 }
-	
+				  return ResponseEntity.ok().build();
 			}
 	catch(ResourceNotFoundException e )
 	{
 		e.printStackTrace();
 		return null;
 	}
-    return ResponseEntity.ok().build();
+  
 }
 
 }

@@ -88,13 +88,14 @@ public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Cu
 			 cust.setConfirm_pk(details.isConfirm_pk());
 			 custdb.add(cust);			 
 		 }	 
+			return cust;  
 	}
 	catch(ResourceNotFoundException e ) 
 		{
 		e.printStackTrace();
 		return null;
 		}
-	return cust;  
+
 }
 
 
@@ -108,13 +109,13 @@ public ResponseEntity<?> delete(@PathVariable(value = "id") int id) {
 				 {
 					 custdb.delete(id);
 				 }
-	
+				 return ResponseEntity.ok().build();
 			}
 	catch(ResourceNotFoundException e )
 	{
 		e.printStackTrace();
 		return null;
 	}
-    return ResponseEntity.ok().build();
+    
 }
 }
