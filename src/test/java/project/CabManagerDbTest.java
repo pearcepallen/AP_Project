@@ -15,8 +15,8 @@ public class CabManagerDbTest extends CabManagerDb {
 		CabManager cm = new CabManager(123,"oosh","oosshAgain");
 		CabManager cd = new CabManager(123,"oosh","oosshAgain");
 		assertEquals(cm,cd);
-	}
-*/
+	}*/
+
 	@Test
 	public void shouldAddToDatabase()
 	{
@@ -27,7 +27,7 @@ public class CabManagerDbTest extends CabManagerDb {
 		assertEquals(deff,success,0);		
 	}
 	
-	/*
+	
 	@Test
 	public void shouldGetItem()
 	{
@@ -37,9 +37,9 @@ public class CabManagerDbTest extends CabManagerDb {
 		CabManager success = db.get(id);
 		assertEquals(cm,success);
 	}
-	*/
 	
-	/*
+	
+	
 	@Test 
 	public void shouldUpdateDatabase()
 	{
@@ -50,9 +50,9 @@ public class CabManagerDbTest extends CabManagerDb {
 		int success;
 		success = db.update(cm, id);
 		assertEquals(deff,success,0);
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void shouldPrintObject()
 	{
 		CabManager pr = new CabManager(123,"oosh","oosshAgain"); 
@@ -69,20 +69,38 @@ public class CabManagerDbTest extends CabManagerDb {
 		pass = Display.getPassword();
 		System.out.println(pass);
 		
-	}*/
+	}
 	
-	/*
 	@Test 
 	public void shouldDeleteFromDatabase()
 	{
+		CabManagerDb delete = new CabManagerDb();
+		CabManager dt = new CabManager(123,"oosh","oosshAgain"); 
 		
-	}*/
+
+		int Delete;
+		int id = 123;
+		
+		Delete = delete.delete(id);
+		System.out.println("Delete Successful");
+		assertEquals(id,Delete,0);
+
+	}
 	
-	/*@Test
+	@Test
 	public void shouldDeleteMultiple()
 	{
+		CabManagerDb mult = new CabManagerDb();
+		CabManager dt = new CabManager(123,"oosh","oosshAgain"); 
+		CabManager  cm = new CabManager(22,"demarBlackgmail.com","demar");
 		
-	}*/
+		int mul;
+		int id;
+		int[] ids = null;
+		
+		mul = mult.deleteMultiple(ids);
+		
+	}
 	
 		
 	
