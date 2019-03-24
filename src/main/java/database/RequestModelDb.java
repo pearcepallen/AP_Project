@@ -73,14 +73,20 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 		List<RequestModel> items = new ArrayList<RequestModel>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "SELECT req_id, c_number, c_id, location, destination, distance, fare"+TABLE_NAME;
+			String sql = "SELECT id, req_id, c_number, c_id, location, destination, distance, fare from "+TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) 
 			{
 				while(rs.next()) 
-				{				
-					RequestModel RequestModel = new RequestModel();
-					RequestModel.setReq_id(rs.getInt("req_id"));					
+				{			
+					RequestModel RequestModel = new RequestModel();		
+					String concat;
+					int combined;
+					concat = Integer.toString(rs.getInt("c_id")) + Integer.toString(rs.getInt("c_number"));
+					combined = Integer.parseInt(concat);
+								
+					RequestModel.setId(rs.getInt("id"));	
+					RequestModel.setReq_id(combined);					
 					RequestModel.setC_number(rs.getInt("c_number"));
 					RequestModel.setC_id(rs.getInt("c_id"));
 					RequestModel.setLocation(rs.getString("location"));
@@ -108,14 +114,14 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 		{
 			Statement stat;
 			stat = connect.createStatement();			
-			String query = "Select * from " +TABLE_NAME+ " WHERE c_id = "+id;   
+			String query = "Select * from " +TABLE_NAME+ " WHERE id = "+id;   
 			ResultSet rs= stat.executeQuery(query);
 			if(rs != null)
 			{
 				while(rs.next())
 				{					
 					RequestModel RequestModel = new RequestModel();
-					RequestModel.setReq_id(rs.getInt("req_id"));					
+					RequestModel.setReq_id(rs.getInt("req_id"));		 				
 					RequestModel.setC_number(rs.getInt("c_number"));
 					RequestModel.setC_id(rs.getInt("c_id"));
 					RequestModel.setLocation(rs.getString("location"));
@@ -143,7 +149,7 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 		{	
 			String query = " UPDATE " +TABLE_NAME+ " SET req_id = ?, c_number = ?, c_id = ?, location = ?, destination = ?, distance = ? , fare = ?" +
 					   " WHERE id = ?";
-			//req_id, c_number, c_id, location, destination, distance, fare
+			
 			PreparedStatement ps;		
 			ps = connect.prepareStatement(query);				
 			ps.setInt(1, item.getReq_id());
@@ -155,13 +161,7 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 			ps.setDouble(7,item.getFare());
 			ps.setInt(8,id);
 			return ps.executeUpdate();
-		} 
-		/*RequestModel RequestModel = new RequestModel();
-					RequestModel.setReq_id(rs.getInt("req_id"));					
-					RequestModel.setC_number(rs.getInt("c_number"));
-					RequestModel.setC_id(rs.getInt("c_id"));
-					RequestModel.setLocation(rs.getString("location"));
-					RequestModel.setDestination(rs.getString("destination"));*/
+		} 		
 		
 		catch (SQLException e) 
 		{
@@ -186,7 +186,7 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
-			logger.error("Unable to delete RequestModel Manager with c_id "+id,e);
+			logger.error("Unable to delete RequestModel Manager with id "+id,e);
 
 		}
 		return 0;

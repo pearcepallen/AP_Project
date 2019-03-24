@@ -1,6 +1,8 @@
 package Entity;
 
 public class RequestModel{
+	
+	private int id;
 	private int req_id;
 	private int c_number;
 	private int c_id;
@@ -12,14 +14,15 @@ public class RequestModel{
 	
 	public RequestModel()
 	{
-		this(0,0,0,"here","herelogin",0,0.0);
+		this(0,0,0,0,"here","herelogin",0,0.0);
 	}
 
 
-	public RequestModel(int req_id, int c_number, int c_id, String location, String destination, int distance,
+	public RequestModel(int id, int req_id, int c_number, int c_id, String location, String destination, int distance,
 			double fare) 
 	{
 		super();
+		this.id = id;
 		this.req_id = req_id;
 		this.c_number = c_number;
 		this.c_id = c_id;
@@ -27,6 +30,16 @@ public class RequestModel{
 		this.destination = destination;
 		this.distance = distance;
 		this.fare = fare;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
@@ -102,11 +115,11 @@ public class RequestModel{
 
 	@Override
 	public String toString() {
-		return "RequestModel [req_id=" + req_id + ", c_number=" + c_number + ", c_id=" + c_id + ", location=" + location
-				+ ", destination=" + destination + ", distance=" + distance + ", fare=" + fare + "]";
-	}		
-	
-	
-	
+		return "RequestModel [id=" + id + ", req_id=" + req_id + ", c_number=" + c_number + ", c_id=" + c_id
+				+ ", location=" + location + ", destination=" + destination + ", distance=" + distance + ", fare="
+				+ fare + "]";
+	}
+
+
 	
 }

@@ -2,23 +2,25 @@ package Entity;
 
 public class Customer {
 
+	private int id;
 	private String location;
 	private String destination;
 	private int number;
 	private String feedback;
-	private Rate rating;
+	private int rating;
 	private boolean confirm_pk;
 	private boolean confirm_arr;
 	
 	
 	public Customer()
 	{
-		this("nowhere","nowhere",0, "lovely", Rate.ok,false,false);
+		this(0,"nowhere","nowhere",0, "lovely", 1,false,false);
 	}
 	
 	
-	public Customer(String location, String destination, int number, String feedback, Rate rating, boolean confirm_pk, boolean confirm_arr) {
+	public Customer(int id, String location, String destination, int number, String feedback, int rating, boolean confirm_pk, boolean confirm_arr) {
 		super();
+		this.id = id;
 		this.location = location;
 		this.destination = destination;
 		this.number = number;
@@ -27,6 +29,17 @@ public class Customer {
 		this.confirm_pk = confirm_pk;
 		this.confirm_arr = confirm_arr;
 	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
 	public String getLocation() 
 	{
@@ -65,11 +78,11 @@ public class Customer {
 		this.feedback = feedback;
 	}
 
-	public Rate getRating() {
+	public int getRating() {
 		return rating;
 	}
 
-	public void setRating(Rate rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 
@@ -95,9 +108,12 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [location=" + location + ", destination=" + destination + ", number=" + number + ", feedback="
-				+ feedback + ", rating=" + rating + ", confirm_pk=" + confirm_pk + ", confirm_arr=" + confirm_arr + "]";
+		return "Customer [id=" + id + ", location=" + location + ", destination=" + destination + ", number=" + number
+				+ ", feedback=" + feedback + ", rating=" + rating + ", confirm_pk=" + confirm_pk + ", confirm_arr="
+				+ confirm_arr + "]";
 	}
+
+
 
 }
 

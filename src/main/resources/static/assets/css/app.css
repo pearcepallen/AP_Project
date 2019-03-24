@@ -1,0 +1,38 @@
+.app {
+  width:300px;
+  margin:0 auto;
+  text-align: center;
+  border-radius:12px;
+  border:1px dashed blue;
+}
+
+.app button{
+  background-color:#c4c4ed;
+  border-color:#9ae2f9;
+  color:#141529;
+  border-radius: 12px;
+}
+
+.app button:hover {
+  background-color: lightblue;
+}
+
+
+ul{
+  list-style: none;
+  width:200px;
+  margin: 0 auto;
+  margin-top:12px;
+}
+
+
+li{
+  border-bottom:1px dashed blue;
+  
+}
+
+
+li img{
+  margin-right:12px;
+  max-height:18px;
+}

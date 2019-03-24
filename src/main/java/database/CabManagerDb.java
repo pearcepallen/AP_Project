@@ -66,7 +66,7 @@ public class CabManagerDb extends SQLProvider<CabManager> {
 		List<CabManager> items = new ArrayList<CabManager>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "select id, email, password from "+TABLE_NAME;
+			String sql = "select id, email, password from " +TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) {
 				while(rs.next()) {

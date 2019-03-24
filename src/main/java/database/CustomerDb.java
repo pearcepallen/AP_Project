@@ -27,7 +27,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 			if (statement
 					.execute("create table if not exists "
 							+ TABLE_NAME +
-							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), number INTEGER, feedback varchar(50), rating rate, confirm_pk boolean, boolean confirm_arr")) 
+							 " (id INTEGER PRIMARY KEY AUTOINCREMENT, location varchar(50),  destination varchar(50), number INTEGER, feedback varchar(50), rating INTEGER, confirm_pk BOOLEAN,  confirm_arr BOOLEAN)")) 
 			{
 				logger.debug("Customer table created");
 			} 
@@ -50,14 +50,15 @@ public class CustomerDb extends SQLProvider<Customer>{
 		
 		try{
 			String query = "INSERT INTO "+TABLE_NAME
-					       + "(location,destination,number,feedback, rating, confirm_pk, confirm_arr)  VALUES (?,?,?,?,?,?)";
+					       + "(location,destination,number,feedback, rating, confirm_pk, confirm_arr)  VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement ps = connect.prepareStatement(query);
 			ps.setString(1, item.getLocation());
 			ps.setString(2, item.getDestination());
 			ps.setInt(3,item.getNumber());
 			ps.setString(4,item.getFeedback());
-			ps.setBoolean(5,item.isConfirm_pk());
-			ps.setBoolean(6,item.isConfirm_arr());
+			ps.setInt(5, item.getRating());
+			ps.setBoolean(6,item.isConfirm_pk());
+			ps.setBoolean(7,item.isConfirm_arr());
 
 			return ps.executeUpdate();		
     	}
@@ -76,16 +77,18 @@ public class CustomerDb extends SQLProvider<Customer>{
 		List<Customer> items = new ArrayList<Customer>();
 		try {
 			Statement statement = connect.createStatement();
-			String sql = "select id, location,destination,number,feedback, rating, confirm_pk, confirm_arr from "+TABLE_NAME;
+			String sql = "select id, location,destination,number,feedback, rating, confirm_pk, confirm_arr from " +TABLE_NAME;
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs != null) {
 				while(rs.next()) {
 					Customer Customer = new Customer (); 
+					
+					Customer.setId(rs.getInt("id"));
 					Customer.setLocation(rs.getString("location"));
 					Customer.setDestination(rs.getString("destination"));
 					Customer.setNumber(rs.getInt("number"));
 					Customer.setFeedback(rs.getString("feedback"));
-				//Customer.setRating(rs.get("rating"));
+					Customer.setRating(rs.getInt("rating"));
 					Customer.setConfirm_pk(rs.getBoolean("confirm_pk"));
 					Customer.setConfirm_arr(rs.getBoolean("confirm_arr"));
 					items.add(Customer);
@@ -115,10 +118,12 @@ public class CustomerDb extends SQLProvider<Customer>{
 				while(rs.next())
 				{					
 					Customer Customer = new Customer();
+					Customer.setId(rs.getInt("id"));
 					Customer.setLocation(rs.getString("location"));
 					Customer.setDestination(rs.getString("destination"));
 					Customer.setNumber(rs.getInt("number"));
 					Customer.setFeedback(rs.getString("feedback"));
+					Customer.setRating(rs.getInt("rating"));
 					Customer.setConfirm_pk(rs.getBoolean("confirm_pk"));
 					Customer.setConfirm_arr(rs.getBoolean("confirm_arr"));
 					return Customer;
@@ -138,7 +143,7 @@ public class CustomerDb extends SQLProvider<Customer>{
 	{		
 		try 
 		{	
-			String query = " UPDATE " +TABLE_NAME+ " SET  location = ?, destination = ?, number = ?, feedback = ?, confirm_pk = ?, confirm_arr = ?" +
+			String query = " UPDATE " +TABLE_NAME+ " SET  location = ?, destination = ?, number = ?, feedback = ?, rating = ?, confirm_pk = ?, confirm_arr = ?" +
 					   " WHERE id = ?";
 			PreparedStatement ps;		
 			ps = connect.prepareStatement(query);			
@@ -146,8 +151,10 @@ public class CustomerDb extends SQLProvider<Customer>{
 			ps.setString(2, item.getDestination());
 			ps.setInt(3,item.getNumber());
 			ps.setString(4,item.getFeedback());
-			ps.setBoolean(5,item.isConfirm_pk());
-			ps.setBoolean(6,item.isConfirm_arr());
+			ps.setInt(5, item.getRating());
+			ps.setBoolean(6,item.isConfirm_pk());
+			ps.setBoolean(7,item.isConfirm_arr());
+			ps.setInt(8,id);
 			
 			return ps.executeUpdate();
 		} 
