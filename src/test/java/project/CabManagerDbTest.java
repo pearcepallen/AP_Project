@@ -3,6 +3,13 @@ package project;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+<<<<<<< HEAD
+
+import com.AscariCab.Artefacts.Controller.CabManagerDb;
+
+
+=======
+>>>>>>> refs/heads/testdevelopement
 import Entity.CabManager;
 import database.CabManagerDb;
 
@@ -71,16 +78,41 @@ public class CabManagerDbTest extends CabManagerDb {
 		
 	}*/
 	
+<<<<<<< HEAD
+	
+	/*@Test 
+=======
 	/*
 	@Test 
+>>>>>>> refs/heads/testdevelopement
 	public void shouldDeleteFromDatabase()
 	{
+		CabManagerDb delete = new CabManagerDb();
+		CabManager dt = new CabManager(123,"oosh","oosshAgain"); 
 		
+<<<<<<< HEAD
+		int Delete;
+		int id = 123;
+		
+		Delete = delete.delete(id);
+		System.out.println("Delete Successful");
+		//assertEquals(deff,Delete,0);
+=======
+>>>>>>> refs/heads/testdevelopement
 	}*/
 	
 	/*@Test
 	public void shouldDeleteMultiple()
 	{
+		CabManagerDb mult = new CabManagerDb();
+		CabManager dt = new CabManager(123,"oosh","oosshAgain"); 
+		CabManager  cm = new CabManager(22,"demarBlackgmail.com","demar");
+		
+		int mul;
+		int id;
+		int[] ids = null;
+		
+		mul = mult.deleteMultiple(ids);
 		
 	}*/
 	
