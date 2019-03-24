@@ -45,19 +45,26 @@ public Cab create(@Valid @RequestBody Cab item )
 
 
 
-@GetMapping("/{c_id}")
-public Cab get(@PathVariable(value="c_id") int id) 
+@GetMapping("/{id}")
+public Cab get(@PathVariable(value="id") int id) 
 {
 	Cab item = new Cab();	
-	item = cabdb.get(id);
-	 
 	
+	item = cabdb.get(id);	 
+	try 
+	{		
 		if (item != null )	
 		{
 			logger.info("item exits");				
 		}	
 		return item;
-	
+		
+	}
+catch(ResourceNotFoundException e ) 
+	{
+	e.printStackTrace();
+	return null;
+	}
 }
 
 

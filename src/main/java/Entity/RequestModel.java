@@ -17,7 +17,8 @@ public class RequestModel{
 
 
 	public RequestModel(int req_id, int c_number, int c_id, String location, String destination, int distance,
-			double fare) {
+			double fare) 
+	{
 		super();
 		this.req_id = req_id;
 		this.c_number = c_number;

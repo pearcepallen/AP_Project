@@ -142,7 +142,7 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 		try 
 		{	
 			String query = " UPDATE " +TABLE_NAME+ " SET req_id = ?, c_number = ?, c_id = ?, location = ?, destination = ?, distance = ? , fare = ?" +
-					   " WHERE c_id = ?";
+					   " WHERE id = ?";
 			//req_id, c_number, c_id, location, destination, distance, fare
 			PreparedStatement ps;		
 			ps = connect.prepareStatement(query);				
@@ -177,7 +177,7 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 	{
 		try 
 		{
-			String query = "DELETE FROM "+TABLE_NAME+ " WHERE c_id = ?";
+			String query = "DELETE FROM "+TABLE_NAME+ " WHERE id = ?";
 			PreparedStatement ps = connect.prepareStatement(query);			
 			ps.setInt(1,id);
 			return ps.executeUpdate();
@@ -198,7 +198,7 @@ public class RequestModelDb extends SQLProvider <RequestModel>  {
 		try 
 		{
 			String groupedIds = Arrays.toString(ids).replace("[","").replace("]","");
-			String query = "DELETE FROM "+TABLE_NAME+ " WHERE c_id in ("+groupedIds+")";
+			String query = "DELETE FROM "+TABLE_NAME+ " WHERE id in ("+groupedIds+")";
 			PreparedStatement ps = connect.prepareStatement(query);			
 			return ps.executeUpdate();
 		}

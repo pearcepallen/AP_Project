@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import database.CabDb;
+
 import database.CabManagerDb;
-import Entity.Cab;
+
 import Entity.CabManager;
 import Exceptions.ResourceNotFound.ResourceNotFoundException;
 import org.apache.logging.log4j.LogManager;
@@ -57,14 +57,15 @@ public class CabManagerController
 			if (item != null )	
 			{
 				logger.info("item exits");
-			}				
+			}			
+			return item;
 		}
 		catch(ResourceNotFoundException e ) 
 		{
-		e.printStackTrace();
-		return null;
+			e.printStackTrace();
+			return null;
 		}
-		return item;
+		
 					
 	}
 
@@ -81,17 +82,19 @@ public class CabManagerController
 				 cabman.setPassword(details.getPassword());				 
 				 cabmandb.add(cabman);			 
 			 }	 
+			 return cabman;  
 		}
 		catch(ResourceNotFoundException e ) 
 			{
 			e.printStackTrace();
 			return null;
 			}
-		return cabman;  
+		
 	}
 
 @DeleteMapping("/{id}")
-public ResponseEntity<?> delete(@PathVariable(value = "id") int id) {
+public ResponseEntity<?> delete(@PathVariable(value = "id") int id) 
+{
 	CabManager cabman = cabmandb.get(id);
            
 			try
@@ -100,13 +103,14 @@ public ResponseEntity<?> delete(@PathVariable(value = "id") int id) {
 				 {
 					 cabmandb.delete(id);
 				 } 	
+				 return ResponseEntity.ok().build();
 			}
 	catch(ResourceNotFoundException e )
 	{
 		e.printStackTrace();
 		return null;
 	}
-    return ResponseEntity.ok().build();
+    
 }
 
 	}
