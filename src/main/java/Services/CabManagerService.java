@@ -1,14 +1,15 @@
 
 package Services;
-import java.util.Scanner;
-
 import Entity.Cab;
 import Entity.CabManager;
 //import Entity.Report;
+import database.CabDb;
+
 
 public class CabManagerService extends CabManager
 {
-	int i = 0,b=0,c=0;
+	int id;
+/*	int i = 0,b=0,c=0;
 	String mail = "@";
 	String pass = "death";
 	Scanner a = new Scanner(System.in);
@@ -48,17 +49,28 @@ public class CabManagerService extends CabManager
 	   }while(c ==2);
 	   
 		return success;
-	}
+	}*/
 	
 	
-	
-	public boolean Add_Cab(Cab c)
+	public boolean addCab(Cab c)
 	{
 		return false;
 	}
 	
-	public boolean Delete_Cab(Cab c)
+	public boolean deleteCab(Cab c)
 	{
 		return false;
 	}
+	
+	public void requestDistance()
+	{
+		int id=1;
+		Cab cab = new Cab();
+		CabDb cabDb = new CabDb();
+		
+		cab.setDistance(cabDb.get(id).getDistance());
+		
+	}
+	
+
 }

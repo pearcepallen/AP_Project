@@ -2,21 +2,28 @@ package Main;
 
 
 import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import Database.CabManagerDb;
-import Database.SQLProvider;
-import Entity.CabManager;
+
+import Entity.Cab;
+import database.CabDb;
+import database.SQLProvider;
+//import Entity.DistanceModel;
 public class Driver 
 {
 	public static void main(String[] args) 
 	{
+		
 		Logger logger = null;
-		logger = LogManager.getLogger(CabManagerDb.class);
+		logger = LogManager.getLogger(Driver.class);
 		
-		SQLProvider<CabManager> db = new CabManagerDb();
+	//	SQLProvider<CabManager> db = new CabManagerDb();
+		SQLProvider<Cab> db = new CabDb();
+	//	SQLProvider<DistanceModel> db = new DistanceReportDb();
+	//	SystemDb db = new SystemDb();
 		
-		 //add
+	/*	 //add
 		int recordsAffected = db.add(new CabManager(34,"demarBlackgmail.com","demar"));
 		
 		if(recordsAffected == 1)
@@ -95,6 +102,7 @@ public class Driver
 		*/
 		
 		//selectAll
+		/*
 			List<CabManager> results = db.selectAll();
 			System.out.println(CabManagerDb.TABLE_NAME);
 			System.out.println("--- Retrieved -- ");
@@ -102,6 +110,74 @@ public class Driver
 			for(CabManager cm : results) 
 				{
 					System.out.println(cm);
+				}*/
+
+			 //add Cab
+			int recordsAffected = db.add(new Cab(0,0,0,0,"civic","John Jones",false,0.0,0));
+			
+			if(recordsAffected == 1)
+			{
+				logger.debug("Cab records added successfully");
+				System.out.println(" Cab record added successfully");
+			}
+			else
+			{			
+				logger.debug(" Cab record not added successfully");
+				System.out.println("Cab record not added successfully");
+			}
+			
+		
+			List<Cab> results = db.selectAll();
+			System.out.println(CabDb.TABLE_NAME);
+			System.out.println("--- Retrieved -- ");
+			
+			for(Cab cm : results) 
+				{
+					System.out.println(cm);
 				}
+	/*	int max = 0;
+		max = db.populateDb();
+		if(max >= 25)
+		{
+			logger.info("System Database populated");			
+		}
+		else
+		{		
+		logger.info("System Database not populated");				
+		}
+		
+		List<System1> results = db.selectAll();
+		System.out.println(CabDb.TABLE_NAME);
+		System.out.println("--- Retrieved -- ");
+		
+		for(System1 cm : results) 
+			{
+				System.out.println(cm);
+			}
+*/
+		
+	/*
+		int recordsAffected = db.add(new DistanceModel());
+		
+		if(recordsAffected == 1)
+		{
+			logger.debug("DistanceModel record added successfully");
+			System.out.println(" DistanceModel record added successfully");
+		}
+		else
+		{			
+			logger.debug(" DistanceModel record not added successfully");
+			System.out.println("DistanceModel record not added successfully");
+		}
+		
+		List<DistanceModel> results = db.selectAll();
+		System.out.println(CabDb.TABLE_NAME);
+		System.out.println("--- Retrieved -- ");
+		
+		for(DistanceModel cm : results) 
+			{
+				System.out.println(cm);
+			}*/
+		
 	}	
 	}
