@@ -3,13 +3,6 @@ package project;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-<<<<<<< HEAD
-
-import com.AscariCab.Artefacts.Controller.CabManagerDb;
-
-
-=======
->>>>>>> refs/heads/testdevelopement
 import Entity.CabManager;
 import database.CabManagerDb;
 
@@ -22,8 +15,8 @@ public class CabManagerDbTest extends CabManagerDb {
 		CabManager cm = new CabManager(123,"oosh","oosshAgain");
 		CabManager cd = new CabManager(123,"oosh","oosshAgain");
 		assertEquals(cm,cd);
-	}
-*/
+	}*/
+
 	@Test
 	public void shouldAddToDatabase()
 	{
@@ -34,7 +27,7 @@ public class CabManagerDbTest extends CabManagerDb {
 		assertEquals(deff,success,0);		
 	}
 	
-	/*
+	
 	@Test
 	public void shouldGetItem()
 	{
@@ -44,9 +37,9 @@ public class CabManagerDbTest extends CabManagerDb {
 		CabManager success = db.get(id);
 		assertEquals(cm,success);
 	}
-	*/
 	
-	/*
+	
+	
 	@Test 
 	public void shouldUpdateDatabase()
 	{
@@ -57,9 +50,9 @@ public class CabManagerDbTest extends CabManagerDb {
 		int success;
 		success = db.update(cm, id);
 		assertEquals(deff,success,0);
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void shouldPrintObject()
 	{
 		CabManager pr = new CabManager(123,"oosh","oosshAgain"); 
@@ -76,32 +69,25 @@ public class CabManagerDbTest extends CabManagerDb {
 		pass = Display.getPassword();
 		System.out.println(pass);
 		
-	}*/
+	}
 	
-<<<<<<< HEAD
-	
-	/*@Test 
-=======
-	/*
 	@Test 
->>>>>>> refs/heads/testdevelopement
 	public void shouldDeleteFromDatabase()
 	{
 		CabManagerDb delete = new CabManagerDb();
 		CabManager dt = new CabManager(123,"oosh","oosshAgain"); 
 		
-<<<<<<< HEAD
+
 		int Delete;
 		int id = 123;
 		
 		Delete = delete.delete(id);
 		System.out.println("Delete Successful");
-		//assertEquals(deff,Delete,0);
-=======
->>>>>>> refs/heads/testdevelopement
-	}*/
+		assertEquals(id,Delete,0);
+
+	}
 	
-	/*@Test
+	@Test
 	public void shouldDeleteMultiple()
 	{
 		CabManagerDb mult = new CabManagerDb();
@@ -114,7 +100,7 @@ public class CabManagerDbTest extends CabManagerDb {
 		
 		mul = mult.deleteMultiple(ids);
 		
-	}*/
+	}
 	
 		
 	
