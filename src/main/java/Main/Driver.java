@@ -6,8 +6,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import Entity.Cab;
+import Entity.CabManager;
 import Entity.System1;
 import database.CabDb;
+import database.CabManagerDb;
 import database.SQLProvider;
 import database.SystemDb;
 
@@ -21,8 +23,8 @@ public class Driver
 		Logger logger = null;
 		logger = LogManager.getLogger(Driver.class);
 		
-	//	SQLProvider<CabManager> db = new CabManagerDb();
-		SQLProvider<Cab> db = new CabDb();
+		SQLProvider<CabManager> db = new CabManagerDb();
+	//	SQLProvider<Cab> db = new CabDb();
 	//	SQLProvider<DistanceModel> db = new DistanceReportDb();
 	//	SystemDb db = new SystemDb();
 		
@@ -116,7 +118,7 @@ public class Driver
 				}*/
 
 			 //add Cab
-			int recordsAffected = db.add(new Cab(0,0,0,"civic","John Jones",false,0.0,0));
+			int recordsAffected = db.add(new CabManager(1,"Elliot","lean"));
 			
 			if(recordsAffected == 1)
 			{
@@ -130,11 +132,11 @@ public class Driver
 			}
 			
 		
-			List<Cab> results = db.selectAll();
+			List<CabManager> results = db.selectAll();
 			System.out.println(CabDb.TABLE_NAME);
 			System.out.println("--- Retrieved -- ");
 			
-			for(Cab cm : results) 
+			for(CabManager cm : results) 
 				{
 					System.out.println(cm);
 				}
