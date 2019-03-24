@@ -1,24 +1,17 @@
 package Main;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import Entity.Cab;
-import Entity.Customer;
-import Entity.Rate;
-import Entity.RequestModel;
 import Entity.System1;
-import Services.CabManagerService;
 import database.CabDb;
-import database.CustomerDb;
-import database.RequestModelDb;
 import database.SQLProvider;
 import database.SystemDb;
 
-
+import Entity.Cab;
 //import Entity.DistanceModel;
 public class Driver 
 {
@@ -32,19 +25,7 @@ public class Driver
 		SQLProvider<Cab> db = new CabDb();
 	//	SQLProvider<DistanceModel> db = new DistanceReportDb();
 	//	SystemDb db = new SystemDb();
-	//	SQLProvider<Customer> db = new CustomerDb();
-	/*	SQLProvider<RequestModel> db = new RequestModelDb();
 		
-		CabManagerService man = new CabManagerService();
-		
-		List<RequestModel> results = new ArrayList<RequestModel>();  
-		results = man.requestDistance();
-		
-		for(RequestModel cm : results) 
-		{
-			System.out.println(cm);
-		}
-		*/
 	/*	 //add
 		int recordsAffected = db.add(new CabManager(34,"demarBlackgmail.com","demar"));
 		
@@ -107,19 +88,6 @@ public class Driver
 			System.out.println("--- delete failed -- ");			
 		}
 		*/
-		//add
-		/*		int recordsAffected = db.add(new RequestModel(1,1,1,"here","there",0,0.0));
-				
-			if(recordsAffected == 1)
-				{
-					logger.debug("records added successfully");
-					System.out.println("records added successfully");
-				}
-			else
-				{			
-					logger.debug("records not added successfully");
-					System.out.println("records not added successfully");
-				}*/
 		/*
 		// Delete Multiple
 		int id[]= {10,11,12};
@@ -155,7 +123,6 @@ public class Driver
 				logger.debug("Cab records added successfully");
 				System.out.println(" Cab record added successfully");
 			}
-			
 			else
 			{			
 				logger.debug(" Cab record not added successfully");
@@ -171,14 +138,12 @@ public class Driver
 				{
 					System.out.println(cm);
 				}
-				
 	/*	int max = 0;
 		max = db.populateDb();
 		if(max >= 25)
 		{
 			logger.info("System Database populated");			
 		}
-		
 		else
 		{		
 		logger.info("System Database not populated");				
@@ -217,6 +182,5 @@ public class Driver
 				System.out.println(cm);
 			}*/
 		
-			
 	}	
 	}
