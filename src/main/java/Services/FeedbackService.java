@@ -1,9 +1,10 @@
 package Services;
 
 import Entity.Cab;
+import Entity.Customer;
 
 
-public class FeedbackService
+public class FeedbackService extends Customer
 {
 	
 	public String make_comment()
