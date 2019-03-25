@@ -1,96 +1,35 @@
-<!DOCTYPE html>
-<html >
-<head>
-<meta charset="utf-8" />
-    
-     
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-mocks.js"></script>
 
-         <script src="js/getcontroller.js"></script>
-         <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-    
-    <title>Ascari</title>
-    
-    <script>src = "Java/TaxiAppJAVA.js"</script>
-</head>
-         
+<div class="modal-header">
+    <h3>Create A New Account!</h3>
+</div>
+<form name="form.userForm" ng-submit="submitForm()" novalidate>
+    <div class="modal-body">
+        <!-- NAME -->
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="name" required>
+            <p ng-show="form.userForm.name.$invalid && !form.userForm.name.$pristine" class="help-block">You name is required.</p>
+        </div>
 
-</head>
-<body ng-app="myApp" ng-controller="DoubleController">
-      {{10+20}}
-      <button type="submit"  ng-click="showcab">Show all</button>
-      <form>
-      <input ng-model='cab.c_id'>
-      </form>
-   <header class="header">
+        <!-- USERNAME -->
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" required>
+            <p ng-show="form.userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+            <p ng-show="form.userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
 
-        <h1 class="logo"><a href="#">Ascari</a></h1>
-        <ul class="main-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </header>
+        <!-- EMAIL -->
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" ng-model="email" required>
+            <p ng-show="form.userForm.email.$invalid && !form.userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
 
-    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-
-    <div class="button">
-        <a href="#">
-            Login
-            <span class="shift">›</span>
-        </a>
-        <div class="mask"></div>
     </div>
-    <center><img src="Images/rise.png" height="85%" width="100%"></center>
-
-
-    <p>
-        <span>
-            SERVICES
-        </span>
-
-    </p>
-
-    <br /><br /><br /><br />
-    <br /><br /><br /><br />
-    <br /><br /><br /><br />
-
-    <center><h5>Request Available Cabs</h5><h6>This is a service we provide which enables a user, to promptly send a request to view the <br />availablity of cabs in the area in a neatly fromatted format, displaying all the relevant info. </h6></center>
-    <table>
-        <tr>
-            <div class="w3-content w3-display-container">
-                <td width="30%">
-                    <h5>
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Request Price And Distance
-                    </h5><h6>&emsp;&emsp;<center>We give our customers the option to request both the price and distance of the journey before they affirm confirmation</center></h6>
-                </td>
-
-                <td>
-                    <a href="https://www.google.com/maps/place/Jamaica/@18.1160905,-78.3974428,8z/data=!3m1!4b1!4m5!3m4!1s0x8eda2a1bc6cf719d:0x59a0d1c0b5120efa!8m2!3d18.109581!4d-77.297508">
-                        <center><img src="Images/app3.gif">
-                    </a>
-
-                <td width="30%"><h5>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Confirm Available Cab</h5><h6><center>&emsp;After requesting a cab, we present the option of confirming said cab for &emsp;scheduled pickups</center></h6></center></td>
-        </tr>
-        <div clas="model" id="cabreqmodal">
-        <label ng-repeat="cab in cabs | filter:false">
-        	<<input type="checkbox" ng-model="selected" ">
-        	{{cab.c_id}} {{cab.model}}{{cab.name}}{{cab.available}}
-   </label>
-    </table>
-
-    <center><h5>Rate Cab Experience</h5><h6>Rate your cab experience from one to five stars with this option also with the added feature of providing feedback and comments in regards to your experience and th</h6></center>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-    <div class="mobile-bottom-bar">
-        <a href="#" class="footer-link">
-            <i class="fa fa-sign-out"></i> <span class='footer-text'>© 2019 Copyright:  Ascari Taxi Service</span>
-        </a>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="form.userForm.$invalid">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
-   
-
-</body>
+</form>
