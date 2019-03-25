@@ -13,7 +13,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 			
 				  
 			 $scope.search='false';
-			 $scope.cutomer={id: '',
+			 $scope.customer={c_id: '',
 				location: '',
 				destination : '',
 				number : '',
@@ -21,18 +21,42 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 				rating : '',
 				confirm_pk : '',
 				confirm_arr : ''};
-/*
-$scope.add= function (customer){$http({
+			 $scope.cab={
+					 pc_id:'',
+						  trn:'',
+						  year:'',
+						  model:'',
+						  name:'',
+						  available:'',
+						  fare:'',
+						  distance:''
+
+			 };
+
+/*$scope.add= function ){$http({
 	method:'POST',
-    url:'/api/cab/add',
+    url:'/api/customer/ad',
     
-		data: customer
+		data: cab
 	
 }).then(function(response)
 		{
 		console.log(response);
 		})};
 
-		*/
+		
   
+
+$scope.showcab = function () {$http({
+	  method:'GET',
+		  url:'/api/cab/all'})
+		  .then(function(response)
+		  {
+	$scope.cabs= response.data;
+	//$log.info(response);
+		  })};*/
+		  
 });
+		
+			  
+		 
