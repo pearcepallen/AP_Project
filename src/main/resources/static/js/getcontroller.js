@@ -33,11 +33,11 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 
 			 };
 
-/*$scope.add= function ){$http({
+$scope.add = function (){$http({
 	method:'POST',
-    url:'/api/customer/ad',
+    url:'/api/customer/add',
     
-		data: cab
+		data: $scope.customer
 	
 }).then(function(response)
 		{
@@ -49,14 +49,11 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 
 $scope.showcab = function () {$http({
 	  method:'GET',
-		  url:'/api/cab/all'})
+		  url:'/api/customer/get'})
 		  .then(function(response)
 		  {
 	$scope.cabs= response.data;
 	//$log.info(response);
-		  })};*/
+		  })};
 		  
 });
-		
-			  
-		 

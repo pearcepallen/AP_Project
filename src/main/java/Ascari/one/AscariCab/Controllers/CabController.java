@@ -72,8 +72,8 @@ catch(ResourceNotFoundException e )
 public Cab update(@PathVariable(value = "id") int id,@Valid @RequestBody Cab details) 
 {
 
-	Cab cab = new Cab();
-	cabdb.update(details,id);	
+	Cab cab = cabdb.get(id);	
+	
 	try
 	{		
 		 if (cab != null)

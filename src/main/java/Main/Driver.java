@@ -55,8 +55,8 @@ int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,f
 				System.out.println(cm);
 			}
 		
-		
-		/*int recordsAffected = db.add(new RequestModel(0,0,7,11,"yah suh","deh suh again",0,0.0));
+		/*
+		int recordsAffected = db.add(new RequestModel(0,0,7,11,"yah suh","deh suh again",0,0.0));
 		
 		if(recordsAffected == 1)
 		{

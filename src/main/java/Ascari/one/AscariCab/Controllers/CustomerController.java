@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Entity.Cab;
 import Entity.Customer;
 import Exceptions.ResourceNotFound.ResourceNotFoundException;
 import database.CustomerDb;
@@ -73,8 +72,7 @@ catch(ResourceNotFoundException e )
 public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Customer details) 
 {
 
-	Customer cust = new Customer();
-	custdb.update(details,id);	
+	Customer cust = custdb.get(id);	
 	try
 	{		
 		 if (cust != null)
