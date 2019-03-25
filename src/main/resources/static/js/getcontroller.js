@@ -19,7 +19,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
                 };
 			 
 			$scope.check='';
-			  $scope.chosencab={};
+			$scope.chosencab={};
 			 $scope.search='false';
 			 $scope.customer={
                 id: '',
@@ -41,6 +41,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
                     fare:'',
                     distance:''
                 };
+
             $scope.cabManager={
                 id: '',
                 email: '',
@@ -63,7 +64,7 @@ $scope.add = function (){$http({
         
 $scope.getreq= function(){
 	$scope.request={
-        
+
 	id:	$scope.customer.id,
 	c_number: $scope.customer.number,
 	c_id: $scope.chosencab.c_id,
