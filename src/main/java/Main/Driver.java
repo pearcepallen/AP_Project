@@ -28,12 +28,12 @@ public class Driver
 		logger = LogManager.getLogger(Driver.class);
 		
 	//	SQLProvider<CabManager> db = new CabManagerDb();
-	//	SQLProvider<Cab> db = new CabDb();
+		SQLProvider<Cab> db = new CabDb();
 	//	SQLProvider<DistanceModel> db = new DistanceReportDb();		
 	//	SystemDb db = new SystemDb();
 	//	SQLProvider<RequestModel> db = new RequestModelDb();
-		SQLProvider<Customer> db = new CustomerDb();
-int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,false,false));
+//		SQLProvider<Customer> db = new CustomerDb();
+/*int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,false,false));
 		
 		if(recordsAffected == 1)
 		{
@@ -53,7 +53,7 @@ int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,f
 		for(Customer cm : results) 
 			{
 				System.out.println(cm);
-			}
+			}*/
 		
 		
 		/*int recordsAffected = db.add(new RequestModel(0,0,7,11,"yah suh","deh suh again",0,0.0));
@@ -211,28 +211,29 @@ int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,f
 			}
 */
 		
-	/*
-		int recordsAffected = db.add(new DistanceModel());
+	
+	/*	int recordsAffected = db.add(new Cab(0,0,0,"civic","John Jones",false,0.0,0));
 		
 		if(recordsAffected == 1)
 		{
-			logger.debug("DistanceModel record added successfully");
-			System.out.println(" DistanceModel record added successfully");
+			logger.debug("Cab record added successfully");
+			System.out.println(" Cab record added successfully");
 		}
 		else
 		{			
-			logger.debug(" DistanceModel record not added successfully");
-			System.out.println("DistanceModel record not added successfully");
+			logger.debug(" Cab record not added successfully");
+			System.out.println("Cab record not added successfully");
 		}
 		
-		List<DistanceModel> results = db.selectAll();
+		List<Cab> results = db.selectAll();
 		System.out.println(CabDb.TABLE_NAME);
 		System.out.println("--- Retrieved -- ");
 		
-		for(DistanceModel cm : results) 
+		for(Cab cm : results) 
 			{
 				System.out.println(cm);
 			}*/
+		
 		
 	}	
 	}
