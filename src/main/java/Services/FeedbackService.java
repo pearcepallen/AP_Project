@@ -2,8 +2,12 @@ package Services;
 
 import Entity.Cab;
 import Entity.Customer;
+import Entity.RequestModel;
 
-public class FeedbackService extends Customer
+
+
+
+public class FeedbackService
 {
 	
 	public String make_comment()
@@ -26,7 +30,7 @@ public class FeedbackService extends Customer
 		return false;
 	}
 	
-	public int rate(Cab c)
+	public int getrate(Cab c)
 	{
 		return 0;
 	}
