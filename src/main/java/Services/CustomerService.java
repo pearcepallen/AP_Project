@@ -3,10 +3,6 @@
  */
 package Services;
 
-import Entity.Customer;
-
-
-
 /**
  * @author Demar Johnson
  *
