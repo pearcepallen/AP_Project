@@ -33,7 +33,7 @@ public class CabManagerController
 
 	CabManagerDb cabmandb = new CabManagerDb();
 
-	@GetMapping("")
+	@GetMapping("/all")
 	public List<CabManager> getAll()
 	{
 		return cabmandb.selectAll();			
