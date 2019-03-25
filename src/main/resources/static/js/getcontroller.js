@@ -57,7 +57,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
                     distance:''
                 };
 
-<<<<<<< HEAD
+
             $scope.cabManager={
                 id: '',
                 email: '',
