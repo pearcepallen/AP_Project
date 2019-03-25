@@ -19,9 +19,16 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 			  };
 			 
 			$scope.check='';
-			  $scope.chosencab={};
+			  $scope.chosencab={ c_id:'',
+						  trn:'',
+						  year:'',
+						  model:'',
+						  name:'',
+						  available:'',
+						  fare:'',
+						  distance:''};
 			 $scope.search='false';
-			 $scope.customer={
+			 $scope.customer={id:'',
 				location: '',
 				destination : '',
 				number : '',
@@ -41,7 +48,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 
 			 };
 			 $scope.add = function() {
-				    $http.post('/api/customer/add', $scope.customer).then(function(response) {console.log(response);});
+				    $http.post('/api/customer/add', $scope.customer).then(function(response) {});
 			 }
 			 
 $scope.add = function (){$http({
@@ -54,18 +61,25 @@ $scope.add = function (){$http({
 		{
 		console.log($scope.chosencab);
 		})};
-$scope.getreq= function()
-{	 $scope.request={
-	id:	$scope.customer.id,
-	c_number: $scope.customer.number,
-	c_id: $scope.chosencab.c_id,
-	location:$scope.customer.location,
-	destination:$scope.customer.destination,
-	fare : $scope.chosencab.fare ///probably make care come directly from system*/
+		$scope.getreq= function()
+		{	 $scope.request={
+			id:	$scope.customer.id,
+			c_number: $scope.customer.number,
+			c_id: $scope.chosencab.c_id,
+			location:$scope.customer.location,
+			destination:$scope.customer.destination,
+			fare : $scope.chosencab.fare} ///probably make care come directly from system
+			
+			console.log($scope.request);
+			/*.then(function (){$http({
+				method:'POST',
+		    url:'/api/system//add',
+		    data:$scope.request
+		    
+				
+			})})*/};
+				  
 	
-		  
-};console.log($scope.request);
-	}
 		
 
 $scope.system= function () {$http({
