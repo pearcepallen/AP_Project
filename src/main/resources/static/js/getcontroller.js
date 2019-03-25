@@ -10,6 +10,14 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 	  	$scope.cabs= response.data;
 	  	//$log.info(response);
 			  })};
+			  
+			  $scope.dest={
+					  location:'',
+					  destination:'',
+			  distance:'',
+			  price:'',
+			  };
+			 
 			$scope.check='';
 			  $scope.chosencab={};
 			 $scope.search='false';
@@ -22,7 +30,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 				confirm_pk : '',
 				confirm_arr : ''};
 			 $scope.cab={
-					 pc_id:'',
+					 c_id:'',
 						  trn:'',
 						  year:'',
 						  model:'',
@@ -44,11 +52,30 @@ $scope.add = function (){$http({
 	
 }).then(function(response)
 		{
-		console.log(response);
+		console.log($scope.chosencab);
 		})};
-
+$scope.getreq= function()
+{	 $scope.request={
+	id:	$scope.customer.id,
+	c_number: $scope.customer.number,
+	c_id: $scope.chosencab.c_id,
+	location:$scope.customer.location,
+	destination:$scope.customer.destination,
+	fare : $scope.chosencab.fare ///probably make care come directly from system*/
+	
+		  
+};console.log($scope.request);
+	}
 		
- 
+
+$scope.system= function () {$http({
+			  method:'GET',
+				  url:'/api/system/get'})
+				  .then(function(response)
+				  {
+			$scope.sysdests= response.data;
+			//$log.info(response);
+				  })};
 
 $scope.showcab = function () {$http({
 	  method:'GET',
@@ -68,7 +95,7 @@ $scope.showcab = function () {$http({
 				  })};
 			 $scope.pickup= function  (check)
 				  {
-					  customer.confirm_pk= 'true';
+					  $scope.customer.confirm_pk= 'true';
 				  };
 
 });

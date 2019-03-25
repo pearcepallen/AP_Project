@@ -27,7 +27,7 @@
 </head>
 <body ng-app="myApp" ng-controller="DoubleController">
       {{10+20}}
-      <button type="submit"  ng-click="show()">Show all</button>
+      <button type="submit"  ng-click="system();show()">Show all</button>
       
    <header class="header">
 
@@ -77,12 +77,13 @@
     </h5>
     <br />    <input ng-model="customer.destination">
    
-   <br /><select ng-model="filterCondition.operator">
-   <option value="" disabled selected>Available cabs</option>
-    <option ng-selected="chosencab" == filterCondition.operator}}"
-            ng-repeat="cab in cabs | filter:false"
+   <br /><select ng-model="chosencab">
+   <option ng-model="chosencab"value="" disabled selected>Available cabs</option>
+    <option 
+            ng-repeat="cab in cabs "
             >
       {{cab.c_id}} {{cab.model}}{{cab.name}}{{cab.available}}
+      {{chosencab.model}}
     </option>
     </select>
     <h5> 
@@ -90,7 +91,7 @@
     <br />   Confirm cab Arrival    <br />   
 		        <input type="checkbox" ng-model="check"ng-change='pickup(check)'">>		
         </h5> 
-         <button type="submit"  ng-click="add()">Check Out</button>
+         <button type="submit"  ng-click="add();getreq()">Check Out</button>
         <h6>This is a service we provide which enables a user, to promptly send a request to view the <br />availablity of cabs in the area in a neatly fromatted format, displaying all the relevant info. </h6></center>
     <table>
       <center>  <tr>
@@ -100,7 +101,16 @@
             <div class="w3-content w3-display-container">
                 <td width="30%">
                     <h5>
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Request Price And Distance
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Request Price And Distance<br />
+                        </h5>
+                         <br /><select >
+                        <option value="" disabled selected>Available Routes</option>
+							    <option ng-selected="chosendist" 
+							            ng-repeat="dest in sysdests "
+							            >
+							      {{dest.id}} {{dest.location}} {{dest.distance}} {{dest.destination}
+							    </option>
+							    </select><br />
                     </h5><h6>&emsp;&emsp;<center>We give our customers the option to request both the price and distance of the journey before they affirm confirmation</center></h6>
                 </td>
 
