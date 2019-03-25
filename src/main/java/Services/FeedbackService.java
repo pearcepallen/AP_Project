@@ -2,7 +2,7 @@ package Services;
 
 import Entity.Cab;
 import Entity.Customer;
-import Entity.Rate;
+
 
 public class FeedbackService extends Customer
 {
@@ -27,9 +27,9 @@ public class FeedbackService extends Customer
 		return false;
 	}
 	
-	public Rate rate(Cab c)
+	public int getrate(Cab c)
 	{
-		return null;
+		return 0;
 	}
 
 	public boolean retrieve_rate()
