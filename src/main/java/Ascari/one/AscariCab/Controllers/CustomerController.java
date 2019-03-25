@@ -31,7 +31,7 @@ public class CustomerController
 CustomerDb custdb = new CustomerDb();
 Logger logger = LogManager.getLogger(CustomerController.class);
 
-@GetMapping("")
+@GetMapping("/get")
 public List<Customer> getAll()
 {
 	return custdb.selectAll();			

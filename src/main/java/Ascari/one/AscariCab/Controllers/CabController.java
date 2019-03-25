@@ -30,7 +30,7 @@ Logger logger = LogManager.getLogger(CabController.class);
 CabDb cabdb = new CabDb();
 
 
-@GetMapping("")
+@GetMapping("/all")
 public List<Cab> getAll()
 {
 	return cabdb.selectAll();			
