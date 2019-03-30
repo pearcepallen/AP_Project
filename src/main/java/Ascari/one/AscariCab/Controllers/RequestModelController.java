@@ -29,7 +29,7 @@ public class RequestModelController {
 RequestModelDb requestdb = new RequestModelDb();
 Logger logger = LogManager.getLogger(RequestModelController.class);
 
-@GetMapping("")
+@GetMapping("/all")
 public List<RequestModel> getAll()
 {
 	return requestdb.selectAll();			

@@ -17,16 +17,10 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 			  distance:'',
 			  price:'',
 			  };
-			 
+			 $scope.cabbie;
 			$scope.check='';
-			  $scope.chosencab={ c_id:'',
-						  trn:'',
-						  year:'',
-						  model:'',
-						  name:'',
-						  available:'',
-						  fare:'',
-						  distance:''};
+			 
+			  
 			 $scope.search='false';
 			 $scope.customer={id:'',
 				location: '',
@@ -36,7 +30,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 				rating : '',
 				confirm_pk : '',
 				confirm_arr : ''};
-			 $scope.cab={
+		/*	 $scope.cab={
 					 c_id:'',
 						  trn:'',
 						  year:'',
@@ -46,7 +40,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 						  fare:'',
 						  distance:''
 
-			 };
+			 };*/
 			 $scope.add = function() {
 				    $http.post('/api/customer/add', $scope.customer).then(function(response) {});
 			 }
@@ -59,16 +53,17 @@ $scope.add = function (){$http({
 	
 }).then(function(response)
 		{
-		console.log($scope.chosencab);
+		console.log($scope.cabbie);
 		})};
 		$scope.getreq= function()
-		{	 $scope.request={
+		{	 
+			$scope.request={
 			id:	$scope.customer.id,
 			c_number: $scope.customer.number,
-			c_id: $scope.chosencab.c_id,
+			c_id: $scope.cabbie.c_id,
 			location:$scope.customer.location,
 			destination:$scope.customer.destination,
-			fare : $scope.chosencab.fare} ///probably make care come directly from system
+			fare : $scope.cabbie.fare} ///probably make care come directly from system
 			
 			console.log($scope.request);
 			/*.then(function (){$http({

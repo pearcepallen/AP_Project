@@ -203,6 +203,38 @@ public class CustomerDb extends SQLProvider<Customer>{
 		}
 		return 0;
 	}
-
+	
+	public Customer getByNumber(int num)
+	{
+		try
+		{
+			Statement stat;
+			stat = connect.createStatement();			
+			String query = "Select * from " +TABLE_NAME+ " WHERE number = "+num;   
+			ResultSet rs= stat.executeQuery(query);
+			if(rs != null)
+			{
+				while(rs.next())
+				{					
+					Customer Customer = new Customer();
+					Customer.setId(rs.getInt("id"));
+					Customer.setLocation(rs.getString("location"));
+					Customer.setDestination(rs.getString("destination"));
+					Customer.setNumber(rs.getInt("number"));
+					Customer.setFeedback(rs.getString("feedback"));
+					Customer.setRating(rs.getInt("rating"));
+					Customer.setConfirm_pk(rs.getBoolean("confirm_pk"));
+					Customer.setConfirm_arr(rs.getBoolean("confirm_arr"));
+					return Customer;
+				}								
+			}				
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			logger.error("Unable to retrieve Customer",e);
+		}
+		return null;
+	}
 
 }

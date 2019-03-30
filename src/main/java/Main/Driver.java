@@ -32,8 +32,8 @@ public class Driver
 	//	SQLProvider<DistanceModel> db = new DistanceReportDb();		
 	//	SystemDb db = new SystemDb();
 	//	SQLProvider<RequestModel> db = new RequestModelDb();
-		SQLProvider<Customer> db = new CustomerDb();
-int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,false,false));
+		CustomerDb db = new CustomerDb();
+int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",2999, "lovely", 1,false,false));
 		
 		if(recordsAffected == 1)
 		{
@@ -46,14 +46,18 @@ int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,f
 			System.out.println("records not added successfully");
 		}
 		
-		List<Customer> results = db.selectAll();
-		System.out.println(RequestModelDb.TABLE_NAME);
-		System.out.println("--- Retrieved -- ");
+		db.getByNumber(2999);
 		
-		for(Customer cm : results) 
-			{
-				System.out.println(cm);
-			}
+		
+		
+//		List<Customer> results = db.selectAll();
+//		System.out.println(RequestModelDb.TABLE_NAME);
+//		System.out.println("--- Retrieved -- ");
+//		
+//		for(Customer cm : results) 
+//			{
+//				System.out.println(cm);
+//			}
 		
 		/*
 		int recordsAffected = db.add(new RequestModel(0,0,7,11,"yah suh","deh suh again",0,0.0));

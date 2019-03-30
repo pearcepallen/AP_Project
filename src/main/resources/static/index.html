@@ -77,15 +77,10 @@
     </h5>
     <br />    <input ng-model="customer.destination">
    
-   <br /><select ng-model="chosencab">
-   <option value="" disabled selected>Available cabs</option>
-    <option 
-            ng-repeat="cab in cabs "
-            >
-      {{cab.c_id}} {{cab.model}}{{cab.name}}{{cab.available}}
-      {{chosencab.model}}
-    </option>
+   <br /><select ng-model="cabbie" ng-options="cab for cab in cabs">
+  
     </select>
+    {{cabbie}}
     <h5> 
     
     <br />   Confirm cab Arrival    <br />   
