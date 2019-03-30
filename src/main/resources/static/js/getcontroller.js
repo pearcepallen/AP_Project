@@ -65,14 +65,18 @@ $scope.add = function (){$http({
 			destination:$scope.customer.destination,
 			fare : $scope.cabbie.fare} ///probably make care come directly from system
 			
-			console.log($scope.request);
-			/*.then(function (){$http({
+						/*.then(function (){$http({
 				method:'POST',
 		    url:'/api/system//add',
 		    data:$scope.request
 		    
 				
-			})})*/};
+			})})*/}.then (function()
+			{
+				 $http.post('/api/request/add', $scope.request).then(function(response) {});
+				 console.log($scope.request);
+
+			});
 				  
 	
 		
