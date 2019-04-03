@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 //import Entity.Cab;
 //import Entity.CabManager;
 import Entity.Customer;
+import Entity.RequestModel;
 //import Entity.RequestModel;
 //import Entity.System1;
 //import database.CabDb;
@@ -31,9 +32,9 @@ public class Driver
 	//	SQLProvider<Cab> db = new CabDb();
 	//	SQLProvider<DistanceModel> db = new DistanceReportDb();		
 	//	SystemDb db = new SystemDb();
-	//	SQLProvider<RequestModel> db = new RequestModelDb();
-		SQLProvider<Customer> db = new CustomerDb();
-int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,false,false));
+		SQLProvider<RequestModel> db = new RequestModelDb();
+		//SQLProvider<Customer> db = new CustomerDb();
+/*int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,false,false));
 		
 		if(recordsAffected == 1)
 		{
@@ -54,9 +55,9 @@ int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,f
 			{
 				System.out.println(cm);
 			}
+		*/
 		
-		/*
-		int recordsAffected = db.add(new RequestModel(0,0,7,11,"yah suh","deh suh again",0,0.0));
+		int recordsAffected = db.add(new RequestModel(0,4,7,12,"yah suh","deh suh again",0,0.0));
 		
 		if(recordsAffected == 1)
 		{
@@ -76,7 +77,7 @@ int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",0, "lovely", 1,f
 		for(RequestModel cm : results) 
 			{
 				System.out.println(cm);
-			}*/
+			}
 		
 	/*	 //add
 		int recordsAffected = db.add(new CabManager(34,"demarBlackgmail.com","demar"));

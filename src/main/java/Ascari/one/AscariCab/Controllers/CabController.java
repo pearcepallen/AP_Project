@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import database.CabDb;
 import Entity.Cab;
-import Exceptions.ResourceNotFound.ResourceNotFoundException;
+import Exceptions.ResourceNotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
