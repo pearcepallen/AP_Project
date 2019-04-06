@@ -2,21 +2,22 @@ var myApp = angular.module('myApp',[]);
 
 myApp.controller('DoubleController',  function($scope,$http,$log) {
  //$scope.cabs=[{}];
+// to show all option
   $scope.show = function () {$http({
 		  method:'GET',
 			  url:'/api/cab/all'})
 			  .then(function(response)
 			  {
-	  	$scope.cabs= response.data;
-	  	//$log.info(response);
+			  	$scope.cabs= response.data;
+			  	//$log.info(response);
 			  })};
 			  
 			  $scope.dest={
 					  location:'',
 					  destination:'',
-			  distance:'',
-			  price:'',
-			  };
+						  distance:'',
+						  price:'',
+			  			};
 			 $scope.cabbie;
 			$scope.check='';
 			 
@@ -41,8 +42,8 @@ myApp.controller('DoubleController',  function($scope,$http,$log) {
 						  distance:''
 
 			 };*/
-			 $scope.add = function() {
-				    $http.post('/api/customer/add', $scope.customer).then(function(response) {});
+ $scope.add = function() {
+				 $http.post('/api/customer/add', $scope.customer).then(function(response) {});
 			 }
 			 
 $scope.add = function (){$http({
@@ -51,12 +52,16 @@ $scope.add = function (){$http({
     
 		data: $scope.customer
 	
-}).then(function(response)
-		{
-		console.log($scope.cabbie);
-		})};
-		$scope.getreq= function()
-		{	 
+			}).then(function(response)
+					{
+						console.log($scope.cabbie);
+						})};
+
+$scope.getreq= function()
+		{	 $scope.customer.location = $scope.route.location;
+			$scope.customer.destination =  $scope.route.destination;
+			$scope.cabbie.fare = $scope.route.price;
+			console.log($scope.route);
 			$scope.request={
 			id:	$scope.customer.id,
 			c_number: $scope.customer.number,
@@ -71,12 +76,11 @@ $scope.add = function (){$http({
 		    data:$scope.request
 		    
 				
-			})})*/}.then (function()
-			{
+			})})*/
 				 $http.post('/api/request/add', $scope.request).then(function(response) {});
 				 console.log($scope.request);
 
-			});
+			};
 				  
 	
 		
@@ -86,29 +90,37 @@ $scope.system= function () {$http({
 				  url:'/api/system/get'})
 				  .then(function(response)
 				  {
-			$scope.sysdests= response.data;
+			 $scope.sysdests= response.data;
 			//$log.info(response);
-				  })};
+				    })};
 
+				  
+				  
 $scope.showcab = function () {$http({
 	  method:'GET',
 		  url:'/api/customer/all'})
 		  .then(function(response)
 		  {
-	$scope.cabs= response.data;
-	//$log.info(response);
-		  })};
-		  $scope.show = function () {$http({
+				$scope.cabs= response.data;
+				//$log.info(response);
+		   })};
+
+		  
+
+$scope.show = function () {$http({
 			  method:'GET',
 				  url:'/api/cab/all'})
 				  .then(function(response)
 				  {
-		  	$scope.cabs= response.data;
-		  	//$log.info(response);
-				  })};
-			 $scope.pickup= function  (check)
+					  	$scope.cabs= response.data;
+					  	//$log.info(response);
+				   })};
+
+				  
+$scope.pickup= function  ()
 				  {
 					  $scope.customer.confirm_pk= 'true';
-				  };
+					  $scope.cabbie.available = 'false'
+				   };
 
 });
