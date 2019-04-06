@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AscariCabApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AscariCabApplication.class, args);
+		SpringApplication.run(AscariCabApplication.class, args);				
 	}
 
 }
