@@ -3,6 +3,7 @@ var myApp = angular.module('myApp',[]);
 myApp.controller('DoubleController',  function($scope,$http,$log) {
  //$scope.cabs=[{}];
 // to show all option
+	$scope.id=0;
   $scope.show = function () {$http({
 		  method:'GET',
 			  url:'/api/cab/all'})
@@ -58,7 +59,8 @@ $scope.add = function (){$http({
 						})};
 
 $scope.getreq= function()
-		{	 $scope.customer.location = $scope.route.location;
+		{	$scope.id++;
+			$scope.customer.location = $scope.route.location;
 			$scope.customer.destination =  $scope.route.destination;
 			$scope.cabbie.fare = $scope.route.price;
 			console.log($scope.route);
@@ -79,6 +81,7 @@ $scope.getreq= function()
 			})})*/
 				 $http.post('/api/request/add', $scope.request).then(function(response) {});
 				 console.log($scope.request);
+				 console.log($scope.id);
 
 			};
 				  
