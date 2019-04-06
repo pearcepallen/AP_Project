@@ -126,4 +126,14 @@ $scope.pickup= function  ()
 					  $scope.cabbie.available = 'false'
 				   };
 
+				   
+$scope.UpdateInfo = function () {$http({
+	  method:'PUT',
+	  url:'/api/customer/'})
+	  .then(function(response)
+	  {
+		  	$scope.cabs= response.data;
+		  	//$log.info(response);
+	   })};
+
 });
