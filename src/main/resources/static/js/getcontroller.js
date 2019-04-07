@@ -1,10 +1,10 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('DoubleController',  function($scope,$http,$log,$interval) {
+myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
  //$scope.cabs=[{}];
 // to show all option
 	$scope.id=0;
-  $scope.show = function () {$http({
+	$window.onload = function () {$http({
 		  method:'GET',
 			  url:'/api/cab/all'})
 			  .then(function(response)
@@ -12,7 +12,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log,$interval) {
 			  	$scope.cabs= response.data;
 			  	//$log.info(response);
 			  })};
-			  
+			  $scope.system();
 			  $scope.dest={
 					  location:'',
 					  destination:'',
@@ -85,10 +85,8 @@ $scope.getreq= function()
 
 			};
 				  
-	
-		
 
-$scope.system= function () {$http({
+$scope.sytem= function () {$http({
 			  method:'GET',
 				  url:'/api/system/get'})
 				  .then(function(response)
