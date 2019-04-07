@@ -60,7 +60,7 @@ $scope.add = function (){$http({
 					{	count++;
 						$window.localStorage.setItem("count",count);
 						counter = localStorage.getItem("count");
-						console.log($scope.cabbie);
+						console.log(counter);
 						})};
 
 $scope.getreq= function()
@@ -136,7 +136,7 @@ $scope.pickup= function  ()
 				   };
 				   $scope.feedback=function () {$http({
 						  method:'PUT',
-						  url:'/api/customer/78',
+						  url:'/api/customer/' + counter,
 						  data: $scope.customer
 							
 								}).then(function(response)
