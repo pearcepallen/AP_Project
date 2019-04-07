@@ -129,7 +129,16 @@ $scope.pickup= function  ()
 						///Add an update here to the availability
 					  )
 				   };
-
+				   $scope.feedback=function () {$http({
+						  method:'PUT',
+						  url:'/api/customer/78',
+						  data: $scope.customer
+							
+								}).then(function(response)
+							{
+								console.log($scope.cabbie);
+								})};
+						   
 	/*			   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
