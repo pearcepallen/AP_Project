@@ -68,7 +68,7 @@ public class CabManagerController
 		
 					
 	}
-
+/*
 	@PutMapping("/{id}")
 	public CabManager update(@PathVariable(value = "id") int id,@Valid @RequestBody CabManager details) 
 	{
@@ -91,6 +91,28 @@ public class CabManagerController
 			}
 		
 	}
+	
+	*/
+
+@PutMapping("/{id}")
+public CabManager update(@PathVariable(value = "id") int id,@Valid @RequestBody CabManager details) 
+{
+	
+	try
+	{				
+		cabmandb.update(details, id);			
+		return details;
+	}
+	catch(ResourceNotFoundException e ) 
+		{
+		e.printStackTrace();
+		return null;
+		}
+
+}
+
+
+	
 
 @DeleteMapping("/{id}")
 public ResponseEntity<?> delete(@PathVariable(value = "id") int id) 

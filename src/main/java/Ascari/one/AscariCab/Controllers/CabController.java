@@ -67,7 +67,7 @@ catch(ResourceNotFoundException e )
 	}
 }
 
-
+/*
 @PutMapping("/{id}")
 public Cab update(@PathVariable(value = "id") int id,@Valid @RequestBody Cab details) 
 {
@@ -96,6 +96,26 @@ public Cab update(@PathVariable(value = "id") int id,@Valid @RequestBody Cab det
 		}
 
 }
+*/
+
+@PutMapping("/{id}")
+public Cab update(@PathVariable(value = "id") int id,@Valid @RequestBody Cab details) 
+{
+	
+	try
+	{				
+		cabdb.update(details, id);			
+		return details;
+	}
+	catch(ResourceNotFoundException e ) 
+		{
+		e.printStackTrace();
+		return null;
+		}
+
+}
+
+
 
 
 @DeleteMapping("/{id}")

@@ -66,7 +66,7 @@ catch(ResourceNotFoundException e )
 	}
 }
 
-
+/*
 @PutMapping("/{id}")
 public RequestModel update(@PathVariable(value = "id") int id,@Valid @RequestBody RequestModel details) 
 {
@@ -95,6 +95,26 @@ public RequestModel update(@PathVariable(value = "id") int id,@Valid @RequestBod
 		}
  
 }
+*/
+
+
+@PutMapping("/{id}")
+public RequestModel update(@PathVariable(value = "id") int id,@Valid @RequestBody RequestModel details) 
+{
+	
+	try
+	{				
+		requestdb.update(details, id);			
+		return details;
+	}
+	catch(ResourceNotFoundException e ) 
+		{
+		e.printStackTrace();
+		return null;
+		}
+
+}
+
 
 
 @DeleteMapping("/{id}")

@@ -66,7 +66,7 @@ catch(ResourceNotFoundException e )
 	}
 }
 
-
+/*
 @PutMapping("/{id}")
 public System1 update(@PathVariable(value = "id") int id,@Valid @RequestBody System1 details) 
 {
@@ -92,6 +92,28 @@ public System1 update(@PathVariable(value = "id") int id,@Valid @RequestBody Sys
 		}
 
 }
+*/
+
+
+
+
+@PutMapping("/{id}")
+public System1 update(@PathVariable(value = "id") int id,@Valid @RequestBody System1 details) 
+{
+	
+	try
+	{				
+		sysdb.update(details, id);			
+		return details;
+	}
+	catch(ResourceNotFoundException e ) 
+		{
+		e.printStackTrace();
+		return null;
+		}
+
+}
+
 
 
 @DeleteMapping("/{id}")
