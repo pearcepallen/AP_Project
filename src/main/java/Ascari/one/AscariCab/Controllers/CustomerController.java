@@ -94,7 +94,7 @@ public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Cu
 		return null;
 		}
 
-}*/
+}
 @PutMapping("/{id}")
 public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Customer details) 
 {
@@ -103,6 +103,23 @@ public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Cu
 	{				
 		custdb.update(details, id);			
 		return details;
+	}
+	catch(ResourceNotFoundException e ) 
+		{
+		e.printStackTrace();
+		return null;
+		}
+
+}*/
+@PutMapping("/{id}")
+public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Customer details) 
+{
+	
+	try
+	{		
+		Customer current = custdb.get(id);
+		custdb.update(details, id);			
+		return current;
 	}
 	catch(ResourceNotFoundException e ) 
 		{
