@@ -1,18 +1,20 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('DoubleController',  function($scope,$http,$log,$interval) {
+myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
  //$scope.cabs=[{}];
 // to show all option
 	$scope.id=0;
-  $scope.show = function () {$http({
+	$window.onload = function () {$http({
 		  method:'GET',
 			  url:'/api/cab/all'})
 			  .then(function(response)
 			  {
 			  	$scope.cabs= response.data;
 			  	//$log.info(response);
-			  })};
-			  
+			  	$scope.system();
+			  }
+			  )};
+			 $scope.is='78';
 			  $scope.dest={
 					  location:'',
 					  destination:'',
@@ -85,8 +87,6 @@ $scope.getreq= function()
 
 			};
 				  
-	
-		
 
 $scope.system= function () {$http({
 			  method:'GET',
@@ -131,8 +131,29 @@ $scope.pickup= function  ()
 						///Add an update here to the availability
 					  )
 				   };
+$scope.feedback=function () {$http({
+	
+	  method:'PUT',
+	  url:'/api/customer/' + 78,
+	  data: $scope.customer
+		
+			}).then(function(response)
+		{
+			console.log(response);
+			console.log(data);
+			})};
+	   
 
-	/*			   
+	/*			$scope.add = function (){$http({
+	method:'POST',
+    url:'/api/customer/add',
+    
+		data: $scope.customer
+	
+			}).then(function(response)
+					{
+						console.log($scope.cabbie);
+						})};   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
 	  url:'/api/customer/'})
