@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('DoubleController',  function($scope,$http,$log) {
+myApp.controller('DoubleController',  function($scope,$http,$log,$interval) {
  //$scope.cabs=[{}];
 // to show all option
 	$scope.id=0;
@@ -121,12 +121,18 @@ $scope.show = function () {$http({
 
 				  
 $scope.pickup= function  ()
-				  {
+				  {		var time = $scope.route.distance *5;
 					  $scope.customer.confirm_pk= 'true';
 					  $scope.cabbie.available = 'false'
+					  setInterval(function()
+						{
+						  $scope.cabbie.available = 'true';
+						},time	  
+						///Add an update here to the availability
+					  )
 				   };
 
-				   
+	/*			   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
 	  url:'/api/customer/'})
@@ -134,6 +140,6 @@ $scope.UpdateInfo = function () {$http({
 	  {
 		  	$scope.cabs= response.data;
 		  	//$log.info(response);
-	   })};
+	   })};*/
 
 });
