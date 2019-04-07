@@ -27,7 +27,7 @@
 </head>
 <body ng-app="myApp" ng-controller="DoubleController">
       {{10+20}}
-      <button type="submit"  ng-click="system();show()">Show all</button>
+      
       
    <header class="header">
 
@@ -72,13 +72,18 @@
    <br /> 
    </h5>
     <br />    
+    	<br /> <input ng-model="routing">
+    <h5>   	
+    <br /> I would likt to go from  </h5><select ng-model="route" ng-options="dest.location +' to  ' + dest.destination for dest in sysdests">
+    						<option value="" disabled selected>Current location to destination</option>
+                         </select>  
     <h5>
     <br />   
     </h5>
     <br />    
    
    <br /><select ng-model="cabbie" ng-options="cab.name + ' ' + cab.model for cab in cabs">
-  
+  	<option value="" disabled selected>Select the preffered available Cab</option>
     </select>
     {{cabbie}}
     <h5> 
@@ -101,8 +106,7 @@
                     <h5>
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Request Price And Distance<br />
                         </h5>
-                         <br /><select ng-model="route" ng-options="dest.location + ' to ' + dest.destination for dest in sysdests">
-                         </select>
+                         <br />
                          <br />
                     </h5><h6>&emsp;&emsp;<center>We give our customers the option to request both the price and distance of the journey before they affirm confirmation</center></h6>
                 </td>
@@ -126,7 +130,7 @@
     <br />
      <input type="text"  ng-model="customer.feedback" style="height:200px;width:800px;">
      
-    <br /><br /><br /><br /><button type="submit"  ng-click="add()">Send Feedback</button><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><button type="submit"  ng-click="feedback()">Send Feedback</button><br /><br /><br /><br /><br /><br />
     
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     
