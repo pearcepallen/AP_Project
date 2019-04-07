@@ -102,9 +102,10 @@ public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Cu
 {
 	
 	try
-	{				
+	{		
+		Customer current = custdb.get(id);
 		custdb.update(details, id);			
-		return details;
+		return current;
 	}
 	catch(ResourceNotFoundException e ) 
 		{
