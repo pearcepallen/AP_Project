@@ -67,11 +67,10 @@ catch(ResourceNotFoundException e )
 	}
 }
 
-
+/*
 @PutMapping("/{id}")
 public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Customer details) 
 {
-
 	Customer cust = custdb.get(id);	
 	try
 	{		
@@ -95,6 +94,28 @@ public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Cu
 		}
 
 }
+*/
+
+
+@PutMapping("/{id}")
+public Customer update(@PathVariable(value = "id") int id,@Valid @RequestBody Customer details) 
+{
+	
+	try
+	{				
+		custdb.update(details, id);			
+		return details;
+	}
+	catch(ResourceNotFoundException e ) 
+		{
+		e.printStackTrace();
+		return null;
+		}
+
+}
+
+
+
 
 
 @DeleteMapping("/{id}")
