@@ -11,10 +11,11 @@ myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
 			  {
 			  	$scope.cabs= response.data;
 			  	//$log.info(response);
+			  	 $scope.system();
 			  })};
-			  var count;
+			  var count=78;
 			  var counter;
-			  $scope.system();
+			 
 			  $scope.dest={
 					  location:'',
 					  destination:'',
@@ -90,7 +91,7 @@ $scope.getreq= function()
 			};
 				  
 
-$scope.sytem= function () {$http({
+$scope.system= function () {$http({
 			  method:'GET',
 				  url:'/api/system/get'})
 				  .then(function(response)
