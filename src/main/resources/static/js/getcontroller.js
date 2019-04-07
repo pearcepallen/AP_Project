@@ -12,8 +12,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log,$interval) {
 			  	$scope.cabs= response.data;
 			  	//$log.info(response);
 			  })};
-			  var count;
-			  var counter;
+			  
 			  $scope.dest={
 					  location:'',
 					  destination:'',
@@ -55,11 +54,8 @@ $scope.add = function (){$http({
 		data: $scope.customer
 	
 			}).then(function(response)
-					{	counter++;
-						$window.localStorage.setItem("count",count);
-						counter = localStorage.getItem("count");
-						console.log($scope.customer);
-						console.log($scope.customer);
+					{
+						console.log($scope.cabbie);
 						})};
 
 $scope.getreq= function()
@@ -135,25 +131,7 @@ $scope.pickup= function  ()
 						///Add an update here to the availability
 					  )
 				   };
-		 $scope.feedback=function () {$http({
-						  method:'PUT',
-						  url:'/api/customer/78',
-						  data : $scope.customer
-							
-								}).then(function(response)
-							{
-								console.log($scope.cabbie);
-								})};
-								$scope.feedback=function () {$http({
-									  method:'PUT',
-									  url:'/api/customer/counter',
-									  data: $scope.customer
-										
-											}).then(function(response)
-										{
-											console.log($scope.cabbie);
-											})};
-									   
+
 	/*			   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
