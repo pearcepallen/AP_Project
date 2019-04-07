@@ -99,7 +99,7 @@ $scope.system= function () {$http({
 
 				  
 				  
-$scope.showcab = function () {$http({
+$scope.showaa = function () {$http({
 	  method:'GET',
 		  url:'/api/customer/all'})
 		  .then(function(response)
