@@ -33,7 +33,7 @@ public class Driver
 	//	SystemDb db = new SystemDb();
 	//	SQLProvider<RequestModel> db = new RequestModelDb();
 		CustomerDb db = new CustomerDb();
-int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",2999, "lovely", 1,false,false));
+/*int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",2999, "lovely", 1,false,false));
 		
 		if(recordsAffected == 1)
 		{
@@ -47,18 +47,43 @@ int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",2999, "lovely", 
 		}
 		
 		db.getByNumber(2999);
+		*/
+		Customer cn = new Customer(0,"DeeboDomain","nowhere",2999, "lovely", 1,false,false);
+		int id=1;
+		int recordsAffected = db.update(cn,id);
+		if(recordsAffected == 1)
+			{
+				logger.debug("records Updated successfully");
+				System.out.println("--- Updated! -- ");			
+			}
+		else
+			{			
+				logger.error("records not Updated successfully");
+				System.out.println("--- Update failed -- ");							
+			}
 		
-		
-		
-//		List<Customer> results = db.selectAll();
-//		System.out.println(RequestModelDb.TABLE_NAME);
-//		System.out.println("--- Retrieved -- ");
-//		
-//		for(Customer cm : results) 
-//			{
-//				System.out.println(cm);
-//			}
-		
+				List<Customer> results = db.selectAll();
+				System.out.println(CustomerDb.TABLE_NAME);
+				System.out.println("--- Retrieved -- ");
+				
+				for(Customer cm : results) 
+					{
+						System.out.println(cm);
+					}
+				
+				
+//
+////				List<Customer> results = db.selectAll();
+////				System.out.println(RequestModelDb.TABLE_NAME);
+////				System.out.println("--- Retrieved -- ");
+////				
+////				for(Customer cm : results) 
+////					{
+////						System.out.println(cm);
+////					}
+//				
+			
+				
 		/*
 		int recordsAffected = db.add(new RequestModel(0,0,7,11,"yah suh","deh suh again",0,0.0));
 		
@@ -239,4 +264,4 @@ int recordsAffected = db.add(new Customer(0,"nowhere","nowhere",2999, "lovely", 
 			}*/
 		
 	}	
-	}
+}
