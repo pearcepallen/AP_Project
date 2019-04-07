@@ -12,6 +12,8 @@ myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
 			  	$scope.cabs= response.data;
 			  	//$log.info(response);
 			  })};
+			  var count;
+			  var counter;
 			  $scope.system();
 			  $scope.dest={
 					  location:'',
@@ -54,7 +56,9 @@ $scope.add = function (){$http({
 		data: $scope.customer
 	
 			}).then(function(response)
-					{
+					{	count++;
+						$window.localStorage.setItem("count",count);
+						counter = localStorage.getItem("count");
 						console.log($scope.cabbie);
 						})};
 
