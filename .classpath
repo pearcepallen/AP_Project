@@ -28,10 +28,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Demar Johnson/git/Ascari/lib/log4j-api-2.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Demar Johnson/git/Ascari/lib/log4j-core-2.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Demar Johnson/git/Ascari/lib/mysql-connector-java-5.1.40-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Demar Johnson/git/Ascari/lib/sqlite-jdbc-3.16.1.jar"/>
 	<classpathentry kind="lib" path="lib/sqlite-dialect-1.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

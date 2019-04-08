@@ -12,7 +12,7 @@ public class ExampleController {
 		@RequestMapping("/")
 		public String Hello()
 		{
-			return "y pree deebo";
+			return "Death Among Men";
 		}
 	
 
