@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('DoubleController',  function($scope,$http,$log,$interval) {
+myApp.controller('DoubleController',  function($scope,$http,$log) {
  //$scope.cabs=[{}];
 // to show all option
 	$scope.id=0;
@@ -50,7 +50,7 @@ myApp.controller('DoubleController',  function($scope,$http,$log,$interval) {
 $scope.add = function (){$http({
 	method:'POST',
     url:'/api/customer/add',
-    
+
 		data: $scope.customer
 	
 			}).then(function(response)
@@ -99,7 +99,7 @@ $scope.system= function () {$http({
 
 				  
 				  
-$scope.showaa = function () {$http({
+$scope.showcab = function () {$http({
 	  method:'GET',
 		  url:'/api/customer/all'})
 		  .then(function(response)
@@ -121,25 +121,19 @@ $scope.show = function () {$http({
 
 				  
 $scope.pickup= function  ()
-				  {		var time = $scope.route.distance *5;
+				  {
 					  $scope.customer.confirm_pk= 'true';
 					  $scope.cabbie.available = 'false'
-					  setInterval(function()
-						{
-						  $scope.cabbie.available = 'true';
-						},time	  
-						///Add an update here to the availability
-					  )
 				   };
 
-	/*			   
+				   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
 	  url:'/api/customer/'})
 	  .then(function(response)
 	  {
-		  	$scope.cabs= response.data;
+/*		  	$scope.cabs= response.data;
 		  	//$log.info(response);
-	   })};*/
-
+	   })};
+*/
 });
