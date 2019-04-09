@@ -1,21 +1,18 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
+myApp.controller('DoubleController',  function($scope,$http,$log) {
  //$scope.cabs=[{}];
 // to show all option
 	$scope.id=0;
-	$window.onload = function () {$http({
+  $scope.show = function () {$http({
 		  method:'GET',
 			  url:'/api/cab/all'})
 			  .then(function(response)
 			  {
 			  	$scope.cabs= response.data;
 			  	//$log.info(response);
-			  	 $scope.system();
 			  })};
-			  var count=78;
-			  var counter;
-			 
+			  
 			  $scope.dest={
 					  location:'',
 					  destination:'',
@@ -53,14 +50,12 @@ myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
 $scope.add = function (){$http({
 	method:'POST',
     url:'/api/customer/add',
-    
+
 		data: $scope.customer
 	
 			}).then(function(response)
-					{	count++;
-						$window.localStorage.setItem("count",count);
-						counter = localStorage.getItem("count");
-						console.log(counter);
+					{
+						console.log($scope.cabbie);
 						})};
 
 $scope.getreq= function()
@@ -90,6 +85,8 @@ $scope.getreq= function()
 
 			};
 				  
+	
+		
 
 $scope.system= function () {$http({
 			  method:'GET',
@@ -102,7 +99,7 @@ $scope.system= function () {$http({
 
 				  
 				  
-$scope.showaa = function () {$http({
+$scope.showcab = function () {$http({
 	  method:'GET',
 		  url:'/api/customer/all'})
 		  .then(function(response)
@@ -124,34 +121,19 @@ $scope.show = function () {$http({
 
 				  
 $scope.pickup= function  ()
-				  {		var time = $scope.route.distance *5;
+				  {
 					  $scope.customer.confirm_pk= 'true';
 					  $scope.cabbie.available = 'false'
-					  setInterval(function()
-						{
-						  $scope.cabbie.available = 'true';
-						},time	  
-						///Add an update here to the availability
-					  )
 				   };
-				   $scope.feedback=function () {$http({
-						  method:'PUT',
-						  url:'/api/customer/' + counter,
-						  data: $scope.customer
-							
-								}).then(function(response)
-							{
-								console.log($scope.cabbie);
-								})};
-						   
-	/*			   
+
+				   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
 	  url:'/api/customer/'})
 	  .then(function(response)
 	  {
-		  	$scope.cabs= response.data;
+/*		  	$scope.cabs= response.data;
 		  	//$log.info(response);
-	   })};*/
-
+	   })};
+*/
 });

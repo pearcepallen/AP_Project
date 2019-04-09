@@ -45,10 +45,10 @@ public class Driver
 			logger.debug("records not added successfully");
 			System.out.println("records not added successfully");
 		}
-		*/
-	//	db.getByNumber(2999);
 		
-		/*Customer cn = new Customer(0,"DeeboDomain","nowhere",2999, "lovely", 1,false,false);
+		db.getByNumber(2999);
+		*/
+		Customer cn = new Customer(0,"DeeboDomain","nowhere",2999, "lovely", 1,false,false);
 		int id=1;
 		int recordsAffected = db.update(cn,id);
 		if(recordsAffected == 1)
@@ -60,16 +60,16 @@ public class Driver
 			{			
 				logger.error("records not Updated successfully");
 				System.out.println("--- Update failed -- ");							
-			}*/
+			}
 		
-			/*	List<Customer> results = db.selectAll();
+				List<Customer> results = db.selectAll();
 				System.out.println(CustomerDb.TABLE_NAME);
 				System.out.println("--- Retrieved -- ");
 				
 				for(Customer cm : results) 
 					{
 						System.out.println(cm);
-					}*/
+					}
 				
 				
 //

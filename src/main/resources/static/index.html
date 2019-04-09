@@ -69,22 +69,20 @@
    <h5> 
    <br /> Phone number
    </h5>
-   <br /> <h5>I would like to go from</h5> <select ng-model="route" ng-options="dest.location + ' to ' + dest.destination for dest in sysdests">
-                         </select>
-  
-    
+   <br /> <input ng-model="customer.number">
    <h5>
    <br /> 
    </h5>
-   <select ng-model="cabbie" ng-options="cab.name + ' ' + cab.model for cab in cabs">
-   </select>
     <br />    
     <h5>
     <br />   
     </h5>
     <br />    
    
-   <br />
+   <br /><select ng-model="cabbie" ng-options="cab.name + ' ' + cab.model for cab in cabs">
+  
+    </select>
+    {{cabbie}}
     <h5> 
     </h5> 
     	<button type="submit"  ng-click="add()">Check Out</button>
@@ -99,13 +97,14 @@
       <center>  <tr>
       
         
-        </center>
+        </center> 
             <div class="w3-content w3-display-container">
                 <td width="30%">
                     <h5>
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Request Price And Distance<br />
                         </h5>
-                         <br />
+                         <br /><select ng-model="route" ng-options="dest.location + ' to ' + dest.destination for dest in sysdests">
+                         </select>
                          <br />
                     </h5><h6>&emsp;&emsp;<center>We give our customers the option to request both the price and distance of the journey before they affirm confirmation</center></h6>
                 </td>
@@ -129,7 +128,7 @@
     <br />
      <input type="text"  ng-model="customer.feedback" style="height:200px;width:800px;">
      
-    <br /><br /><br /><br /><button type="submit"  ng-click="feedback()">Send Feedback</button><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><button type="submit"  ng-click="add()">Send Feedback</button><br /><br /><br /><br /><br /><br />
     
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     
