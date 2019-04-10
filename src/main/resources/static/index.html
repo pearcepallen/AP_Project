@@ -35,8 +35,10 @@
 <body ng-app="myApp" ng-controller="DoubleController">
 
 
-<div "> 
- 	               
+
+          
+<div > 
+ 	
     <header class="header" >
         <p><span><a href="#">Ascari&nbsp;<img src="Images/b.png" height="8%" width="8%"></a></span></p>
         <ul class="main-nav">
@@ -45,28 +47,49 @@
             <li><a href="#About">About</a></li>
             <li><a href="#Contact">Contact</a></li>
 			<li ng-hide="Pass"><a href="#Contact">Add Cab</a></li>
+			
+			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">See Routes</button>
+			  <div id="demo" class="collapse">
+			  <center><h5>Set Routes</h5>
+					   <h5> 
+					   <br /> Phone number
+					   <input ng-model="customer.number" class = "unruly">
+					   I would like to go from
+					   </h5>
+			    <select ng-model="route" ng-options="dest.location + ' to ' + dest.destination for dest in sysdests" class = "unruly" >
+                         </select>
+  
+			  </div>
 			<li ng-hide="Pass" "><a href="#Contact">View Report</a></li>
-        </ul>                    
+        </ul>
+         
+                    
     </header>
-          
-<div class="button" >
-        <a href="#">
-            <button class="button" ng-click='toggleModal()' >Login</button>
+   <li ng-hide="!Pass"><div class="button"> 
+   		 <input type="text" ng-model="username" placeholder="Username">
+		 <input type="password" ng-model="password" placeholder="Password"> 
+         <button ng-click="login()" ng-model="Pass">Login</button>   
+  </div>            </li>
 
-            <modal-dialog show='modalShown'  Swidth='400px' height='37%'>
-                <form class="login" ng-model="Pass">
-                
-                     <input type="text" ng-model="username" placeholder="Username">
-					 <input type="password" ng-model="password" placeholder="Password"> 
-			         <button ng-click='login()' ng-model="Pass">Login</button>   
-                </form>
-            </modal-dialog>
-            <span class="shift">›</span>
-        </a>
-        
-    </div>
 
 </div>
+   
+<!--     <div class="button"> -->
+<!--         <a href="#" > -->
+<!--             <button  class="button" ng-click='toggleModal()'>Login</button> -->
+<!--             <modal-dialog show='modalShown' width='400px' height='37%'> -->
+<!--                 <form class="login"> -->
+<!--                     <input type="text" ng-model="username" placeholder="Username"> -->
+<!--                     <input type="text" ng-model="password" placeholder="Password"> -->
+<!--                     <button ng-click="login()" ng-model="Pass">Login</button>                                         -->
+<!--                 </form> -->
+<!--             </modal-dialog> -->
+<!--             <span class="shift">›</span> -->
+<!--         </a>    -->
+<!--     </div> -->
+    
+ </div>      
+
   
   
 
@@ -79,8 +102,8 @@
     <center>
         <div >
             <div class="container">
-			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">See Routes</button>
-			  <div id="demo" class="collapse">
+			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demol">See Routes</button>
+			  <div id="demol" class="collapse">
 			  <center><h5>Set Routes</h5>
 					   <h5> 
 					   <br /> Phone number
@@ -98,8 +121,64 @@
     </center>
 
     <h6> <center>This is a service we provide which enables a user, to promptly send a request to view the <br />availablity of cabs in the area in a neatly fromatted format, displaying all the relevant info. </h6></center>
-    
-    <table>
+      <div >
+     <li ng-hide="Pass">       <div class="container" class = "unruly">
+			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoreport" ng-click="getcust()">See Unfulfilled request</button>
+			  <div id="demoreport" class="collapse">
+			  <center><h5>Set Routes</h5>
+					   <h5> 
+					   
+					   </h5>
+					   <tbody>
+				     <tr class="days">
+				       <th scope="col" title="Nuber">Number</th>
+				       <th scope="col" title="Name">Location</th>
+				       <th scope="col" title="Instock">Destination</th>
+				       
+				     
+			    <center ng-repeat=" cust in cabcust| filter: { confirm_pk: false }"  >
+			     
+                         <tbody>
+				     <tr class="days">
+				       <th scope="col" title="Nuber">{{cust.number}}</th>
+				       <th scope="col" title="Name">{{cust.Location}}</th>
+				       <th scope="col" title="Instock">{{cust.destination}}</th>
+  </tr>
+			  </div>
+			</div></center> 
+			
+			
+			
+			<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#democab" ng-click="getcust()">Add cab</button>
+			  <div id="democab" class="collapse">
+			 <div class="container">
+        <div style="text-align:center">
+            <h2>Add a cab</h2>
+            <
+        <div class="row">
+            <div class="column">
+                <img src="Images/Managers.png" width="60%" height="60%">
+            </div>
+            <div class="column">
+                
+                    <label for="fname">ID</label>
+                    <input type="text" id="fname" name="firstname" ng-model="driver.c_id"placeholder="ID..">
+                    <label for="lname">Driver Name</label>
+                    <input type="text" id="lname" name="lastname" g-model="driver.name"placeholder="Your last name..">
+                    <label for="country">TRN</label>
+                    <input type="text" id="fname" name="firstname"g-model="driver.trn" placeholder="Your name..">
+                     <label for="country">CAB MODEL</label>
+                     <input type="text" id="fname" name="firstname" g-model="driver.model"placeholder="Your name..">
+                     <label for="country">CAB YEAR</label>
+                     <input type="text" id="fname" name="firstname" g-model="driver.year" placeholder="Your name..">
+                  
+ 
+                    <button ng-click="adriver()">Add A cab</button>
+                </form>
+            </div>
+        </div>
+    </div></li>
+   <li ng-hide="!Pass"> <table>
         <tr>
             <div class="w3-content w3-display-container">
                 <td width="30%">                  
@@ -161,7 +240,7 @@
     <br /><br /><br /><br />
     <br /><br /><br /><br />
     <br /><br /><br /><br />
-
+</li>
     <div class="glitch-wrapper">
         <div class="glitch" data-text="About" id="About">About</div>
     </div>

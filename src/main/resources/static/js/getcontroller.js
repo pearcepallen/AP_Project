@@ -15,7 +15,7 @@ myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
 			  })};
 			  var count=78;
 			  var counter;
-			 
+			 $scope.driver;
 			  $scope.dest={
 					  location:'',
 					  destination:'',
@@ -46,10 +46,25 @@ myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
 						  distance:''
 
 			 };*/
- $scope.add = function() {
-				 $http.post('/api/customer/add', $scope.customer).then(function(response) {});
-			 }
-			 
+$scope.getcust = function () {$http({
+	  method:'GET',
+	  url:'/api/customer/get'})
+	  .then(function(response)
+	  {
+	  	$scope.cabcust= response.data;
+	  	//$log.info(response);
+	  	 
+	  })};
+
+ $scope.adriver = function (){$http({
+		method:'POST',
+	    url:'/api/cab/add',
+	    
+			data: $scope.driver
+		
+				}).then(function(response)
+						{	console.log($scope.driver);
+							})};		 
 $scope.add = function (){$http({
 	method:'POST',
     url:'/api/customer/add',
@@ -176,6 +191,29 @@ $scope.updatecust= function  () {$http({
 		{
 			console.log($scope.cabbie);
 			})};
+            $scope.Pass = true;
+            $scope.Fail = false;
+                // Login Usernames
+            var managerUsername= "topman";        
+
+                // Login Passwords
+             var managerPassword="topman";
+             
+
+            $scope.login = function()
+                        {
+                         
+                            if ($scope.username  == managerUsername && $scope.password  == managerPassword )
+                                {
+                                    return $scope.Pass = false;
+                                }
+                            else
+                                {
+                                    return $scope.Fail = true;
+                                } 
+                        }      
+
+
 	/*			   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
@@ -185,5 +223,6 @@ $scope.UpdateInfo = function () {$http({
 		  	$scope.cabs= response.data;
 		  	//$log.info(response);
 	   })};*/
+			
 
 });
