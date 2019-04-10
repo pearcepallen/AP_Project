@@ -3,6 +3,32 @@ var myApp = angular.module('myApp',[]);
 myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
  //$scope.cabs=[{}];
 // to show all option
+    
+    $scope.Pass = true;
+    $scope.Fail = true ;
+    // Login Usernames
+        var managerUsername= "topman";        
+
+    // Login Passwords
+            var managerPassword="topman";
+            
+    $scope.login = function()
+                {   
+              
+                 
+                    if ($scope.username  == managerUsername && $scope.password  == managerPassword )
+                        {
+                            return $scope.Pass = false;
+                            console.log($scope.Pass);
+                        }
+                    else
+                        {
+                            return $scope.Fail = false;
+                        } 
+                }                                              
+
+    
+    
 	$scope.id=0;
 	$window.onload = function () {$http({
 		  method:'GET',
@@ -177,26 +203,6 @@ $scope.updatecust= function  () {$http({
 			console.log($scope.cabbie);
 			})};
 			
-
-$scope.login = function()
-            {	$scope.Pass =false;
-            $scope.Fail = true ;
-            // Login Usernames
-            	var managerUsername= "topman";        
-
-            // Login Passwords
-            		var managerPassword="topman";
-             
-                if ($scope.username  == managerUsername && $scope.password  == managerPassword )
-                    {
-                        return $scope.Pass = true;
-                        console.log($scope.Pass);
-                    }
-                else
-                    {
-                        return $scope.Fail = false;
-                    } 
-            }                                              
 
 
 	/*			   
