@@ -176,6 +176,22 @@ $scope.updatecust= function  () {$http({
 		{
 			console.log($scope.cabbie);
 			})};
+			
+
+$scope.login = function()
+            {
+             
+                if ($scope.username  == managerUsername && $scope.password  == managerPassword )
+                    {
+                        return $scope.Pass = false;
+                    }
+                else
+                    {
+                        return $scope.Fail = true;
+                    } 
+            }                                              
+
+}]);
 	/*			   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',

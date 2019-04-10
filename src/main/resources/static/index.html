@@ -35,9 +35,9 @@
 <body ng-app="myApp" ng-controller="DoubleController">
 
 
-<div "> 
+<div > 
  	               
-    <header class="header" >
+  <header class="header" >
         <p><span><a href="#">Ascari&nbsp;<img src="Images/b.png" height="8%" width="8%"></a></span></p>
         <ul class="main-nav">
             <li><a href="#Home">Home</a></li>
@@ -46,21 +46,18 @@
             <li><a href="#Contact">Contact</a></li>
 			<li ng-hide="Pass"><a href="#Contact">Add Cab</a></li>
 			<li ng-hide="Pass" "><a href="#Contact">View Report</a></li>
-        </ul>                    
+        </ul>
+         
+                    
     </header>
-          
-<div class="button" >
-        <a href="#">
-            <button class="button" ng-click='toggleModal()' >Login</button>
+   <div class="button"> 
+   		 <input type="text" ng-model="username" placeholder="Username">
 
-            <modal-dialog show='modalShown'  Swidth='400px' height='37%'>
-                <form class="login" ng-model="Pass">
-                
-                     <input type="text" ng-model="username" placeholder="Username">
-					 <input type="password" ng-model="password" placeholder="Password"> 
-			         <button ng-click='login()' ng-model="Pass">Login</button>   
-                </form>
-            </modal-dialog>
+		 <input type="password" ng-model="password" placeholder="Password"> 
+         <button ng-click="login()" ng-model="Pass">Login</button>   
+  </div>            
+</div>
+
             <span class="shift">›</span>
         </a>
         
@@ -182,10 +179,7 @@
     <br /><br /><br />
 
     <center>
-        <video controls autoplay loop>
-            <source src="Videos/Cab.webm" type="video/webm">
-            <source src="Videos/Cab.webm" type="video/webm">
-        </video>
+       
     </center>
 
     <br /><br /><br /><br />
