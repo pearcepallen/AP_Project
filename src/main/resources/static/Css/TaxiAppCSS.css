@@ -1272,7 +1272,7 @@ h3 {
                                                                                         /*LOGIN FORM*/
 
 
-.login {
+.buttonunr {
     font-family: "Asap", sans-serif;
     font-size: 12px;
     overflow: hidden;
@@ -1280,8 +1280,9 @@ h3 {
     padding: 40px 30px 30px 30px;
     border-radius: 10px;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    height: 30%;
+    top: 20%;
+    left: 45%;
     width: 400px;   
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -1294,7 +1295,7 @@ h3 {
     box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
 }
 
-    .login::before, .login::after {
+    .buttonunr::before, .buttonunr::after {
         content: '';
         position: absolute;
         width: 600px;
@@ -1306,7 +1307,7 @@ h3 {
         z-index: -1;
     }
 
-    .login::before {
+    .buttonunr::before {
         left: 40%;
         bottom: -130%;
         background-color: rgba(69, 105, 144, 0.15);
@@ -1315,7 +1316,7 @@ h3 {
         animation: wawes 6s infinite linear;
     }
 
-    .login::after {
+    .buttonunr::after {
         left: 35%;
         bottom: -125%;
         background-color: rgba(2, 128, 144, 0.2);
@@ -1324,7 +1325,7 @@ h3 {
         animation: wawes 7s infinite;
     }
 
-    .login > input {
+    .buttonunr > input {
         font-family: "Asap", sans-serif;
         display: block;
         border-radius: 5px;
@@ -1336,7 +1337,7 @@ h3 {
         margin: 15px -10px; 
     }
 
-    .login > button {
+    .buttonunr > button {
         font-family: "Asap", sans-serif;
         cursor: pointer;
         color: #fff;
@@ -1353,8 +1354,9 @@ h3 {
         -moz-transition: background-color 300ms;
         transition: background-color 300ms;
     }
+    
 
-        .login > button:hover {
+        .buttonunr > button:hover {
             background-color: #f24353;
         }
 
