@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -14,7 +13,10 @@
     <link rel="shortcut icon" href="Images/TAXI.ico" />
     <script>src = "Java/TaxiAppJAVA.js"</script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link data-require="bootstrap-css@3.*" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
     <script data-require="angular.js@1.6.5" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
@@ -23,16 +25,16 @@
     <script data-require="ui-bootstrap@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-mocks.js"></script>   
-    
+    <script src="js/getcontroller.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 
   <!-- VOICE RECOGNITION -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
 </head>
-<body ng-app='ModalDemo'>
+<body ng-app="myApp" ng-controller="DoubleController">
 
 
-<div ng-controller="MyCtrl"> 
+<div "> 
  	               
     <header class="header" >
         <p><span><a href="#">Ascari&nbsp;<img src="Images/b.png" height="8%" width="8%"></a></span></p>
@@ -68,23 +70,29 @@
   
 
     <center><img src="Images/rise.png" height="85%" width="100%"></center>
-    <br /><br /><br /><br />AFwd
+    <br /><br /><br /><br />
     <div class="glitch-wrapper">
         <div class="glitch" data-text="Services" id="Services">Services</div>
     </div>
 
     <center>
-        <div ng-controller='MyCtrl'>
-            <button class="btn third" ng-click='toggleModal()'>Request Available Cabs</button>
+        <div class = "kyng">
+            <div class="container">
+			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">See Routes</button>
+			  <div id="demo" class="collapse" >
+			  <center><h5>Set Routes</h5>
+					   <h5> 
+					   <br /> Phone number
+					   <input ng-model="customer.number" class = "unruly">
+					   I would like to go from
+					   </h5>
+			    <select ng-model="route" ng-options="dest.location + ' to ' + dest.destination for dest in sysdests" class = "unruly">
+                         </select>
+  
+			  </div>
+			</div>
             
-            <modal-dialog show='modalShown' class="animate" width='600px' height='60%'>
-                         <!--<form class="login">
-                            <input type="text" placeholder="Username">
-                            <input type="password" placeholder="Password">
-                            <button>Login</button>
-                        </form>-->
-                <p><center>Modal Content Goes here</center></p>
-            </modal-dialog>
+            
         </div>
     </center>
 
@@ -97,7 +105,7 @@
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
                         <center>
-                            <div ng-controller='MyCtrl'>
+                            <div >
                                 <button class="btn third" ng-click='toggleModal()'>Request Price And Distance</button>
                                 <modal-dialog show='modalShown' width='600px' height='60%'>
                                     <p><center>Modal Content Goes here</center></p>
@@ -116,11 +124,16 @@
                    
                         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     <center>
-                        <div ng-controller='MyCtrl'>
-                            <button class="btn third" ng-click='toggleModal()'>Confirm Available Cab</button>
-                            <modal-dialog show='modalShown' width='600px' height='60%'>
-                                <p><center>Modal Content Goes here</center><p>
-                            </modal-dialog>
+                        <div >
+                  
+			  <div class="container">
+			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demos">Price and Distance</button>
+			  <div id="demos" class="collapse">
+			  <center><h5>Price and distance</h5>
+					   <h5> 
+					   
+  					price = {{route.price}}  Distance = {{route.distance}}
+			  </div>
                         </div>
                         </center>
                                        
@@ -130,7 +143,7 @@
     </table>
 
     <center>
-        <div ng-controller='MyCtrl'>
+        <div >
             <button class="btn third" ng-click='toggleModal()'>Rate Cab Experience</button>
             <modal-dialog show='modalShown' width='600px' height='60%'>
                 <p><center>Modal Content Goes here</center><p>
@@ -230,67 +243,8 @@
             <i class="fa fa-sign-out"></i> <span class='footer-text'>© 2019 Copyright:  Ascari Taxi Service</span>
         </a>
     </div>
-    <script>
-        app = angular.module('ModalDemo', []);
-        app.directive('modalDialog', function () {
-            return {
-                restrict: 'E',
-                scope: {
-                    show: '='
-                },
-                replace: true, // Replace with the template below
-                transclude: true, // we want to insert custom content inside the directive
-                link: function (scope, element, attrs) {
-                    scope.dialogStyle = {};
-                    if (attrs.width)
-                        scope.dialogStyle.width = attrs.width;
-                    if (attrs.height)
-                        scope.dialogStyle.height = attrs.height;
-                    scope.hideModal = function () {
-                        scope.show = false;
-                    };
-                },
-                template: "<div class='ng-modal' ng-show='show'><div class='ng-modal-overlay' ng-click='hideModal()'></div><div class='ng-modal-dialog' ng-style='dialogStyle'><div class='ng-modal-close' ng-click='hideModal()'>X</div><div class='ng-modal-dialog-content' ng-transclude></div></div></div>"
-            };
-        });
-
-        app.controller('MyCtrl', ['$scope', function ($scope,$window) {
-        	
-        	 $scope.Pass = true;
-             $scope.Fail = false;
-                 // Login Usernames
-             var managerUsername= "topman";        
-
-                 // Login Passwords
-              var managerPassword="topman";
-            $scope.modalShown = false;
-            $scope.toggleModal = function () {
-            	$scope.modalShown = !$scope.modalShown;                 
-                 
-             
-            }
-            
+    
         
-
-            $scope.login = function()
-                        {
-                         
-                            //if ($scope.username  == managerUsername && $scope.password  == managerPassword )
-                              //  {
-                            	                             
-                                  $scope.Pass = false;                                    
-	                              return $window.alert("Hello " + $scope.username);
-                                //}
-//                            else
-  //							  {
-                                //    return $scope.Fail = true;
-    //                            } 
-                        }                                              
-            
-        }]);
-        
-    </script>
+   
 </body>
 </html>
-
-  

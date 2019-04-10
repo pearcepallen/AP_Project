@@ -3,6 +3,32 @@ var myApp = angular.module('myApp',[]);
 myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
  //$scope.cabs=[{}];
 // to show all option
+    
+    $scope.Pass = true;
+    $scope.Fail = true ;
+    // Login Usernames
+        var managerUsername= "topman";        
+
+    // Login Passwords
+            var managerPassword="topman";
+            
+    $scope.login = function()
+                {   
+              
+                 
+                    if ($scope.username  == managerUsername && $scope.password  == managerPassword )
+                        {
+                            return $scope.Pass = false;
+                            console.log($scope.Pass);
+                        }
+                    else
+                        {
+                            return $scope.Fail = false;
+                        } 
+                }                                              
+
+    
+    
 	$scope.id=0;
 	$window.onload = function () {$http({
 		  method:'GET',
@@ -122,19 +148,31 @@ $scope.show = function () {$http({
 					  	//$log.info(response);
 				   })};
 
+ $scope.updatecab=function(){$http({
+						  method:'PUT',
+						  url:'/api/cab/' + $scope.cabbie.c_Id,
+						  data: $scope.cabbie
+							
+								}).then(function(response)
+							{
+								console.log($scope.cabbie);
+								})};
+					
 				  
 $scope.pickup= function  ()
-				  {		var time = $scope.route.distance *5;
+				  {		var time = $scope.route.distance *5000;
 					  $scope.customer.confirm_pk= 'true';
 					  $scope.cabbie.available = 'false'
+						  $scope.updatecab();  
 					  setInterval(function()
 						{
 						  $scope.cabbie.available = 'true';
 						},time	  
 						///Add an update here to the availability
-					  )
+					  ); $scope.updatecab(); 
 				   };
-				   $scope.feedback=function () {$http({
+
+  $scope.feedback=function () {$http({
 						  method:'PUT',
 						  url:'/api/customer/' + counter,
 						  data: $scope.customer
@@ -143,7 +181,30 @@ $scope.pickup= function  ()
 							{
 								console.log($scope.cabbie);
 								})};
-						   
+								
+								
+								
+						$scope.arrivee=  function  ()
+								{
+									$scope.customer.confirm_arr= 'true';
+									$scope.updatecust();
+								}
+								
+								
+								
+$scope.updatecust= function  () {$http({
+	  method:'PUT',
+	  url:'/api/customer/' + counter,
+	 
+	  data: $scope.customer
+		
+			}).then(function(response)
+		{
+			console.log($scope.cabbie);
+			})};
+			
+
+
 	/*			   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
