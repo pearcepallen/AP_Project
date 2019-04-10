@@ -37,7 +37,7 @@
 
 <div "> 
  	               
-     <header class="header" >
+    <header class="header" >
         <p><span><a href="#">Ascari&nbsp;<img src="Images/b.png" height="8%" width="8%"></a></span></p>
         <ul class="main-nav">
             <li><a href="#Home">Home</a></li>
@@ -46,18 +46,25 @@
             <li><a href="#Contact">Contact</a></li>
 			<li ng-hide="Pass"><a href="#Contact">Add Cab</a></li>
 			<li ng-hide="Pass" "><a href="#Contact">View Report</a></li>
-        </ul>
-         
-                    
+        </ul>                    
     </header>
-   <div class="button"> 
-   		 <input type="text" ng-model="username" placeholder="Username">
+          
+<div class="button" >
+        <a href="#">
+            <button class="button" ng-click='toggleModal()' >Login</button>
 
-		 <input type="password" ng-model="password" placeholder="Password"> 
-         <button ng-click="login()" ng-model="Pass">Login</button>   
-  </div>            
-</div>
-    
+            <modal-dialog show='modalShown'  Swidth='400px' height='37%'>
+                <form class="login" ng-model="Pass">
+                
+                     <input type="text" ng-model="username" placeholder="Username">
+					 <input type="password" ng-model="password" placeholder="Password"> 
+			         <button ng-click='login()' ng-model="Pass">Login</button>   
+                </form>
+            </modal-dialog>
+            <span class="shift">›</span>
+        </a>
+        
+    </div>
 
 </div>
   
@@ -72,8 +79,8 @@
     <center>
         <div >
             <div class="container">
-			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoreport">See Routes</button>
-			  <div id="demoreport" class="collapse">
+			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">See Routes</button>
+			  <div id="demo" class="collapse">
 			  <center><h5>Set Routes</h5>
 					   <h5> 
 					   <br /> Phone number
@@ -108,7 +115,7 @@
 					  
   						</select>
   						<div><button type="submit"  ng-click="add() " class = "unruly">Check Out</button>
-  						 <button type="submit"  ng-click="pickup();getreq()" class = "unruly">Confirm cab Arrival</button>
+  						 <button type="submit"  ng-click="pickup(check);getreq()" class = "unruly">Confirm cab Arrival</button>
                             </div>
 			  </div>
 			  
@@ -140,7 +147,7 @@
 
     <center>
         <div >
-            <button class="btn third" ng-click="arrivee()">Confirm Arival to destination</button>
+            <button class="btn third" ng-click='arrivee()'>Confirm Arival to destination</button>
             <modal-dialog show='modalShown' width='600px' height='60%'>
                 <p><center>Modal Content Goes here</center><p>
             </modal-dialog>
@@ -175,7 +182,8 @@
     <br /><br /><br />
 
     <center>
-       
+        <video controls autoplay loop>
+           
     </center>
 
     <br /><br /><br /><br />
