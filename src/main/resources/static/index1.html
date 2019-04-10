@@ -1,100 +1,296 @@
+
 <!DOCTYPE html>
-<html >
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8" />
+  
+
+    <script src="js/LoginController.js"></script>
     
-     <link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    
+    <meta charset="utf-8" />
+    <title>Ascari</title>
+    <link rel="stylesheet" type="text/css" href="Css/TaxiAppCSS.css">
+    <link rel="shortcut icon" href="Images/TAXI.ico" />
+    <script>src = "Java/TaxiAppJAVA.js"</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
+	
+	<link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link data-require="bootstrap-css@3.*" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
     <script data-require="angular.js@1.6.5" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
     <script data-require="angular-animate@1.6.*" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
     <script data-require="angular-touch@1.6.*" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
     <script data-require="ui-bootstrap@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
     <script src="js/angular.min.js"></script>
-    <script src="js/angular-mocks.js"></script>
-
-         <script src="js/getcontroller.js"></script>
-         <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
+    <script src="js/angular-mocks.js"></script>   
     
-    <title>Ascari</title>
-    <link rel="stylesheet" type="text/css" href="Css/TaxiAppCSS.css">
-    <link rel="shortcut icon" href="Icon/cab.ico" />
-    <script>src = "Java/TaxiAppJAVA.js"</script>
-</head>
-         
-
-</head>
-<body ng-app="myApp" ng-controller="DoubleController">
-      {{10+20}}
-      <button type="submit"  ng-click="show()">Show all</button>
-      
-   <header class="header">
-
-        <h1 class="logo"><a href="#">Ascari</a></h1>
-        <ul class="main-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </header>
-
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 
-    <div class="button">
+  <!-- VOICE RECOGNITION -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+</head>
+<body ng-app='ModalDemo'>
+
+
+<div ng-controller="MyCtrl"> 
+ 	               
+    <header class="header" >
+        <p><span><a href="#">Ascari&nbsp;<img src="Images/b.png" height="8%" width="8%"></a></span></p>
+        <ul class="main-nav">
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Contact">Contact</a></li>
+			<li ng-hide="Pass"><a href="#Contact">Add Cab</a></li>
+			<li ng-hide="Pass" "><a href="#Contact">View Report</a></li>
+        </ul>                    
+    </header>
+          
+<div class="button" >
         <a href="#">
-            Login
+            <button class="button" ng-click='toggleModal()' >Login</button>
+
+            <modal-dialog show='modalShown'  Swidth='400px' height='37%'>
+                <form class="login" ng-model="Pass">
+                
+                     <input type="text" ng-model="username" placeholder="Username">
+					 <input type="password" ng-model="password" placeholder="Password"> 
+			         <button ng-click='login()' ng-model="Pass">Login</button>   
+                </form>
+            </modal-dialog>
             <span class="shift">›</span>
         </a>
-        <div class="mask"></div>
+        
     </div>
+
+</div>
+  
+  
+
     <center><img src="Images/rise.png" height="85%" width="100%"></center>
+    <br /><br /><br /><br />AFwd
+    <div class="glitch-wrapper">
+        <div class="glitch" data-text="Services" id="Services">Services</div>
+    </div>
 
+    <center>
+        <div ng-controller='MyCtrl'>
+            <button class="btn third" ng-click='toggleModal()'>Request Available Cabs</button>
+            
+            <modal-dialog show='modalShown' class="animate" width='600px' height='60%'>
+                         <!--<form class="login">
+                            <input type="text" placeholder="Username">
+                            <input type="password" placeholder="Password">
+                            <button>Login</button>
+                        </form>-->
+                <p><center>Modal Content Goes here</center></p>
+            </modal-dialog>
+        </div>
+    </center>
 
-    <p>
-        <span>
-            SERVICES
-        </span>
-
-    </p>
-
-    <br /><br /><br /><br />
-    <br /><br /><br /><br />
-    <br /><br /><br /><br />
-
-    <center><h5>Request Available Cabs</h5><h6>This is a service we provide which enables a user, to promptly send a request to view the <br />availablity of cabs in the area in a neatly fromatted format, displaying all the relevant info. </h6></center>
+    <h6> <center>This is a service we provide which enables a user, to promptly send a request to view the <br />availablity of cabs in the area in a neatly fromatted format, displaying all the relevant info. </h6></center>
+    
     <table>
         <tr>
             <div class="w3-content w3-display-container">
-                <td width="30%">
-                    <h5>
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Request Price And Distance
-                    </h5><h6>&emsp;&emsp;<center>We give our customers the option to request both the price and distance of the journey before they affirm confirmation</center></h6>
-                </td>
+                <td width="30%">                  
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
+                        <center>
+                            <div ng-controller='MyCtrl'>
+                                <button class="btn third" ng-click='toggleModal()'>Request Price And Distance</button>
+                                <modal-dialog show='modalShown' width='600px' height='60%'>
+                                    <p><center>Modal Content Goes here</center></p>
+                                </modal-dialog>
+                            </div>
+                        </center>
+
+                   <h6>&emsp;&emsp;<center>We give our customers the option to request both the price and distance of the journey before they affirm confirmation</center></h6>
+               </td>
                 <td>
                     <a href="https://www.google.com/maps/place/Jamaica/@18.1160905,-78.3974428,8z/data=!3m1!4b1!4m5!3m4!1s0x8eda2a1bc6cf719d:0x59a0d1c0b5120efa!8m2!3d18.109581!4d-77.297508">
-                        <center><img src="Images/app3.gif">
+                        <center><img src="Images/app3.gif"></center>
                     </a>
 
-                <td width="30%"><h5>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Confirm Available Cab</h5><h6><center>&emsp;After requesting a cab, we present the option of confirming said cab for &emsp;scheduled pickups</center></h6></center></td>
+                <td width="30%">
+                   
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <center>
+                        <div ng-controller='MyCtrl'>
+                            <button class="btn third" ng-click='toggleModal()'>Confirm Available Cab</button>
+                            <modal-dialog show='modalShown' width='600px' height='60%'>
+                                <p><center>Modal Content Goes here</center><p>
+                            </modal-dialog>
+                        </div>
+                        </center>
+                                       
+                    <center><h6>&emsp;After requesting a cab, we present the option of confirming said cab for &emsp;scheduled pickups</h6></center>
+                </td>
         </tr>
-        <div clas="model" id="cabreqmodal">
-        <label ng-repeat="cab in cabs | filter:false">
-        	<<input type="checkbox" ng-model="selected" ">
-        	{{cab.c_id}} {{cab.model}}{{cab.name}}{{cab.available}}
-   </label>
     </table>
 
-    <center><h5>Rate Cab Experience</h5><h6>Rate your cab experience from one to five stars with this option also with the added feature of providing feedback and comments in regards to your experience and th</h6></center>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <center>
+        <div ng-controller='MyCtrl'>
+            <button class="btn third" ng-click='toggleModal()'>Rate Cab Experience</button>
+            <modal-dialog show='modalShown' width='600px' height='60%'>
+                <p><center>Modal Content Goes here</center><p>
+            </modal-dialog>
+        </div>
+    </center>
+
+    <center>
+        <h6>Rate your cab experience from one to five stars with this option also with the added feature<br /> of providing feedback and comments in regards to your experience and the quality of our service</h6>
+    </center>
+
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+
+    <div class="glitch-wrapper">
+        <div class="glitch" data-text="About" id="About">About</div>
+    </div>
+
+    <br /><br /><br />
+    <div class="text">
+        <h3>Ascari is</h3>
+        <h3>
+            <span class="word wisteria">reliable.</span>
+            <span class="word belize">efficient.</span>
+            <span class="word pomegranate">affordable.</span>
+            <span class="word green">extensive.</span>
+            <span class="word midnight">the right choice.</span>
+
+        </h3>
+    </div>
+
+    <br /><br /><br />
+
+    <center>
+        <video controls autoplay loop>
+            <source src="Videos/Cab.webm" type="video/webm">
+            <source src="Videos/Cab.webm" type="video/webm">
+        </video>
+    </center>
+
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+
+
+    <div class="glitch-wrapper">
+        <div class="glitch" data-text="Contact" id="Contact">Contact</div>
+    </div>
+
+
+    <div class="container">
+        <div style="text-align:center">
+            <h2>Contact Us</h2>
+            <p>Swing by for a cup of coffee, or leave us a message:</p>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="Images/Managers.png" width="60%" height="60%">
+            </div>
+            <div class="column">
+                <form action="/action_page.php">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="australia">Australia</option>
+                        <option value="canada">Canada</option>
+                        <option value="usa">USA</option>
+                    </select>
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+
+
+
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
 
     <div class="mobile-bottom-bar">
         <a href="#" class="footer-link">
             <i class="fa fa-sign-out"></i> <span class='footer-text'>© 2019 Copyright:  Ascari Taxi Service</span>
         </a>
     </div>
-   
+    <script>
+        app = angular.module('ModalDemo', []);
+        app.directive('modalDialog', function () {
+            return {
+                restrict: 'E',
+                scope: {
+                    show: '='
+                },
+                replace: true, // Replace with the template below
+                transclude: true, // we want to insert custom content inside the directive
+                link: function (scope, element, attrs) {
+                    scope.dialogStyle = {};
+                    if (attrs.width)
+                        scope.dialogStyle.width = attrs.width;
+                    if (attrs.height)
+                        scope.dialogStyle.height = attrs.height;
+                    scope.hideModal = function () {
+                        scope.show = false;
+                    };
+                },
+                template: "<div class='ng-modal' ng-show='show'><div class='ng-modal-overlay' ng-click='hideModal()'></div><div class='ng-modal-dialog' ng-style='dialogStyle'><div class='ng-modal-close' ng-click='hideModal()'>X</div><div class='ng-modal-dialog-content' ng-transclude></div></div></div>"
+            };
+        });
 
+        app.controller('MyCtrl', ['$scope', function ($scope,$window) {
+        	
+        	 $scope.Pass = true;
+             $scope.Fail = false;
+                 // Login Usernames
+             var managerUsername= "topman";        
+
+                 // Login Passwords
+              var managerPassword="topman";
+            $scope.modalShown = false;
+            $scope.toggleModal = function () {
+            	$scope.modalShown = !$scope.modalShown;                 
+                 
+             
+            }
+            
+        
+
+            $scope.login = function()
+                        {
+                         
+                            //if ($scope.username  == managerUsername && $scope.password  == managerPassword )
+                              //  {
+                            	                             
+                                  $scope.Pass = false;                                    
+	                              return $window.alert("Hello " + $scope.username);
+                                //}
+//                            else
+  //							  {
+                                //    return $scope.Fail = true;
+    //                            } 
+                        }                                              
+            
+        }]);
+        
+    </script>
 </body>
+</html>
+
+  
