@@ -52,7 +52,6 @@ $scope.deleteSupport=function (a) {$http({
                         }).then(function(response)
                     {})};
 
-
 $scope.update = true;    
 $scope.selectedSupport= 0;                
                  
@@ -64,8 +63,6 @@ $scope.IsUpdate = function()
             return $scope.update = false;
         } 
 }
-
-                    
 
 
 $scope.delete = true;              
@@ -79,7 +76,6 @@ $scope.IsDelete = function()
         } 
 }
 
-    
 
 });
 
