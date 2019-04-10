@@ -72,8 +72,8 @@
     <center>
         <div >
             <div class="container">
-			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">See Routes</button>
-			  <div id="demo" class="collapse">
+			  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demoreport">See Routes</button>
+			  <div id="demoreport" class="collapse">
 			  <center><h5>Set Routes</h5>
 					   <h5> 
 					   <br /> Phone number
@@ -108,7 +108,7 @@
 					  
   						</select>
   						<div><button type="submit"  ng-click="add() " class = "unruly">Check Out</button>
-  						 <button type="submit"  ng-click="pickup(check);getreq()" class = "unruly">Confirm cab Arrival</button>
+  						 <button type="submit"  ng-click="pickup();getreq()" class = "unruly">Confirm cab Arrival</button>
                             </div>
 			  </div>
 			  
@@ -140,7 +140,7 @@
 
     <center>
         <div >
-            <button class="btn third" ng-click='arrivee()'>Confirm Arival to destination</button>
+            <button class="btn third" ng-click="arrivee()">Confirm Arival to destination</button>
             <modal-dialog show='modalShown' width='600px' height='60%'>
                 <p><center>Modal Content Goes here</center><p>
             </modal-dialog>

@@ -46,11 +46,9 @@ myApp.controller('DoubleController',  function($scope,$http,$window,$interval) {
 						  distance:''
 
 			 };*/
- $scope.add = function() {
-				 $http.post('/api/customer/add', $scope.customer).then(function(response) {});
-			 }
+
 			 
-$scope.add = function (){$http({
+$scope.addcust = function (){$http({
 	method:'POST',
     url:'/api/customer/add',
     
@@ -62,9 +60,17 @@ $scope.add = function (){$http({
 						counter = localStorage.getItem("count");
 						console.log(counter);
 						})};
+$scope.add = function (){
+	$scope.customer.location = $scope.route.location;
+	$scope.customer.destination =  $scope.route.destination;
+	$scope.cabbie.fare = $scope.route.price;
+	$scope.addcust();
+							};
+
 
 $scope.getreq= function()
-		{	$scope.id++;
+		{	
+		$scope.id++;
 			$scope.customer.location = $scope.route.location;
 			$scope.customer.destination =  $scope.route.destination;
 			$scope.cabbie.fare = $scope.route.price;
@@ -81,15 +87,23 @@ $scope.getreq= function()
 				method:'POST',
 		    url:'/api/system//add',
 		    data:$scope.request
-		    
+		    $scope.addreq
 				
 			})})*/
-				 $http.post('/api/request/add', $scope.request).then(function(response) {});
-				 console.log($scope.request);
-				 console.log($scope.id);
-
+				 
+			$scope.addreq();
 			};
-				  
+			$scope.addreq= function () {$http({
+				  method:'Post',
+					  url:'/api/request/add',
+					  data:	 $scope.request
+			
+			})
+					  .then(function(response)
+					  {
+				 $scope.sysdests= response.data;
+				//$log.info(response);
+					    })};				  
 
 $scope.system= function () {$http({
 			  method:'GET',
@@ -99,7 +113,14 @@ $scope.system= function () {$http({
 			 $scope.sysdests= response.data;
 			//$log.info(response);
 				    })};
-
+ $scope.getcust= function () {$http({
+						  method:'GET',
+							  url:'/api/customer/get'})
+							  .then(function(response)
+							  {
+						 $scope.cabcust= response.data;
+						//$log.info(response);
+							    })};
 				  
 				  
 $scope.showaa = function () {$http({
@@ -135,8 +156,10 @@ $scope.show = function () {$http({
 				  
 $scope.pickup= function  ()
 				  {		var time = $scope.route.distance *5000;
-					  $scope.customer.confirm_pk= 'true';
-					  $scope.cabbie.available = 'false'
+					  $scope.customer.confirm_pk= true;
+					 $scope.feedback();
+					 console.log($scope.customer);
+					  $scope.cabbie.available = false
 						  $scope.updatecab();  
 					  setInterval(function()
 						{
@@ -153,7 +176,7 @@ $scope.pickup= function  ()
 							
 								}).then(function(response)
 							{
-								console.log($scope.cabbie);
+								console.log($scope.customer);
 								})};
 								
 								
@@ -162,6 +185,7 @@ $scope.pickup= function  ()
 								{
 									$scope.customer.confirm_arr= 'true';
 									$scope.updatecust();
+									console.log($scope.customer);
 								}
 								
 								
