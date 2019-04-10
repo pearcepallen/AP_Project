@@ -179,19 +179,26 @@ $scope.updatecust= function  () {$http({
 			
 
 $scope.login = function()
-            {
+            {	$scope.Pass =false;
+            $scope.Fail = true ;
+            // Login Usernames
+            	var managerUsername= "topman";        
+
+            // Login Passwords
+            		var managerPassword="topman";
              
                 if ($scope.username  == managerUsername && $scope.password  == managerPassword )
                     {
-                        return $scope.Pass = false;
+                        return $scope.Pass = true;
+                        console.log($scope.Pass);
                     }
                 else
                     {
-                        return $scope.Fail = true;
+                        return $scope.Fail = false;
                     } 
             }                                              
 
-}]);
+
 	/*			   
 $scope.UpdateInfo = function () {$http({
 	  method:'PUT',
